@@ -7,6 +7,7 @@ class IndexController extends Controller {
     }
 
     public function test() {
-	echo "test_hello";
+	$this->assign('name','thinkphp');
+        $this->display();
     } 
 }
