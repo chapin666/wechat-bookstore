@@ -1,0 +1,12 @@
+[ 2016-01-01T16:44:26+08:00 ] 127.0.0.1 /tp3/index.php/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000129s ]
+ERR: 无法加载模块:Index
+
+[ 2016-01-01T16:44:37+08:00 ] 127.0.0.1 /tp3/index.php/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000126s ]
+ERR: 无法加载模块:Index
+

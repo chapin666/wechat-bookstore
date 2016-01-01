@@ -6,6 +6,7 @@ class MessageUtils {
  	public function responseMsg()
         {
             $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+
             if (!empty($postStr)){
                 $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
                 $fromUsername = $postObj->FromUserName;
