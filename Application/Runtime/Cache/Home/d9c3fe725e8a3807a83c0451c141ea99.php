@@ -25,14 +25,14 @@
 
     <link href="http://fonts.lug.ustc.edu.cn/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="http://fonts.lug.ustc.edu.cn/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="/tp3/Public/styles/material.min.css">
-    <link rel="stylesheet" href="/tp3/Public/styles/styles.css">
+    <link rel="stylesheet" href="/Public/styles/material.min.css">
+    <link rel="stylesheet" href="/Public/styles/styles.css">
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--cyan-500">
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title"><h4>图书销售系统管理平台</h4></span>
+          <span class="mdl-layout-title">图书销售系统管理平台</span>
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -54,7 +54,7 @@
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--cyan-500 mdl-color-text--white">
         <header class="demo-drawer-header">
-          <img src="/tp3/Public/images/user.jpg" class="demo-avatar">
+          <img src="/Public/images/user.jpg" class="demo-avatar">
           <div class="demo-avatar-dropdown">
             <span>Admin [ 超级管理员 ]</span>
             <div class="mdl-layout-spacer"></div>
@@ -81,12 +81,18 @@
       <main class="mdl-layout__content mdl-color--grey-100">
 
         <!-- start mdl grid -->
-        <div class="mdl-cell--11-col" style="margin: 20px auto; text-align:right;">
-	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">添加</button>
-	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">添加</button>
-	</div>
+        <div class="mdl-cell--11-col mdl-grid" style="margin: 20px auto; ">
 
-        <table class="mdl-data-table mdl-js-data-table mdl-cell--11-col" style="margin: 0 auto;">
+			<div class="mdl-cell--8-col mdl-cell--8-col-phone mdl-cell" >
+				<span><b>当前位置 > </b> 用户管理 </span>
+			</div>
+			<div class="mdl-cell--4-col mdl-cell--4-col-phone mdl-cell" >
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-color--cyan-300 mdl-color-text--white">添加</button>
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-color--cyan-300 mdl-color-text--white">删除</button>
+			</div>
+		</div>
+
+        <table class="mdl-data-table  mdl-js-data-table mdl-data-table--selectable mdl-cell--11-col" style="margin: 0 auto;">
                 <thead>
                   <tr>
                     <th class="mdl-data-table__cell--non-numeric">分类编号</th>
@@ -100,32 +106,140 @@
                     <td class="mdl-data-table__cell--non-numeric">1</td>
                     <td class="mdl-data-table__cell--non-numeric">计算机类</td>
                     <td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
-                    <td class="mdl-data-table__cell--non-numeric">删除/修改</td>
+                    <td class="mdl-data-table__cell--non-numeric">
+						<a href="">修改</a>
+						<a href="">删除</a>
+					</td>
                   </tr>
                   <tr>
                     <td class="mdl-data-table__cell--non-numeric">1</td>
                     <td class="mdl-data-table__cell--non-numeric">计算机类</td>
                     <td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
-                     <td class="mdl-data-table__cell--non-numeric">删除/修改</td>
+                    <td class="mdl-data-table__cell--non-numeric">
+						<a href="">修改</a>
+						<a href="">删除</a>
+					</td>
+                  </tr>
+                   <tr>
+                    <td class="mdl-data-table__cell--non-numeric">1</td>
+                    <td class="mdl-data-table__cell--non-numeric">计算机类</td>
+                    <td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
+                    <td class="mdl-data-table__cell--non-numeric">
+						<a href="">修改</a>
+						<a href="">删除</a>
+					</td>
                   </tr>
                   <tr>
                     <td class="mdl-data-table__cell--non-numeric">1</td>
                     <td class="mdl-data-table__cell--non-numeric">计算机类</td>
                     <td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
-                    <td class="mdl-data-table__cell--non-numeric">删除/修改</td>
+                    <td class="mdl-data-table__cell--non-numeric">
+						<a href="">修改</a>
+						<a href="">删除</a>
+					</td>
+                  </tr>
+				    <tr>
+                    <td class="mdl-data-table__cell--non-numeric">1</td>
+                    <td class="mdl-data-table__cell--non-numeric">计算机类</td>
+                    <td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
+                    <td class="mdl-data-table__cell--non-numeric">
+						<a href="">修改</a>
+						<a href="">删除</a>
+					</td>
                   </tr>
                   <tr>
                     <td class="mdl-data-table__cell--non-numeric">1</td>
                     <td class="mdl-data-table__cell--non-numeric">计算机类</td>
                     <td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
-                    <td class="mdl-data-table__cell--non-numeric">删除/修改</td>
+                    <td class="mdl-data-table__cell--non-numeric">
+						<a href="">修改</a>
+						<a href="">删除</a>
+					</td>
+                  </tr>
+				    <tr>
+                    <td class="mdl-data-table__cell--non-numeric">1</td>
+                    <td class="mdl-data-table__cell--non-numeric">计算机类</td>
+                    <td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
+                    <td class="mdl-data-table__cell--non-numeric">
+						<a href="">修改</a>
+						<a href="">删除</a>
+					</td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">1</td>
+                    <td class="mdl-data-table__cell--non-numeric">计算机类</td>
+                    <td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
+                    <td class="mdl-data-table__cell--non-numeric">
+						<a href="">修改</a>
+						<a href="">删除</a>
+					</td>
+                  </tr>
+				    <tr>
+                    <td class="mdl-data-table__cell--non-numeric">1</td>
+                    <td class="mdl-data-table__cell--non-numeric">计算机类</td>
+                    <td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
+                    <td class="mdl-data-table__cell--non-numeric">
+						<a href="">修改</a>
+						<a href="">删除</a>
+					</td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">1</td>
+                    <td class="mdl-data-table__cell--non-numeric">计算机类</td>
+                    <td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
+                    <td class="mdl-data-table__cell--non-numeric">
+						<a href="">修改</a>
+						<a href="">删除</a>
+					</td>
+                  </tr>
+				  </tr>
+				    <tr>
+                    <td class="mdl-data-table__cell--non-numeric">1</td>
+                    <td class="mdl-data-table__cell--non-numeric">计算机类</td>
+                    <td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
+                    <td class="mdl-data-table__cell--non-numeric">
+						<a href="">修改</a>
+						<a href="">删除</a>
+					</td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">1</td>
+                    <td class="mdl-data-table__cell--non-numeric">计算机类</td>
+                    <td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
+                    <td class="mdl-data-table__cell--non-numeric">
+						<a href="">修改</a>
+						<a href="">删除</a>
+					</td>
+                  </tr>
+				  </tr>
+				    <tr>
+                    <td class="mdl-data-table__cell--non-numeric">1</td>
+                    <td class="mdl-data-table__cell--non-numeric">计算机类</td>
+                    <td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
+                    <td class="mdl-data-table__cell--non-numeric">
+						<a href="">修改</a>
+						<a href="">删除</a>
+					</td>
                   </tr>
                 </tbody>
             </table>
 
+			<div class="mdl-cell--11-col" style="margin: 30px auto 0 auto; text-align: center;">
+				<button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">skip_previous</i></button>
+				<button class="mdl-button mdl-js-button mdl-button--icon">1</button>
+				<button class="mdl-button mdl-js-button mdl-button--icon">2</button>
+				<button class="mdl-button mdl-js-button mdl-button--icon">3</button>
+				<button class="mdl-button mdl-js-button mdl-button--icon">4</button>
+				<button class="mdl-button mdl-js-button mdl-button--icon">5</button>
+				<button class="mdl-button mdl-js-button mdl-button--icon">6</button>
+				<button class="mdl-button mdl-js-button mdl-button--icon">7</button>
+				<button class="mdl-button mdl-js-button mdl-button--icon">8</button>
+				<button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">skip_next</i></button>
+			</div>
+
         </div><!-- // end mdl grid -->
       </main>
     </div>
-    <script src="/tp3/Public/scripts/material.min.js"></script>
+    <script src="/Public/scripts/material.min.js"></script>
   </body>
 </html>
