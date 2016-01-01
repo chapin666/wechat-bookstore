@@ -1,12 +1,11 @@
 <?php
 namespace Home\Controller;
 
-use Home\Common\BaseController;
-use Home\Common\MessageUtils;
+use Think\Controller;
 use Com\Wechat;
 use Com\WechatAuth;
 
-class IndexController extends BaseController {
+class IndexController extends Controller {
 	
 	public function index($id='') {
 	   $appid = "wx8036d4cb719e2fa4";		//AppID(应用ID)
