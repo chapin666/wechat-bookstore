@@ -108,4 +108,51 @@ class IndexController extends BaseController {
         }
     }
 
+
+ /**
+     * 资源文件上传方法
+     * @param  string $type 上传的资源类型
+     * @return string       媒体资源ID
+     */
+    private function upload($type){
+        $appid     = 'wx8036d4cb719e2fa4';
+        $appsecret = '652789b17dac68885639fc48e47a2c6b';
+        $token = session("token");
+        if($token){
+            $auth = new WechatAuth($appid, $appsecret, $token);
+        } else {
+            $auth  = new WechatAuth($appid, $appsecret);
+            $token = $auth->getAccessToken();
+            session(array('expire' => $token['expires_in']));
+            session("token", $token['access_token']);
+        }
+        switch ($type) {
+            case 'image':
+                $filename = './Public/image.jpg';
+                $media    = $auth->materialAddMaterial($filename, $type);
+                break;
+            case 'voice':
+                $filename = './Public/voice.mp3';
+                $media    = $auth->materialAddMaterial($filename, $type);
+                break;
+            case 'video':
+                $filename    = './Public/video.mp4';
+                $discription = array('title' => '视频标题', 'introduction' => '视频描述');
+                $media       = $auth->materialAddMaterial($filename, $type, $discription);
+                break;
+            case 'thumb':
+                $filename = './Public/music.jpg';
+                $media    = $auth->materialAddMaterial($filename, $type);
+                break;
+            
+            default:
+                return '';
+        }
+        if($media["errcode"] == 42001){ //access_token expired
+            session("token", null);
+            $this->upload($type);
+        }
+        return $media['media_id'];
+    }
+
 }
