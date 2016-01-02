@@ -56,7 +56,7 @@ class IndexController extends Controller {
 	public function index() {
 		$weObj = new TPWechat($this->options);
 		$weObj->valid();
-		$webObj->createMenu($this->menu);
+		$weObj->createMenu($this->menu);
 		$type = $weObj->getRev()->getRevType();
 		switch($type) {
 		    case Wechat::MSGTYPE_TEXT:
