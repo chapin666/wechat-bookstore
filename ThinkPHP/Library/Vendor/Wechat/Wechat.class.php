@@ -282,7 +282,6 @@ class Wechat
     {
         $encryptStr="";
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
-	    echo "POST";
             $postStr = file_get_contents("php://input");
             $array = (array)simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
             $this->encrypt_type = isset($_GET["encrypt_type"]) ? $_GET["encrypt_type"]: '';
@@ -305,7 +304,6 @@ class Wechat
                 $this->postxml = $postStr;
             }
         } else if (isset($_GET["echostr"])) {
-		echo "echostr";
         	$echoStr = $_GET["echostr"];
         	if ($return) {
         		if ($this->checkSignature())
