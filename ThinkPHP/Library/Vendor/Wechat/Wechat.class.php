@@ -249,13 +249,13 @@ class Wechat
 	 */
 	private function checkSignature($str='')
 	{
-        $signature = isset($_GET["signature"])?$_GET["signature"]:'';
+            $signature = isset($_GET["signature"])?$_GET["signature"]:'';
 	    $signature = isset($_GET["msg_signature"])?$_GET["msg_signature"]:$signature; //如果存在加密验证则用加密验证段
-        $timestamp = isset($_GET["timestamp"])?$_GET["timestamp"]:'';
-        $nonce = isset($_GET["nonce"])?$_GET["nonce"]:'';
+            $timestamp = isset($_GET["timestamp"])?$_GET["timestamp"]:'';
+            $nonce = isset($_GET["nonce"])?$_GET["nonce"]:'';
 
 		$token = $this->token;
-		$tmpArr = array($token, $timestamp, $nonce,$str);
+		$tmpArr = array($token, $timestamp, $nonce, $str);
 		sort($tmpArr, SORT_STRING);
 		$tmpStr = implode( $tmpArr );
 		$tmpStr = sha1( $tmpStr );

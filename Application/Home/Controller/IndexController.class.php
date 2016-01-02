@@ -9,7 +9,7 @@ class IndexController extends Controller {
 	
 	 private $options = array(
 			'token'=>'bookstore', //填写你设定的key
- 			'encodingaeskey'=>'z9fDzQv6F3dy6kylO9u4keS0uLO0gels7FUQ2RsFbn6', //填写加密用的EncodingAESKey
+ 			'encodingaeskey'=>'6o5FwSKcS10ycYRZ4B8CzCnPyIrBIOPbjdO8qGUh8g4', //填写加密用的EncodingAESKey
  			'appid'=>'wx8036d4cb719e2fa4', //填写高级调用功能的app id
  			'appsecret'=>'652789b17dac68885639fc48e47a2c6b' //填写高级调用功能的密钥
  		);
