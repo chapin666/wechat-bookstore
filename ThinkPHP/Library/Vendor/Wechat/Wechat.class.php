@@ -262,14 +262,9 @@ class Wechat
 	    $tmpStr = implode( $tmpArr );
 	    $tmpStr = sha1( $tmpStr );
 
-	   echo "signature=" . $signature . "<br>";
-	   echo "tmpStr=" . $tmpStr . "<br>";
-
 	    if( $tmpStr == $signature ){
-		echo "tmpStr==signature  ";
 		return true;
 	    }else{
-		echo "tmpStr!=signature  ";
 		return false;
 	    }
 	}
@@ -314,7 +309,7 @@ class Wechat
         		if ($this->checkSignature())
         			die($echoStr);
         		else
-        			die('no access 1');
+        			die('no access');
         	}
         }
 
@@ -322,7 +317,7 @@ class Wechat
         	if ($return)
         		return false;
         	else
-        		die('no access 2');
+        		die('no access, return is false');
         }
         return true;
     }
