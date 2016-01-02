@@ -10,8 +10,8 @@ class IndexController extends Controller {
 	 private $options = array(
 			'token'=>'wsdbookstore', //填写你设定的key
  			'encodingaeskey'=>'tk3s8FIGe0MjpQyjT7eiMpwhsXHjzFZ5LrSEuoftIfn', //填写加密用的EncodingAESKey
- 			'appid'=>'wx8036d4cb719e2fa4', //填写高级调用功能的app id
- 			'appsecret'=>'652789b17dac68885639fc48e47a2c6b' //填写高级调用功能的密钥
+ 			'appid'=>'wx9266bc9da8a1f391', //填写高级调用功能的app id
+ 			'appsecret'=>'e5394eff409fbe82a7828ba0e8ce3aac' //填写高级调用功能的密钥
  		);
 
 	private $menu = array ('button' => array (0 => array ('name' => '扫码',
