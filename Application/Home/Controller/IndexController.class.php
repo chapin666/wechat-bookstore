@@ -1,11 +1,13 @@
 <?php
 namespace Home\Controller;
+
 use Think\Controller;
 use Vendor\Wechat\TPWechat;
+use Vendor\Wechat\Wechat;
 
 class IndexController extends Controller {
 	
-	 var $options = array(
+	 private $options = array(
 			'token'=>'bookstore', //填写你设定的key
  			'encodingaeskey'=>'z9fDzQv6F3dy6kylO9u4keS0uLO0gels7FUQ2RsFbn6', //填写加密用的EncodingAESKey
  			'appid'=>'wx8036d4cb719e2fa4', //填写高级调用功能的app id
