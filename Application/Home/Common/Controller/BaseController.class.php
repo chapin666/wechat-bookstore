@@ -39,7 +39,7 @@ class BaseController extends Controller {
 				      'type' => 'click',
 				      'name' => '待付款',
 				      'key' => 'menu_1_1',
-				    )
+				    ),
 				    2 => array (
 				      'type' => 'click',
 				      'name' => '历史订单',
@@ -58,7 +58,7 @@ class BaseController extends Controller {
 				      'type' => 'click',
 				      'name' => '个人信息',
 				      'key' => 'menu_2_1',
-				    )
+				    ),
 				    2 => array (
 				      'type' => 'click',
 				      'name' => '解除绑定',
