@@ -66,6 +66,7 @@ class BaseController extends Controller {
 				    ),
 				),
 				),
+			    ),
 			);
 
 	protected $weChat = null;
