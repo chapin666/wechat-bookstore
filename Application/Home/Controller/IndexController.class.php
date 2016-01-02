@@ -17,7 +17,7 @@ class IndexController extends Controller {
 
 
 	public function index() {
-		$weObj = new TPWechat($options);
+		$weObj = new TPWechat($this->options);
 		$weObj->valid();
 		$type = $weObj->getRev()->getRevType();
 		switch($type) {

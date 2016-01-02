@@ -236,6 +236,7 @@ class Wechat
 
 	public function __construct($options)
 	{
+		
 		$this->token = isset($options['token'])?$options['token']:'';
 		$this->encodingAesKey = isset($options['encodingaeskey'])?$options['encodingaeskey']:'';
 		$this->appid = isset($options['appid'])?$options['appid']:'';
@@ -253,18 +254,18 @@ class Wechat
 	    $signature = isset($_GET["msg_signature"])?$_GET["msg_signature"]:$signature; //如果存在加密验证则用加密验证段
             $timestamp = isset($_GET["timestamp"])?$_GET["timestamp"]:'';
             $nonce = isset($_GET["nonce"])?$_GET["nonce"]:'';
+	    $token = $this->token;
 
-		$token = $this->token;
-		$tmpArr = array($token, $timestamp, $nonce, $str);
-		sort($tmpArr, SORT_STRING);
-		$tmpStr = implode( $tmpArr );
-		$tmpStr = sha1( $tmpStr );
+	    $tmpArr = array($token, $timestamp, $nonce, $str);
+	    sort($tmpArr, SORT_STRING);
+	    $tmpStr = implode( $tmpArr );
+	    $tmpStr = sha1( $tmpStr );
 
-		if( $tmpStr == $signature ){
-			return true;
-		}else{
-			return false;
-		}
+	    if( $tmpStr == $signature ){
+		return true;
+	    }else{
+		return false;
+	    }
 	}
 
 	/**
@@ -307,7 +308,7 @@ class Wechat
         		if ($this->checkSignature())
         			die($echoStr);
         		else
-        			die('no access');
+        			die('no access 1');
         	}
         }
 
@@ -315,7 +316,7 @@ class Wechat
         	if ($return)
         		return false;
         	else
-        		die('no access');
+        		die('no access 2');
         }
         return true;
     }
