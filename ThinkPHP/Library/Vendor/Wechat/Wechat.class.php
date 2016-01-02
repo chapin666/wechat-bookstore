@@ -256,14 +256,17 @@ class Wechat
             $nonce = isset($_GET["nonce"])?$_GET["nonce"]:'';
 	    $token = $this->token;
 
+
 	    $tmpArr = array($token, $timestamp, $nonce, $str);
 	    sort($tmpArr, SORT_STRING);
 	    $tmpStr = implode( $tmpArr );
 	    $tmpStr = sha1( $tmpStr );
 
 	    if( $tmpStr == $signature ){
+		echo "tmpStr==signature  ";
 		return true;
 	    }else{
+		echo "tmpStr!=signature  ";
 		return false;
 	    }
 	}
@@ -297,7 +300,7 @@ class Wechat
             } else {
                 $this->postxml = $postStr;
             }
-        } elseif (isset($_GET["echostr"])) {
+        } else if (isset($_GET["echostr"])) {
         	$echoStr = $_GET["echostr"];
         	if ($return) {
         		if ($this->checkSignature())
