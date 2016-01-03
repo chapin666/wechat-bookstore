@@ -71,8 +71,7 @@ class BaseController extends Controller {
 
 	protected $weChat = null;
 
-
-	public function __construct() {
+	public function _initialize() {
 		
 		$this->weChat = new TPWechat($this->options);
 		$this->weChat->valid();

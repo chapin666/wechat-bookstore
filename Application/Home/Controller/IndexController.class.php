@@ -3,7 +3,6 @@ namespace Home\Controller;
 
 use Home\Common\Controller\BaseController;
 use Vendor\Wechat\Wechat;
-use Think\Controller;
 
 class IndexController extends BaseController {
 
