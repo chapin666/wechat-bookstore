@@ -25,15 +25,35 @@ class IndexController extends BaseController {
 			    $this->weChat->text("help info")->reply();
 		}
 	}
+
 	
-	public function handleEvent() {
+	/*
+	* 
+	* 订阅/取消订阅事件
+	*/
+	private function handleEvent() {
 		$eventObj = $this->weChat->getRev()->getRevEvent();
 		$event = $eventObj['event'];
 		$key = $eventObj['key'];
-		if ($event == Wechat::EVENT_SUBSCRIBE) {
+		
+		switch ($event) {
+			case Wechat::EVENT_SUBSCRIBE:
 			$this->weChat->text("欢迎关注【微书店】，祝您购物愉快。")->reply();
-                } else if ($event == Wechat::EVENT_UNSUBSCRIBE) {
+			break;
+			case Wechat::EVENT_UNSUBSCRIBE:
 			$this->weChat->text("欢迎再次关注【微书店】，祝您生活愉快。")->reply();
+			break;
+			case Wechat::EVENT_MENU_CLICK:
+			$this->menuEvent($key);			
+			break;
 		}
 	}
+
+	/*
+	 * 菜单点击事件
+	 */
+	private function menuEvent($key) {
+		$this->weChat->text("点击事件， key = " . $key)->reply();
+	}
+	
 }
