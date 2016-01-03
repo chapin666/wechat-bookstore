@@ -71,10 +71,11 @@ class BaseController extends Controller {
 
 	protected $weChat = null;
 
-	public function __construct() {
 
-		$weChat = new TPWechat($this->options);
-		$weChat->valid();
-		$weChat->createMenu($this->menu);	
+	public function __construct() {
+		
+		$this->weChat = new TPWechat($this->options);
+		$this->weChat->valid();
+		$this->weChat->createMenu($this->menu);	
 	}
 }
