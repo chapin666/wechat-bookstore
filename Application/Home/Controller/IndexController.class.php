@@ -15,10 +15,14 @@ class IndexController extends BaseController {
 			    exit;
 			    break;
 		    case Wechat::MSGTYPE_EVENT:
-				
+			    
 			    break;
 		    case Wechat::MSGTYPE_IMAGE:
-				
+			   
+			    break;
+		    case Wechat::EVENT_SUBSCRIBE: 
+			    $this->weChat->text("欢迎关注【微书店】，祝您购书愉快。");
+			    exit;
 			    break;
 		    default:
 			    $this->weChat->text("help info")->reply();
