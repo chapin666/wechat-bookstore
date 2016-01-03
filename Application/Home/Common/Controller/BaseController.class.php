@@ -7,7 +7,7 @@ use Vendor\Wechat\TPWechat;
 class BaseController extends Controller {
 	
 	private $options = array('token'=>'wsdbookstore', 'encodingaeskey'=>'tk3s8FIGe0MjpQyjT7eiMpwhsXHjzFZ5LrSEuoftIfn',
- 					'appid'=>'wx9266bc9da8a1f391');
+ 					'appid'=>'wx9266bc9da8a1f391', 'appsecret'=>'e5394eff409fbe82a7828ba0e8ce3aac');
 
 	private $menu = array ('button' => array (
 				0 => array ('name' => '浏览图书', 'sub_button' =>  array (
