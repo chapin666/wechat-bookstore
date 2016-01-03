@@ -27,7 +27,9 @@ class IndexController extends BaseController {
 	}
 	
 	public function handleEvent() {
-		$event = $this->weChat->getRev()->getRevEvent();
+		$eventObj = $this->weChat->getRev()->getRevEvent();
+		$event = $eventObj['event'];
+		$key = $eventObj['key'];
 		if ($event == Wechat::EVENT_SUBSCRIBE) {
 			$this->weChat->text("欢迎关注【微书店】，祝您购物愉快。")->reply();
                 } else if ($event == Wechat::EVENT_UNSUBSCRIBE) {
