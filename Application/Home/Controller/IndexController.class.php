@@ -8,10 +8,10 @@ class IndexController extends BaseController {
 
 
 	public function index() {
-		$type = $weChat->getRev()->getRevType();
+		$type = $this->weChat->getRev()->getRevType();
 		switch($type) {
 		    case Wechat::MSGTYPE_TEXT:
-			    $weChat->text("hello, I'm wechat")->reply();
+			    $this->weChat->text("hello, I'm wechat")->reply();
 			    exit;
 			    break;
 		    case Wechat::MSGTYPE_EVENT:
@@ -21,7 +21,7 @@ class IndexController extends BaseController {
 				
 			    break;
 		    default:
-			    $weChat->text("help info")->reply();
+			    $this->weChat->text("help info")->reply();
 		}
 	}
 }
