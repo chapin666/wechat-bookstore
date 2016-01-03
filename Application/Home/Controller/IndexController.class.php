@@ -15,7 +15,7 @@ class IndexController extends BaseController {
 			    exit;
 			    break;
 		    case Wechat::MSGTYPE_EVENT:
-			    handleEvent();
+			    $this->handleEvent();
 			    exit;
 			    break;
 		    case Wechat::MSGTYPE_IMAGE:
@@ -27,14 +27,13 @@ class IndexController extends BaseController {
 	}
 	
 	public function handleEvent() {
-		$this->weChat->text("欢迎关注【微书店】，祝您购物愉快。")->reply();		
-		/*$eventObj = $this->weChat->getRev()->getRevEvent();
+		$eventObj = $this->weChat->getRev()->getRevEvent();
 		$event = $eventObj['event'];
 		$key = $eventObj['key'];
 		if ($event == Wechat::EVENT_SUBSCRIBE) {
 			$this->weChat->text("欢迎关注【微书店】，祝您购物愉快。")->reply();
                 } else if ($event == Wechat::EVENT_UNSUBSCRIBE) {
 			$this->weChat->text("欢迎再次关注【微书店】，祝您生活愉快。")->reply();
-		}*/
+		}
 	}
 }
