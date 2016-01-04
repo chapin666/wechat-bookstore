@@ -15,17 +15,17 @@ class BaseController extends Controller {
 				    0 => array (
 				      'type' => 'click',
 				      'name' => '最新上架',
-				      'key' => 'menu_0_0',
+				      'key' =>  Constant::MENU_0_0,
 				    ),
 				    1 => array (
 				      'type' => 'click',
 				      'name' => '热销书籍',
-				      'key' => 'menu_0_1',
+				      'key' =>  Constant::MENU_0_1,
 				    ),
 				    2 => array (
 				      'type' => 'click',
 				      'name' => '分类浏览',
-				      'key' => 'menu_0_2',
+				      'key' =>  Constant::MENU_0_2,
 				    ),
 				 ),
 				),
@@ -34,17 +34,17 @@ class BaseController extends Controller {
 				    0 => array (
 				      'type' => 'click',
 				      'name' => '购物车',
-				      'key' => 'menu_1_0',
+				      'key' =>  Constant::MENU_1_0,
 				    ),
 				    1 => array (
 				      'type' => 'click',
 				      'name' => '待付款',
-				      'key' => 'menu_1_1',
+				      'key' =>  Constant::MENU_1_1,
 				    ),
 				    2 => array (
 				      'type' => 'click',
 				      'name' => '历史订单',
-				      'key' => 'menu_1_2',
+				      'key' => Constant::MENU_1_2,
 				    ),
 				),
 				),
