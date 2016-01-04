@@ -53,17 +53,17 @@ class BaseController extends Controller {
 				    0 => array (
 				      'type' => 'click',
 				      'name' => '帐号绑定',
-				      'key' => 'menu_2_0',
+				      'key' => Constant::MENU_2_0,
 				    ),
 				    1 => array (
 				      'type' => 'click',
 				      'name' => '个人信息',
-				      'key' => 'menu_2_1',
+				      'key' => Constant::MENU_2_1,
 				    ),
 				    2 => array (
 				      'type' => 'click',
 				      'name' => '解除绑定',
-				      'key' => 'menu_2_2',
+				      'key' => Constant::MENU_2_2,
 				    ),
 				),
 				),

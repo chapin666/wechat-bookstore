@@ -75,15 +75,16 @@ class IndexController extends BaseController {
 			break;
 			case Constant::MENU_2_0:
 				$this->weChat->text("欢迎绑定帐号")->reply();
-			break;
+				break;
 			case Constant::MENU_2_1:
 				$this->weChat->text("您的个人信息")->reply();
-			break;
+				break;
 			case Constant::MENU_2_2:
 				$this->weChat->text("解绑帐号成功")->reply();
-			break;
+				break;
 
 			default: 
+			  	$this->weChat->text("发送指令：" . $key . "错误")->reply();
 			break;	
 		}
 	}
