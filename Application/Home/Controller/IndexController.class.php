@@ -2,6 +2,7 @@
 namespace Home\Controller;
 
 use Home\Common\Controller\BaseController;
+use Home\Common\Constants\Constant;
 use Vendor\Wechat\Wechat;
 
 class IndexController extends BaseController {
