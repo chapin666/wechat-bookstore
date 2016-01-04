@@ -54,7 +54,38 @@ class IndexController extends BaseController {
 	 * 菜单点击事件
 	 */
 	private function menuEvent($key) {
-		$this->weChat->text("点击事件， key = " . $key)->reply();
+		switch ($key) {
+			case Constant::MENU_0_0:
+			
+			break;
+			case Constant::MENU_0_1:
+
+			break;
+			case Constant::MENU_0_2:
+
+			break;
+			case Constant::MENU_1_0:
+
+			break;
+			case Constant::MENU_1_1:
+
+			break;
+			case Constant::MENU_1_2:
+
+			break;
+			case Constant::MENU_2_0:
+				$this->weChat->text("欢迎绑定帐号")->reply();
+			break;
+			case Constant::MENU_2_1:
+				$this->weChat->text("您的个人信息")->reply();
+			break;
+			case Constant::MENU_2_2:
+				$this->weChat->text("解绑帐号成功")->reply();
+			break;
+
+			default: 
+			break;	
+		}
 	}
 	
 }

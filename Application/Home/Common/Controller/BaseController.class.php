@@ -11,7 +11,7 @@ class BaseController extends Controller {
  					'appid'=>'wx9266bc9da8a1f391', 'appsecret'=>'e5394eff409fbe82a7828ba0e8ce3aac');
 
 	private $menu = array ('button' => array (
-				0 => array ('name' => Constant::SCAN_BOOK, 'sub_button' =>  array (
+				0 => array ('name' => "购买书籍", 'sub_button' =>  array (
 				    0 => array (
 				      'type' => 'click',
 				      'name' => '最新上架',
