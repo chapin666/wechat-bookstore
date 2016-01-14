@@ -23,9 +23,9 @@ class BaseController extends Controller {
 				      'key' =>  Constant::MENU_0_1,
 				    ),
 				    2 => array (
-				      'type' => 'click',
+				      'type' => 'view',
 				      'name' => '分类浏览',
-				      'key' =>  Constant::MENU_0_2,
+				      'url' =>  "http://www.baidu.com",
 				    ),
 				 ),
 				),

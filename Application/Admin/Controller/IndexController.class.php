@@ -9,4 +9,18 @@ class IndexController extends Controller {
     public function category() {
         $this->display();
     }
+
+
+    public function book() {
+        $this->display();
+    }
+
+    public function order() {
+	$this->display();
+    }
+
+    public function user() {
+	$this->display();
+    }
+
 }

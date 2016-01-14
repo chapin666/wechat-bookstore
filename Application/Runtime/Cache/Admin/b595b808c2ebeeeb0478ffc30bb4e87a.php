@@ -23,8 +23,8 @@
     <link rel="shortcut icon" href="images/favicon.png">
     <link href="http://fonts.lug.ustc.edu.cn/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="http://fonts.lug.ustc.edu.cn/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="/Public/styles/material.min.css">
-    <link rel="stylesheet" href="/Public/styles/styles.css">
+    <link rel="stylesheet" href="/tp3/Public/styles/material.min.css">
+    <link rel="stylesheet" href="/tp3/Public/styles/styles.css">
   </head>
   <body>
 
@@ -60,7 +60,7 @@
 		
 		<!-- start .demo-drawer-header -->
         <header class="demo-drawer-header">
-          <img src="/Public/images/user.jpg" class="demo-avatar">
+          <img src="/tp3/Public/images/user.jpg" class="demo-avatar">
           <div class="demo-avatar-dropdown">
             <span>Admin [ 超级管理员 ]</span>
             <div class="mdl-layout-spacer"></div>
@@ -75,13 +75,13 @@
           </div>
         </header><!-- // end .demo-drawer-header -->
 
-		<!-- start .navigation -->
+	<!-- start .navigation -->
         <nav class="demo-navigation mdl-navigation mdl-color--cyan-300 mdl-color-text--white">
-          <a class="mdl-navigation__link selected" href=""><i class="mdl-color-text--white material-icons" role="presentation">home</i>主页</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white material-icons" role="presentation">more</i>图书分类</a>
-		  <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white material-icons" role="presentation">local_library</i>图书管理</a>
-		  <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white material-icons" role="presentation">people</i>会员中心</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white material-icons" role="presentation">shopping_cart</i>订单管理</a>
+          <a class="mdl-navigation__link selected" href="<?php echo U('Admin/Index/index');?>"><i class="mdl-color-text--white material-icons" role="presentation">home</i>主页</a>
+          <a class="mdl-navigation__link" href="<?php echo U('Admin/Index/category');?>"><i class="mdl-color-text--white material-icons" role="presentation">more</i>图书分类</a>
+		  <a class="mdl-navigation__link" href="<?php echo U('Admin/Index/book');?>"><i class="mdl-color-text--white material-icons" role="presentation">local_library</i>图书管理</a>
+		  <a class="mdl-navigation__link" href="<?php echo U('Admin/Index/user');?>"><i class="mdl-color-text--white material-icons" role="presentation">people</i>会员中心</a>
+          <a class="mdl-navigation__link" href="<?php echo U('Admin/Index/order');?>"><i class="mdl-color-text--white material-icons" role="presentation">shopping_cart</i>订单管理</a>
           <div class="mdl-layout-spacer"></div>
           <a class="mdl-navigation__link" href="">&copy;2016 微书店科技</a>
         </nav><!-- // end .navigation -->
@@ -194,6 +194,6 @@
         </defs>
       </svg> <!-- // end circle svg -->
     
-    <script src="/Public/scripts/material.min.js"></script>
+    <script src="/tp3/Public/scripts/material.min.js"></script>
   </body>
 </html>

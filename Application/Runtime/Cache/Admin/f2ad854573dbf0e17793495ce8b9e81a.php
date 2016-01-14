@@ -70,9 +70,9 @@
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--cyan-300 mdl-color-text--white">
           <a class="mdl-navigation__link" href="<?php echo U('Admin/Index/index');?>"><i class="mdl-color-text--white material-icons" role="presentation">home</i>主页</a>
-          <a class="mdl-navigation__link selected" href="<?php echo U('Admin/Index/category');?>"><i class="mdl-color-text--white material-icons" role="presentation">more</i>图书分类</a>
+          <a class="mdl-navigation__link" href="<?php echo U('Admin/Index/category');?>"><i class="mdl-color-text--white material-icons" role="presentation">more</i>图书分类</a>
 		  <a class="mdl-navigation__link" href="<?php echo U('Admin/Index/book');?>"><i class="mdl-color-text--white material-icons" role="presentation">local_library</i>图书管理</a>
-		  <a class="mdl-navigation__link" href="<?php echo U('Admin/Index/user');?>"><i class="mdl-color-text--white material-icons" role="presentation">people</i>会员中心</a>
+		  <a class="mdl-navigation__link selected" href="<?php echo U('Admin/Index/user');?>"><i class="mdl-color-text--white material-icons" role="presentation">people</i>会员中心</a>
           <a class="mdl-navigation__link" href="<?php echo U('Admin/Index/order');?>"><i class="mdl-color-text--white material-icons" role="presentation">shopping_cart</i>订单管理</a>
           <div class="mdl-layout-spacer"></div>
           <a class="mdl-navigation__link" href="">&copy;2016 微书店科技</a>
