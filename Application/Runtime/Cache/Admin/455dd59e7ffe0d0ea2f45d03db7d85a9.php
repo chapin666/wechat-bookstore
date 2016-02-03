@@ -25,8 +25,8 @@
 
     <link href="http://fonts.lug.ustc.edu.cn/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="http://fonts.lug.ustc.edu.cn/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="/tp3/Public/styles/material.min.css">
-    <link rel="stylesheet" href="/tp3/Public/styles/styles.css">
+    <link rel="stylesheet" href="/Public/styles/material.min.css">
+    <link rel="stylesheet" href="/Public/styles/styles.css">
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -54,7 +54,7 @@
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--cyan-500 mdl-color-text--white">
         <header class="demo-drawer-header">
-          <img src="/tp3/Public/images/user.jpg" class="demo-avatar">
+          <img src="/Public/images/user.jpg" class="demo-avatar">
           <div class="demo-avatar-dropdown">
             <span>Admin [ 超级管理员 ]</span>
             <div class="mdl-layout-spacer"></div>
@@ -202,6 +202,6 @@
 		</div>
       </main>
     </div>
-    <script src="/tp3/Public/scripts/material.min.js"></script>
+    <script src="/Public/scripts/material.min.js"></script>
   </body>
 </html>

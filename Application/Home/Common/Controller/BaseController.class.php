@@ -7,8 +7,10 @@ use Vendor\Wechat\TPWechat;
 
 class BaseController extends Controller {
 	
-	private $options = array('token'=>'wsdbookstore', 'encodingaeskey'=>'tk3s8FIGe0MjpQyjT7eiMpwhsXHjzFZ5LrSEuoftIfn',
- 					'appid'=>'wx9266bc9da8a1f391', 'appsecret'=>'e5394eff409fbe82a7828ba0e8ce3aac');
+	private $options = array('token'=>'wsdbookstore',
+							 'encodingaeskey'=>'tk3s8FIGe0MjpQyjT7eiMpwhsXHjzFZ5LrSEuoftIfn',
+ 							 'appid'=>'wx9266bc9da8a1f391',
+							 'appsecret'=>'e5394eff409fbe82a7828ba0e8ce3aac');
 
 	private $menu = array ('button' => array (
 				0 => array ('name' => "购买书籍", 'sub_button' =>  array (
@@ -70,10 +72,10 @@ class BaseController extends Controller {
 			    ),
 			);
 
-	protected $weChat = null;
 
+	protected $weChat = null;
+	
 	public function _initialize() {
-		
 		$this->weChat = new TPWechat($this->options);
 		$this->weChat->valid();
 		$this->weChat->createMenu($this->menu);	
