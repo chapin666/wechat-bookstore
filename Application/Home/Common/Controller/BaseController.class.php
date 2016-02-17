@@ -27,7 +27,7 @@ class BaseController extends Controller {
 				    2 => array (
 				      'type' => 'view',
 				      'name' => '分类浏览',
-				      'url' =>  "http://www.baidu.com",
+				      'url' =>  "http://bookstore.coding.io/Home/Main/index",
 				    ),
 				 ),
 				),
