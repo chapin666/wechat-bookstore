@@ -15,9 +15,9 @@ class BaseController extends Controller {
 	private $menu = array ('button' => array (
 				0 => array ('name' => "购买书籍", 'sub_button' =>  array (
 				    0 => array (
-				      'type' => 'click',
+				      'type' => 'view',
 				      'name' => '最新上架',
-				      'key' =>  Constant::MENU_0_0,
+				      'url' =>  "http://bookstore.coding.io/Home/Main/index", //Constant::MENU_0_0,
 				    ),
 				    1 => array (
 				      'type' => 'click',
