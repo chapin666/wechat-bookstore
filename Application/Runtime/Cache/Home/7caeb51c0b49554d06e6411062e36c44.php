@@ -22,7 +22,7 @@
 		</main><!-- // end main -->
 
 		<!-- begin footer-->
-		<footer data-role="footer">
+		<footer data-role="footer" data-position="fixed">
 			<h1>页面底部内容</h1>
 		</footer><!-- // end footer -->
 	</div>
