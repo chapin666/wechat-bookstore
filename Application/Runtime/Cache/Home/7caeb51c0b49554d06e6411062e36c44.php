@@ -33,7 +33,57 @@
 
 		<!-- begin main-->
 		<main data-role="content">
-			<p>页面内容</p>
+			<ul class="book-category" data-role="listview">
+				<li>
+					<a href="#">
+						<img src="/Public/images/child-cover.jpg" alt="">
+						<div class="book-text">
+							<h2>少儿类</h2>
+							<p>少儿类描述</p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="/Public/images/social-cover.jpg" alt="">
+						<div class="book-text">
+							<h2>社科类</h2>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="/Public/images/art-cover.jpg" alt="">
+						<div class="book-text">
+							<h2>文艺</h2>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="/Public/images/life-cover.jpg" alt="">
+						<div class="book-text">
+							<h2>休闲与生活</h2>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="/Public/images/doctor-cover.jpg" alt="">
+						<div class="book-text">
+							<h2>医学</h2>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="/Public/images/computer-cover.jpg" alt="">
+						<div class="book-text">
+							<h2>计算机</h2>
+						</div>
+					</a>
+				</li>
+			</ul>
 		</main><!-- // end main -->
 
 
