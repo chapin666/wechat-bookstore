@@ -5,15 +5,35 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>微书店主页</title>
 	<link rel="stylesheet" href="/Public/mobile/jquery.mobile-1.4.5.min.css">
-
+	<link rel="stylesheet" href="/Public/styles/swiper-3.3.0.min.css">
+	<link rel="stylesheet" href="/Public/styles/home.css">
 </head>
 <body>
 
 	<div data-role="page" id="pageone">
 
+		<header>
+			<!-- begin swiper -->
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<a href=""><img src="/Public/images/banner01.png" alt=""></a>
+					</div>
+					<div class="swiper-slide">
+						<a href=""><img src="/Public/images/banner01.png" alt=""></a>
+					</div>
+					<div class="swiper-slide">
+						<a href=""><img src="/Public/images/banner01.png" alt=""></a>
+					</div>
+				</div>
+				<!-- 如果需要分页器 -->
+				<div class="swiper-pagination"></div>
+			</div><!-- // end swiper -->
+		</header>
+
 		<!-- begin main-->
 		<main data-role="content">
-			 <p>页面内容</p>
+			<p>页面内容</p>
 		</main><!-- // end main -->
 
 
@@ -31,6 +51,19 @@
 	</div>
 
 	<script src="/Public/scripts/jquery.min.js"></script>
-	<script src="/Public/mobile/jquery.mobile-1.4.5.min.js"></script>	
+	<script src="/Public/mobile/jquery.mobile-1.4.5.min.js"></script>
+	<script src="/Public/scripts/swiper-3.3.0.jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+
+			 var mySwiper = new Swiper ('.swiper-container', {
+			    direction: 'horizontal',
+			    loop: true,
+			    // 如果需要分页器
+			    pagination: '.swiper-pagination',
+			 });
+
+		});
+	</script>
 </body>
 </html>
