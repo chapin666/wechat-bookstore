@@ -4,6 +4,9 @@
 	height: 150px;
 }
 
+.ui-btn-icon-right:after {
+	right: 3em;
+}
 
 .book-category img {
 	padding: 0 20px;
