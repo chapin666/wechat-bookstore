@@ -9,5 +9,17 @@ class MainController extends Controller {
 	public function index() {
 		$this->display();
 	}
+
+	public function category() {
+		$this->display();
+	}
+
+	public function cart() {
+		$this->display();
+	}
+
+	public function user() {
+		$this->display();
+	}
 	
 }
