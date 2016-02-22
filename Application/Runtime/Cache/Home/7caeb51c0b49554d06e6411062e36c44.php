@@ -4,9 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>微书店主页</title>
-	<link rel="stylesheet" href="/Public/mobile/jquery.mobile-1.4.5.min.css">
-	<link rel="stylesheet" href="/Public/styles/swiper-3.3.0.min.css">
-	<link rel="stylesheet" href="/Public/styles/home.css">
+	<link rel="stylesheet" href="/tp3/Public/mobile/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="/tp3/Public/styles/swiper-3.3.0.min.css">
+	<link rel="stylesheet" href="/tp3/Public/styles/home.css">
 </head>
 <body>
 
@@ -17,13 +17,13 @@
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<a href=""><img src="/Public/images/banner01.png" alt=""></a>
+						<a href=""><img src="/tp3/Public/images/banner01.png" alt=""></a>
 					</div>
 					<div class="swiper-slide">
-						<a href=""><img src="/Public/images/banner01.png" alt=""></a>
+						<a href=""><img src="/tp3/Public/images/banner01.png" alt=""></a>
 					</div>
 					<div class="swiper-slide">
-						<a href=""><img src="/Public/images/banner01.png" alt=""></a>
+						<a href=""><img src="/tp3/Public/images/banner01.png" alt=""></a>
 					</div>
 				</div>
 				<!-- 如果需要分页器 -->
@@ -36,7 +36,7 @@
 			<ul class="book-category" data-role="listview">
 				<li>
 					<a href="#">
-						<img src="/Public/images/child-cover.jpg" alt="">
+						<img src="/tp3/Public/images/child-cover.jpg" alt="">
 						<div class="book-text">
 							<h2>少儿类</h2>
 							<p>少儿类描述</p>
@@ -45,7 +45,7 @@
 				</li>
 				<li>
 					<a href="#">
-						<img src="/Public/images/social-cover.jpg" alt="">
+						<img src="/tp3/Public/images/social-cover.jpg" alt="">
 						<div class="book-text">
 							<h2>社科类</h2>
 						</div>
@@ -53,7 +53,7 @@
 				</li>
 				<li>
 					<a href="#">
-						<img src="/Public/images/art-cover.jpg" alt="">
+						<img src="/tp3/Public/images/art-cover.jpg" alt="">
 						<div class="book-text">
 							<h2>文艺</h2>
 						</div>
@@ -61,7 +61,7 @@
 				</li>
 				<li>
 					<a href="#">
-						<img src="/Public/images/life-cover.jpg" alt="">
+						<img src="/tp3/Public/images/life-cover.jpg" alt="">
 						<div class="book-text">
 							<h2>休闲与生活</h2>
 						</div>
@@ -69,7 +69,7 @@
 				</li>
 				<li>
 					<a href="#">
-						<img src="/Public/images/doctor-cover.jpg" alt="">
+						<img src="/tp3/Public/images/doctor-cover.jpg" alt="">
 						<div class="book-text">
 							<h2>医学</h2>
 						</div>
@@ -77,7 +77,7 @@
 				</li>
 				<li>
 					<a href="#">
-						<img src="/Public/images/computer-cover.jpg" alt="">
+						<img src="/tp3/Public/images/computer-cover.jpg" alt="">
 						<div class="book-text">
 							<h2>计算机</h2>
 						</div>
@@ -100,9 +100,9 @@
 		</footer><!-- // end footer -->
 	</div>
 
-	<script src="/Public/scripts/jquery.min.js"></script>
-	<script src="/Public/mobile/jquery.mobile-1.4.5.min.js"></script>
-	<script src="/Public/scripts/swiper-3.3.0.jquery.min.js"></script>
+	<script src="/tp3/Public/scripts/jquery.min.js"></script>
+	<script src="/tp3/Public/mobile/jquery.mobile-1.4.5.min.js"></script>
+	<script src="/tp3/Public/scripts/swiper-3.3.0.jquery.min.js"></script>
 	<script>
 		$(document).ready(function() {
 
