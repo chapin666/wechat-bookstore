@@ -13,7 +13,15 @@
 
 	<div data-role="page" id="pageone">
 		
-		category
+		<main data-role="content">
+	<div class="search-box">
+		<input type="search" />
+	</div>
+	<div class="content-box">
+		<div class="filter-box"></div>
+		<div class="book-list"></div>
+	</div>
+</main>
 
 		<!-- begin footer-->
 		<footer data-role="footer" data-position="fixed">

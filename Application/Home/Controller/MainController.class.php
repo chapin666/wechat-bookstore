@@ -21,5 +21,9 @@ class MainController extends Controller {
 	public function user() {
 		$this->display();
 	}
+
+	public function bookList() {
+		$this->display();
+	}
 	
 }
