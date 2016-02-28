@@ -13,9 +13,22 @@
 
 	<div data-role="page" id="pageone">
 		
-		cart
+		<main data-role="content">
+	<div class="search-box">
+		<input type="search" />
+	</div>
+	<div class="content-box">
+		<div class="sortable-box"></div>
+		<div class="book-list">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+</main>
 
-		<?php echo ACTION_NAME; ?>
 		<!-- begin footer-->
 		<footer data-role="footer" data-position="fixed">
 			<div class="nav-menu" data-role="navbar" data-iconpos="top">  
