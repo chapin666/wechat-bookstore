@@ -34,7 +34,7 @@
 </header>
 
 <!-- begin main-->
-<main data-role="content">
+<main data-role="content" class="content">
 	<ul class="book-category" data-role="listview">
 		<li>
 			<a href="/Home/Main/bookList">
