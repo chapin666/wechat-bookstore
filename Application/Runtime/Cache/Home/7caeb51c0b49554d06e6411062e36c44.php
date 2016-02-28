@@ -11,10 +11,10 @@
 
 <body>
 
-	<div data-role="page" id="pageone">
+	<div data-role="page">
 		
 		
-<header>
+<header data-role="header">
 	<!-- begin swiper -->
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
@@ -34,7 +34,7 @@
 </header>
 
 <!-- begin main-->
-<main data-role="content" class="content">
+<main data-role="main" class="ui-content">
 	<ul class="book-category" data-role="listview">
 		<li>
 			<a href="/Home/Main/bookList">
