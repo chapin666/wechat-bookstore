@@ -1,0 +1,22 @@
+[ 2016-02-23T22:32:32+08:00 ]  
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000150s ]
+NOTIC: [8] Undefined index: REQUEST_METHOD /usr/local/server/nginx/html/tp3/ThinkPHP/Library/Think/App.class.php 第 31 行.
+NOTIC: [8] Undefined index: REQUEST_URI /usr/local/server/nginx/html/tp3/ThinkPHP/Library/Think/Dispatcher.class.php 第 137 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000064s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000130s ]
+NOTIC: [8] Undefined index: REQUEST_METHOD /usr/local/server/nginx/html/tp3/ThinkPHP/Library/Vendor/Wechat/Wechat.class.php 第 279 行.
+
+[ 2016-02-23T23:21:57+08:00 ]  
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000146s ]
+NOTIC: [8] Undefined index: REQUEST_METHOD /usr/local/server/nginx/html/tp3/ThinkPHP/Library/Think/App.class.php 第 31 行.
+NOTIC: [8] Undefined index: REQUEST_URI /usr/local/server/nginx/html/tp3/ThinkPHP/Library/Think/Dispatcher.class.php 第 137 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000061s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000129s ]
+NOTIC: [8] Undefined index: REQUEST_METHOD /usr/local/server/nginx/html/tp3/ThinkPHP/Library/Vendor/Wechat/Wechat.class.php 第 279 行.
+

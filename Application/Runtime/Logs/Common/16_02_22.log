@@ -1,0 +1,30 @@
+[ 2016-02-22T21:43:50+08:00 ] 127.0.0.1 /tp3/index.php/main/index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000136s ]
+ERR: 无法加载模块:Main
+
+[ 2016-02-22T23:01:18+08:00 ]  
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000132s ]
+NOTIC: [8] Undefined index: REQUEST_METHOD /usr/local/server/nginx/html/tp3/ThinkPHP/Library/Think/App.class.php 第 31 行.
+NOTIC: [8] Undefined index: REQUEST_URI /usr/local/server/nginx/html/tp3/ThinkPHP/Library/Think/Dispatcher.class.php 第 137 行.
+ERR: 无法加载模块:Index
+
+[ 2016-02-22T23:01:54+08:00 ]  
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000187s ]
+NOTIC: [8] Undefined index: REQUEST_METHOD /usr/local/server/nginx/html/tp3/ThinkPHP/Library/Think/App.class.php 第 31 行.
+NOTIC: [8] Undefined index: REQUEST_URI /usr/local/server/nginx/html/tp3/ThinkPHP/Library/Think/Dispatcher.class.php 第 137 行.
+ERR: 无法加载模块:Homw
+
+[ 2016-02-22T23:01:56+08:00 ]  
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000090s ]
+NOTIC: [8] Undefined index: REQUEST_METHOD /usr/local/server/nginx/html/tp3/ThinkPHP/Library/Think/App.class.php 第 31 行.
+NOTIC: [8] Undefined index: REQUEST_URI /usr/local/server/nginx/html/tp3/ThinkPHP/Library/Think/Dispatcher.class.php 第 137 行.
+ERR: 无法加载模块:Hom
+
