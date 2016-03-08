@@ -1,3 +1,8 @@
+#color-blue {
+	background-color: #3388CC;
+	color: white;
+}
+
 .swiper-wrapper img {
 	max-width: 100%;
 	width: 100%;
@@ -8,8 +13,13 @@
 	right: 3em;
 }
 
+.ui-listview > .ui-li-has-thumb > .ui-btn, .ui-listview > .ui-li-static.ui-li-has-thumb {
+	min-height: 5em;
+}
+
+
 .book-category img {
-	padding: 0 20px;
+	padding: 10px 20px;
 	width: 100%;
 }
 

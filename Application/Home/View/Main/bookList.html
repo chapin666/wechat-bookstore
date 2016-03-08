@@ -1,17 +1,44 @@
-<main data-role="content">
-	<div class="search-box">
-		<input type="search" />
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>微书店主页</title>
+	<link rel="stylesheet" href="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/styles/swiper-3.3.0.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/styles/home.css">
+</head>
+
+<body>
+
+	<div data-role="page">
+		
+		<!-- toolbar -->
+		<include file="Common:toolbar" />
+
+		<!-- begin main-->
+		<main data-role="main" class="ui-content">
+			<div class="search-box">
+				<input type="search" />
+			</div>
+			<div class="content-box">
+				<div class="sortable-box">
+					
+				</div>
+				<div class="book-list">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+		</main><!-- // end main -->
+
+
 	</div>
-	<div class="content-box">
-		<div class="sortable-box">
-			
-		</div>
-		<div class="book-list">
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
-	</div>
-</main>
+
+	<script src="__PUBLIC__/scripts/jquery.min.js"></script>
+	<script src="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.js"></script>
+</body>
+</html>
