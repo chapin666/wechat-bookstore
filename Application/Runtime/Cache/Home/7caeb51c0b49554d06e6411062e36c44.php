@@ -60,9 +60,9 @@
 		</header>
 
 		<!-- begin main-->
-		<main data-role="main" class="ui-content">
-			<br>
-			<ul class="book-category" data-role="listview">
+		<main data-role="main" class="ui-content" >
+			<ul class="book-category"
+				data-role="listview" style="margin-top:0">
 				<li>
 					<a href="/Home/Main/bookList">
 						<img src="/Public/images/child-cover.jpg" alt="">
