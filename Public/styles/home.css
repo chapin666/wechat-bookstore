@@ -31,3 +31,20 @@
 	width: 100%;
 	height: 150px;
 }
+
+.ui-btn-icon-right:after {
+	right: 3em;
+}
+
+.ui-listview > .ui-li-has-thumb > .ui-btn, .ui-listview > .ui-li-static.ui-li-has-thumb {
+	min-height: 5em;
+}
+
+.book-category img {
+	padding: 10px 20px;
+	width: 100%;
+}
+
+.book-text {
+	padding: 0 0 0 20px;
+}
