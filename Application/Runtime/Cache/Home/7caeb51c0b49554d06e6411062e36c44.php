@@ -12,6 +12,13 @@
 <body>
 
 	<div data-role="page">
+		
+			<header data-role="header" data-position="fixed">
+		<a href="#" class="ui-btn ui-corner-all ui-icon-carat-r ui-btn-icon-notext">Menu</a>
+		<h1>主页</h1>
+		<a href="#" class="ui-btn ui-icon-home ui-corner-all ui-btn-icon-notext">Home</a>
+	</header>
+
 		<header data-role="header">
 			<!-- begin swiper -->
 			<div class="swiper-container">
@@ -85,19 +92,6 @@
 				</li>
 			</ul>
 		</main><!-- // end main -->
-
-		
-		    <!-- begin footer-->
-    <footer data-role="footer" data-position="fixed">
-		<div class="nav-menu" data-role="navbar" data-iconpos="top">  
-			<ul>
-				<li><a href="/Home/Main/index" <?php if((ACTION_NAME) == "index"): ?>class='ui-btn-active'<?php endif; ?> data-icon="grid">所有商品</a></li>
-				<li><a href="/Home/Main/category" <?php if((ACTION_NAME) == "category"): ?>class='ui-btn-active'<?php endif; ?> data-icon="navigation">图书分类</a></li>
-				<li><a href="/Home/Main/cart" <?php if((ACTION_NAME) == "cart"): ?>class='ui-btn-active'<?php endif; ?> data-icon="shop">购物车</a></li>
-				<li><a href="/Home/Main/user"  <?php if((ACTION_NAME) == "user"): ?>class='ui-btn-active'<?php endif; ?> data-icon="user">用户中心</a></li>
-			</ul>  
-		</div>
-	</footer><!-- // end footer -->
 
 	</div>
 

@@ -11,16 +11,16 @@
 
 <body>
 
-	<div data-role="page">
+	<div data-role="page" data-transition="slide">
 		
 		<!-- toolbar -->
-		<header data-role="header">
-  <a href="#" class="ui-btn ui-icon-back ui-btn-icon-left ui-corner-all ui-btn-icon-notext">返回</a>
-  <h1>分类名称</h1>
-  <a href="#" class="ui-btn ui-icon-home ui-btn-icon-right ui-corner-all ui-btn-icon-notext">主页</a>
-</header>
-
+			<header data-role="header">
+		<a href="#" class="ui-btn ui-icon-back ui-btn-icon-right ui-corner-all ui-btn-icon-notext">主页</a>
+		<h1>分类名称</h1>
+		<a href="#" class="ui-btn ui-icon-home ui-btn-icon-right ui-corner-all ui-btn-icon-notext">主页</a>
+	</header>
 		<!-- begin main-->
+
 		<main data-role="main" class="ui-content">
 			<div class="search-box">
 				<input type="search" />
