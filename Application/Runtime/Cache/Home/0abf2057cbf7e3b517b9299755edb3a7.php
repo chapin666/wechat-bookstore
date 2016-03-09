@@ -11,28 +11,40 @@
 
 <body>
 
+
+	
 	<div data-role="page">
-		<header data-role="header">
-			
-		</header>
+		<header data-role="header" data-position="fixed">
+	<a href="#menu" class="ui-btn ui-icon-bars  ui-corner-all 
+		ui-btn-icon-notext">Menu</a>
+	<h1>主页</h1>
+	<a href="/Home/Main" class="ui-btn ui-icon-home ui-corner-all
+		ui-btn-icon-notext">Home</a>
+</header>
+		<!-- start panel -->
+<div id="menu" data-role="panel" data-position="left" >
+	<ul data-role="listview">
+		<li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+		<li data-icon="home"><a href="/Home/Main/index">Home</a></li>
+		<li data-icon="navigation"><a href="/Home/Main/category">Category</a></li>
+		<li data-icon="shop"><a href="/Home/Main/cart">Cart</a></li>
+		<li data-role="collapsible" data-inset="false" data-iconpos="right">
+			<h3>User</h3>
+			<ul data-role="listview">
+				<li><a href="/Home/Main/user">Personal</a></li>
+				<li><a href="#">shop</a></li>
+				<li><a href="#">cart</a></li>
+				<li><a href="#">Exit</a></li>
+			</ul>
+		</li><!-- /collapsible -->
+	</ul>
+
+</div><!-- /panel -->
 
 		<!-- begin main-->
 		<main data-role="main" class="ui-content">
 			
 		</main><!-- // end main -->
-
-		
-		    <!-- begin footer-->
-    <footer data-role="footer" data-position="fixed">
-		<div class="nav-menu" data-role="navbar" data-iconpos="top">  
-			<ul>
-				<li><a href="/Home/Main/index" <?php if((ACTION_NAME) == "index"): ?>class='ui-btn-active'<?php endif; ?> data-icon="grid">所有商品</a></li>
-				<li><a href="/Home/Main/category" <?php if((ACTION_NAME) == "category"): ?>class='ui-btn-active'<?php endif; ?> data-icon="navigation">图书分类</a></li>
-				<li><a href="/Home/Main/cart" <?php if((ACTION_NAME) == "cart"): ?>class='ui-btn-active'<?php endif; ?> data-icon="shop">购物车</a></li>
-				<li><a href="/Home/Main/user"  <?php if((ACTION_NAME) == "user"): ?>class='ui-btn-active'<?php endif; ?> data-icon="user">用户中心</a></li>
-			</ul>  
-		</div>
-	</footer><!-- // end footer -->
 
 	</div>
 

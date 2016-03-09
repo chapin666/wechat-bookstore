@@ -1,11 +1,19 @@
-    <!-- begin footer-->
-    <footer data-role="footer" data-position="fixed">
-		<div class="nav-menu" data-role="navbar" data-iconpos="top">  
-			<ul>
-				<li><a href="/Home/Main/index" <eq name='ACTION_NAME' value='index'>class='ui-btn-active'</eq> data-icon="grid">所有商品</a></li>
-				<li><a href="/Home/Main/category" <eq name='ACTION_NAME' value='category'>class='ui-btn-active'</eq> data-icon="navigation">图书分类</a></li>
-				<li><a href="/Home/Main/cart" <eq name='ACTION_NAME' value='cart'>class='ui-btn-active'</eq> data-icon="shop">购物车</a></li>
-				<li><a href="/Home/Main/user"  <eq name='ACTION_NAME' value='user'>class='ui-btn-active'</eq> data-icon="user">用户中心</a></li>
-			</ul>  
-		</div>
-	</footer><!-- // end footer -->
+<!-- start panel -->
+<div id="menu" data-role="panel" data-position="left" >
+	<ul data-role="listview">
+		<li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+		<li data-icon="home"><a href="/Home/Main/index">Home</a></li>
+		<li data-icon="navigation"><a href="/Home/Main/category">Category</a></li>
+		<li data-icon="shop"><a href="/Home/Main/cart">Cart</a></li>
+		<li data-role="collapsible" data-inset="false" data-iconpos="right">
+			<h3>User</h3>
+			<ul data-role="listview">
+				<li><a href="/Home/Main/user">Personal</a></li>
+				<li><a href="#">shop</a></li>
+				<li><a href="#">cart</a></li>
+				<li><a href="#">Exit</a></li>
+			</ul>
+		</li><!-- /collapsible -->
+	</ul>
+
+</div><!-- /panel -->

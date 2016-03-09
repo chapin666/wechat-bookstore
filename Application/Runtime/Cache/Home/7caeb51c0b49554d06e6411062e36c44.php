@@ -13,11 +13,32 @@
 
 	<div data-role="page">
 		
-			<header data-role="header" data-position="fixed">
-		<a href="#" class="ui-btn ui-corner-all ui-icon-carat-r ui-btn-icon-notext">Menu</a>
-		<h1>主页</h1>
-		<a href="#" class="ui-btn ui-icon-home ui-corner-all ui-btn-icon-notext">Home</a>
-	</header>
+		<header data-role="header" data-position="fixed">
+	<a href="#menu" class="ui-btn ui-icon-bars  ui-corner-all 
+		ui-btn-icon-notext">Menu</a>
+	<h1>主页</h1>
+	<a href="/Home/Main" class="ui-btn ui-icon-home ui-corner-all
+		ui-btn-icon-notext">Home</a>
+</header>
+		<!-- start panel -->
+<div id="menu" data-role="panel" data-position="left" >
+	<ul data-role="listview">
+		<li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+		<li data-icon="home"><a href="/Home/Main/index">Home</a></li>
+		<li data-icon="navigation"><a href="/Home/Main/category">Category</a></li>
+		<li data-icon="shop"><a href="/Home/Main/cart">Cart</a></li>
+		<li data-role="collapsible" data-inset="false" data-iconpos="right">
+			<h3>User</h3>
+			<ul data-role="listview">
+				<li><a href="/Home/Main/user">Personal</a></li>
+				<li><a href="#">shop</a></li>
+				<li><a href="#">cart</a></li>
+				<li><a href="#">Exit</a></li>
+			</ul>
+		</li><!-- /collapsible -->
+	</ul>
+
+</div><!-- /panel -->
 
 		<header data-role="header">
 			<!-- begin swiper -->
