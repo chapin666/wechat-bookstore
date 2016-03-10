@@ -12,35 +12,33 @@
 <body>
 
 	<div data-role="page">
-		
-		<header data-role="header" data-position="fixed">
-	<a href="#menu" class="ui-btn ui-icon-bars  ui-corner-all 
-		ui-btn-icon-notext">Menu</a>
-	<h1>主页</h1>
-	<a href="/Home/Main" class="ui-btn ui-icon-home ui-corner-all
-		ui-btn-icon-notext">Home</a>
-</header>
+	
 		<!-- start panel -->
-<div id="menu" data-role="panel" data-position="left" >
+<div id="menu" data-role="panel" data-position="right" >
 	<ul data-role="listview">
-		<li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
-		<li data-icon="home"><a href="/Home/Main/index">Home</a></li>
-		<li data-icon="navigation"><a href="/Home/Main/category">Category</a></li>
-		<li data-icon="shop"><a href="/Home/Main/cart">Cart</a></li>
+		<li data-icon="home"><a href="/Home/Main/index">网站主页</a></li>
+		<li data-icon="navigation"><a href="/Home/Main/category">图书分类</a></li>
+		<li data-icon="shop"><a href="/Home/Main/cart">购物车</a></li>
 		<li data-role="collapsible" data-inset="false" data-iconpos="right">
-			<h3>User</h3>
+			<h3>个人中心</h3>
 			<ul data-role="listview">
-				<li><a href="/Home/Main/user">Personal</a></li>
-				<li><a href="#">shop</a></li>
-				<li><a href="#">cart</a></li>
-				<li><a href="#">Exit</a></li>
+				<li><a href="/Home/Main/user">个人资料</a></li>
+				<li><a href="#">已购书籍</a></li>
+				<li><a href="#">等待付款</a></li>
+				<li><a href="#">切换账号</a></li>
 			</ul>
 		</li><!-- /collapsible -->
 	</ul>
 
 </div><!-- /panel -->
+		<header data-role="header" data-position="fixed">
+			<h1>主页</h1>
+			<a href="#menu" class="ui-btn-right ui-btn ui-icon-bars ui-btn-icon-notext ui-shadow ui-corner-all" data-role="button" role="button">Menu</a>
+		</header>
 
-		<header data-role="header">
+		<!-- begin main-->
+		<main data-role="main" class="ui-content" >
+
 			<!-- begin swiper -->
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
@@ -57,12 +55,9 @@
 				<!-- 如果需要分页器 -->
 				<div class="swiper-pagination"></div>
 			</div><!-- // end swiper -->
-		</header>
 
-		<!-- begin main-->
-		<main data-role="main" class="ui-content" >
-			<ul class="book-category"
-				data-role="listview" style="border: 1px red solid">
+
+			<ul data-role="listview" style="margin: 0;">
 				<li>
 					<a href="/Home/Main/bookList">
 						<img src="/Public/images/child-cover.jpg" alt="">
