@@ -57,7 +57,7 @@
 			</div><!-- // end swiper -->
 
 
-			<ul data-role="listview" style="margin: 0;">
+			<ul data-role="listview" class="listview"  style="margin: 0;">
 				<li>
 					<a href="/Home/Main/bookList">
 						<img src="/Public/images/child-cover.jpg" alt="">
