@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" href="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/styles/swiper-3.3.0.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/styles/home.css">
+</head>
+
+<body>
+	<div data-role="page">
+
+		<include file="Common:toolbar" />
+		<include file="Common:menu" />
+
+		<!--  start main  -->
+		<main data-role="main" class="ui-content">
+			
+			<!-- begin swiper -->
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<a href=""><img src="__PUBLIC__/images/banner01.png" alt=""></a>
+					</div>
+					<div class="swiper-slide">
+						<a href=""><img src="__PUBLIC__/images/banner01.png" alt=""></a>
+					</div>
+					<div class="swiper-slide">
+						<a href=""><img src="__PUBLIC__/images/banner01.png" alt=""></a>
+					</div>
+				</div>
+				<!-- 如果需要分页器 -->
+				<div class="swiper-pagination"></div>
+			</div><!-- // end swiper -->
+
+			<div class="book-title">《Good night》</div>
+			<div class="price-box">
+				<p>销售价：<span class="color-red font-solid">￥23.8</span></p>
+				<p>市场价：<span class="color-red font-solid"><del>￥28</del></span></p>
+				<p>邮费：￥0</p>
+			</div>
+			<div class="number-box">
+				<span>数量：</span>
+				<a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-plus ui-btn-icon-notext ui-btn-inline">Plus</a>
+				<input id="book-num" type="text"  data-mini="true" value="1" >
+				<a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-minus ui-btn-icon-notext ui-btn-inline">Minus</a>
+			</div>
+			<div class="btn-box">
+				<button style="width:47%;margin-left:2px;" class="ui-btn ui-btn-inline">立即购买</button>
+				<button style="width:47%;margin-right:0px;" class="ui-btn ui-btn-inline">加入购物车</button>
+			</div>
+			<div style="margin-top:20px" data-role="tabs" id="tabs">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#one" class="ui-btn-active ui-state-persist">详情</a></li>
+						<li><a href="#two" data-ajax="false">评论</a></li>
+					</ul>
+				</div>
+				<div id="one" class="tab-content">
+					<p>暂无简介</p>
+				</div>
+				<div id="two" class="tab-content">
+					<p>暂无评论</p>
+				</div>
+			</div>
+		</main> <!-- // end main-->
+
+	</div>
+
+	<script src="__PUBLIC__/scripts/jquery.min.js"></script>
+	<script src="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.js"></script>
+</body>

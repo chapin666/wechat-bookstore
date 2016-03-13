@@ -31,6 +31,15 @@
 	color: gray;
 }
 
+.color-red {
+	color: red;
+}
+
+.font-solid {
+	font-weight: bold;
+}
+
+
 .swiper-wrapper img {
 	max-width: 100%;
 	width: 100%;
@@ -94,4 +103,26 @@
 }
 
 
+/************** book style***************/
+.price-box {
+	border: 1px silver solid;
+	padding: 0 0.5em;
+	margin: 1em 0;	
+}
 
+.number-box  .ui-input-text {
+	width: 35px;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	margin-left: -.4em;
+}
+
+.tab-content {
+	font-size: .7em;
+	padding: 0  .2em;
+	border-top: 1px silver solid;
+	border-left: 1px silver solid;
+	border-right: 1px silver solid;
+	border-bottom: 1px silver solid;
+}
