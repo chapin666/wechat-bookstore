@@ -104,8 +104,12 @@
 
 
 /************** book style***************/
-.book-title, .number-box , .price-box, .btn-box , .tabs {
+.book-title, .number-box , .price-box, .btn-box  {
 	margin:  1em;
+}
+
+#parentHorizontalTab {
+	margin: 1em !important;
 }
 
 .price-box {
