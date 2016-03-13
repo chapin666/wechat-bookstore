@@ -107,7 +107,11 @@
 .price-box {
 	border: 1px silver solid;
 	padding: 0 0.5em;
-	margin: 1em 0;	
+	margin: 1em;	
+}
+
+.number-box {
+	margin: 1em;
 }
 
 .number-box  .ui-input-text {
@@ -118,6 +122,10 @@
 	margin-left: -.4em;
 }
 
+.btn-box {
+	margin: 1em;
+}
+
 .tab-content {
 	font-size: .7em;
 	padding: 0  .2em;
@@ -126,3 +134,4 @@
 	border-right: 1px silver solid;
 	border-bottom: 1px silver solid;
 }
+
