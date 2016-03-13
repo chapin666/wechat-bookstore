@@ -4,11 +4,28 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css">
 	<link rel="stylesheet" href="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.css">
-	<link rel="stylesheet" href="__PUBLIC__/styles/easy-responsive-tabs.css">
 	<link rel="stylesheet" href="__PUBLIC__/styles/swiper-3.3.0.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/styles/easy-responsive-tabs.css">
 	<link rel="stylesheet" href="__PUBLIC__/styles/home.css">
+	<script src="__PUBLIC__/scripts/jquery.min.js"></script>
+	<script src="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.js"></script>
+	<script src="__PUBLIC__/scripts/easyResponsiveTabs.js"></script>
+	<script>
+
+		  $(document).ready(function() {
+			//Horizontal Tab
+			$('#parentHorizontalTab').easyResponsiveTabs({
+				type: 'default', //Types: default, vertical, accordion
+				width: 'auto', //auto or any width like 600px
+				fit: false, // 100% fit in a container
+				tabidentify: 'hor_1', // The tab groups identifier
+				activate: function(event) { 
+				}
+			});
+		  });
+
+	</script>
 </head>
 
 <body>
@@ -72,25 +89,4 @@
 
 	</div>
 
-	<script src="__PUBLIC__/scripts/jquery.min.js"></script>
-	<script src="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.js"></script>
-	<script src="__PUBLIC__/scripts/easyResponsiveTabs.js"></script>
-	<script>
-
-		  $(document).ready(function() {
-
-			//Horizontal Tab
-			$('#parentHorizontalTab').easyResponsiveTabs({
-				type: 'default', //Types: default, vertical, accordion
-				width: 'auto', //auto or any width like 600px
-				fit: false, // 100% fit in a container
-				tabidentify: 'hor_1', // The tab groups identifier
-				activate: function(event) { 
-				}
-			});
-
-
-		  });
-
-	</script>
 </body>
