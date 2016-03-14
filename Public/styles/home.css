@@ -214,3 +214,33 @@
 	text-align: right;
 	font-size: .8em;
 }
+
+
+
+/******************  ****************/
+.title-box {
+	width: 100%;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 1%;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {display: inline-block;}
+
+/* Hides from IE-mac */
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+
+
+.title-left {
+	float: left;
+}
+
+.title-right {
+	float: right;
+}
