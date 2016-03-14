@@ -3,28 +3,97 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>微书店主页</title>
+	<title></title>
 	<link rel="stylesheet" href="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.css">
-	<link rel="stylesheet" href="__PUBLIC__/styles/swiper-3.3.0.min.css">
 	<link rel="stylesheet" href="__PUBLIC__/styles/home.css">
+	<script src="__PUBLIC__/scripts/jquery.min.js"></script>
+	<script src="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.js"></script>
 </head>
 
 <body>
-
-
-	
 	<div data-role="page">
 		<include file="Common:toolbar" />
 		<include file="Common:menu" />
 
-		<!-- begin main-->
+		<!--  start main  -->
 		<main data-role="main" class="ui-content">
-			
-		</main><!-- // end main -->
+			<hr />
+			<div class="book-info" >
+				<div class="book-cover" style="display: inline-block;">
+					<img src="__PUBLIC__/images/banner01.png">
+				</div>
+				<div class="book-other" style="display: inline-block;">
+					<p>《OK, Good》</p>
+					<p>销售价：<span class="color-red font-solid">￥23.8</span></p>
+					<p>邮费：￥0</p>
+					<p>
+						<span>数量：</span>
+						<a id="add" href="#">-</a>
+						<input id="book-number" class="number-input" type="text" data-role="none" value="1" >
+						<a id="sub" href="#">+</a>
+					</p>
+					<p>
+						<span>库存：20</span>
+						<span class="del"><a href="#">删除</a></span>
+					</p>
+				</div>
+			</div>
+			<hr />
+			<div class="book-info" >
+				<div class="book-cover" style="display: inline-block;">
+					<img src="__PUBLIC__/images/banner01.png">
+				</div>
+				<div class="book-other" style="display: inline-block;">
+					<p>《OK, Good》</p>
+					<p>销售价：<span class="color-red font-solid">￥23.8</span></p>
+					<p>邮费：￥0</p>
+					<p>
+						<span>数量：</span>
+						<a id="add" href="#">-</a>
+						<input id="book-number" class="number-input" type="text" data-role="none" value="1" >
+						<a id="sub" href="#">+</a>
+					</p>
+					<p>
+						<span>库存：20</span>
+						<span class="del"><a href="#">删除</a></span>
+					</p>
+				</div>
+			</div>
+			<hr />
+			<div class="book-info" >
+				<div class="book-cover" style="display: inline-block;">
+					<img src="__PUBLIC__/images/banner01.png">
+				</div>
+				<div class="book-other" style="display: inline-block;">
+					<p>《OK, Good》</p>
+					<p>销售价：<span class="color-red font-solid">￥23.8</span></p>
+					<p>邮费：￥0</p>
+					<p>
+						<span>数量：</span>
+						<a id="add" href="#">-</a>
+						<input id="book-number" class="number-input" type="text" data-role="none" value="1" >
+						<a id="sub" href="#">+</a>
+					</p>
+					<p>
+						<span>库存：20</span>
+						<span class="del"><a href="#">删除</a></span>
+					</p>
+				</div>
+			</div>
+			<hr />
+			<div class="book-total">
+				<span>商品总数：<span class="color-red">1</span></span>
+				<span>商品总额：<span class="color-red">￥21.5</span></span>
+			</div>
+			<div class="book-operation">
+				<div class="btn-box">
+					<button  class="ui-btn ui-btn-inline">继续购物</button>
+					<button  class="ui-btn ui-btn-inline">下单结算</button>
+				</div>
+			</div>
+	
+		</main> <!-- // end main-->
 
 	</div>
 
-	<script src="__PUBLIC__/scripts/jquery.min.js"></script>
-	<script src="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.js"></script>
 </body>
-</html>

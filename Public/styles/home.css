@@ -118,18 +118,24 @@
 
 .price-box {
 	border: 1px silver solid;
-	padding: 0 0.5em;
+	padding: .5em .5em;
+}
+.price-box p {
+	padding: .3em 0;
 }
 
 
-
-.number-box  .ui-input-text {
-	width: 35px;
+.number-box a {
 	display: inline-block;
-	vertical-align: middle;
+	text-decoration: none;
+	background: #ecebe9;
+	width: 2em;
 	text-align: center;
-	margin-left: -.4em;
+	font-weight: bold;
+	color: #141414;
+	border-radius: 2px;
 }
+
 
 .number-box .inventory {
 	color: gray;
@@ -149,3 +155,58 @@
 	text-indent: 2em;
 }
 
+
+
+/************** Chat ****************/
+
+.book-info {
+	padding: 1em;
+	position: relative;
+	width: 100%;
+}
+
+.book-cover {
+	width: 8em;
+	height: 100%;
+}
+
+.book-cover img {
+	width: 7em;
+	height: 7em;
+	max-width: 100%;
+}
+
+.book-other {
+	width: 50%;
+}
+
+.book-other a {
+	text-decoration: none;
+	background: #ecebe9;
+	display: inline-block;
+	text-align: center;
+	width: 1.5em;
+	font-weight: bold;
+	color: #141414;
+	border-radius: 2px;
+}
+
+.del a {
+	padding: .3em 0;
+	width: 3em;
+	font-size: .6em;
+	margin-left: 4em;
+}
+
+.number-input {
+	width: 2em;
+	height: 14px;
+	line-height: .8em;
+	text-align: center;
+	font-size: 1em;
+}
+
+.book-total {
+	text-align: right;
+	font-size: .8em;
+}
