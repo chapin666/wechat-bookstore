@@ -219,8 +219,8 @@
 
 /****************** address ****************/
 
-.padding-2 {
-	padding: 2em;
+.margin-5 {
+	padding: 2em 5em;
 }
 
 .title-box {
@@ -320,7 +320,6 @@ a.pay-now:hover {
 	right: 1em;
 	top: 3em;
 }
-
 
 
 .order-base {
