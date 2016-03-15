@@ -217,7 +217,7 @@
 
 
 
-/******************  ****************/
+/****************** address ****************/
 .title-box {
 	width: 100%;
 }
@@ -239,8 +239,25 @@
 
 .title-left {
 	float: left;
+	font-weight: bold;
 }
 
 .title-right {
 	float: right;
+}
+
+.book-list-title {
+	color: gray;
+	font-weight: bold;
+	font-size: 1em;
+	padding-left: .3em;
+}
+
+.aside {
+	padding-top: 1em;
+	font-size: .7em;
+	font-weight: normal;
+}
+.customer-info {
+	text-align: right;
 }
