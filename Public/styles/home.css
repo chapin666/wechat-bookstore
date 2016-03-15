@@ -218,6 +218,11 @@
 
 
 /****************** address ****************/
+
+.padding-2 {
+	padding: 2em;
+}
+
 .title-box {
 	width: 100%;
 }
