@@ -33,5 +33,13 @@ class MainController extends Controller {
 	public function address() {
 		$this->display();
 	}
+
+	public function orderList() {
+		$this->display();
+	}
+
+	public function order() {
+		$this->display();
+	}
 	
 }

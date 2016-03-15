@@ -266,3 +266,82 @@
 .customer-info {
 	text-align: right;
 }
+
+/************ OrderList.html **********/
+.order-list-box > div {
+	margin-bottom: 1em;
+}
+
+.order-list-box > div > img {
+	width: 3em;
+}
+
+.order-list-box > div > p {
+	font-size: .8em;
+}
+
+.order-list-box > div > span {
+	font-size: .8em;
+	color: gray;
+}
+
+.order-item {
+	position: relative;
+}
+
+.order-time {
+	position: absolute;
+	right: 0;
+	top: 0;
+	border-bottom: 1px solid silver;
+	border-left: 1px solid silver;
+	padding: 0 .5em 0 .3em;
+}
+
+a.pay-now {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	text-decoration: none;
+	font-size: .8em;
+	padding: .5em;
+	background: orange;
+	font-weight: bold;
+	border-radius: .2em 0 .2em 0;
+	border: .1em solid #FFA500;
+}
+
+a.pay-now:hover {
+	background: #ee0000;
+}
+
+.item-info {
+	position: absolute;
+	right: 1em;
+	top: 3em;
+}
+
+
+
+.order-base {
+	border-radius: .2em;
+	border: 1px dashed silver;
+}
+
+.order-cover {
+	overflow: hidden;
+	float: left;
+	width: 10em;
+	height: 10em;
+}
+
+.order-cover img {
+	width: 8em;
+	height: 8em;
+}
+
+.order-aside {
+	overflow: hidden;
+	width: auto;
+	float: left;
+}
