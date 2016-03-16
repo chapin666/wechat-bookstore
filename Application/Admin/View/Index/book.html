@@ -26,6 +26,7 @@
     <link href="http://fonts.lug.ustc.edu.cn/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="http://fonts.lug.ustc.edu.cn/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="__PUBLIC__/styles/material.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/styles/dialog-polyfill.css">
     <link rel="stylesheet" href="__PUBLIC__/styles/styles.css">
   </head>
   <body>
@@ -89,7 +90,7 @@
 				<span><b>当前位置 > </b> 用户管理 </span>
 			</div>
 			<div class="mdl-cell--4-col mdl-cell--4-col-phone mdl-cell" style="text-align: right;">
-				<button class="mdl-button mdl-js-button mdl-button--raised mdl-color--cyan-300 mdl-color-text--white">添加</button>
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-color--cyan-300 mdl-color-text--white" id="add-dialog">添加</button>
 				<button class="mdl-button mdl-js-button mdl-button--raised mdl-color--cyan-300 mdl-color-text--white">删除</button>
 			</div>
 		</div>
@@ -186,7 +187,7 @@
 				</td>
 			  </tr>
 			</tbody>
-        </table>
+		</table>
 
 		<div class="mdl-cell--11-col" style="margin: 30px auto 30px auto; text-align: center;">
 			<button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">skip_previous</i></button>
@@ -200,8 +201,36 @@
 			<button class="mdl-button mdl-js-button mdl-button--icon">8</button>
 			<button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">skip_next</i></button>
 		</div>
-      </main>
+	</main>
+
+	<!-- Dialog -->
+	<dialog class="mdl-dialog">
+		<h4 class="mdl-dialog__title">Allow data collection?</h4>
+		<div class="mdl-dialog__content">
+			<p>Allowing us to collect data will let us get you the information you want faster.</p>
+		</div>
+		<div class="mdl-dialog__actions">
+			<button type="button" class="mdl-button">Agree</button>
+			<button type="button" class="mdl-button close">Disagree</button>
+		</div>
+	</dialog>
+
     </div>
     <script src="__PUBLIC__/scripts/material.min.js"></script>
+    <script src="__PUBLIC__/scripts/dialog-polyfill.js"></script>
+    <script>
+    	var dialog = document.querySelector("dialog");
+    	var addDialogButton = document.querySelector("#add-dialog");
+    	var closeDialogButton = document.querySelector(".close");
+    	if (!dialog.showModal) {
+    		dialogPolyfill.registerDialog(dialog);
+    	}
+    	addDialogButton.addEventListener("click", function() {
+    		dialog.showModal();
+    	});
+    	closeDialogButton.addEventListener("click", function() {
+    		dialog.close();
+    	});
+    </script>
   </body>
 </html>
