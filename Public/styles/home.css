@@ -324,19 +324,18 @@ a.pay-now:hover {
 
 .order-base {
 	border-radius: .2em;
-	border: 1px dashed silver;
 }
 
 .order-cover {
 	overflow: hidden;
 	float: left;
-	width: 10em;
-	height: 10em;
+	width: 8em;
+	height: 7em;
 }
 
 .order-cover img {
-	width: 8em;
-	height: 8em;
+	width: 7em;
+	height: 7em;
 }
 
 .order-aside {
