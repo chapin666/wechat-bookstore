@@ -254,3 +254,13 @@ _:-ms-input-placeholder, :root .demo-graph {
       -ms-flex-align: center;
           align-items: center;
 }
+
+
+.mdl-dialog__content {
+  margin-bottom: 5px;
+}
+
+
+.dialog-child-padding-10 div {
+  padding: 10px;
+}

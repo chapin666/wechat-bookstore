@@ -26,6 +26,7 @@
     <link href="http://fonts.lug.ustc.edu.cn/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="http://fonts.lug.ustc.edu.cn/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="__PUBLIC__/styles/material.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/styles/dialog-polyfill.css">
     <link rel="stylesheet" href="__PUBLIC__/styles/styles.css">
   </head>
   <body>
@@ -89,7 +90,7 @@
 				<span><b>当前位置 > </b> 图书分类 </span>
 			</div>
 			<div class="mdl-cell--4-col mdl-cell--4-col-phone mdl-cell" style="text-align: right;">
-				<button class="mdl-button mdl-js-button mdl-button--raised mdl-color--cyan-300 mdl-color-text--white">添加</button>
+				<button id="add-dialog" class="mdl-button mdl-js-button mdl-button--raised mdl-color--cyan-300 mdl-color-text--white">添加</button>
 				<button class="mdl-button mdl-js-button mdl-button--raised mdl-color--cyan-300 mdl-color-text--white">删除</button>
 			</div>
 		</div>
@@ -201,7 +202,40 @@
 			<button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">skip_next</i></button>
 		</div>
       </main>
+
+	  <!-- Dialog -->
+	<dialog class="mdl-dialog">
+		<h4 class="mdl-dialog__title">添加图书分类</h4>
+		<div class="mdl-dialog__content">
+			<div class="dialog-child-padding-10">
+				<div>分类名称：<input type="text" placeholder="请输入分类名称"></div>
+				<div>分类图片：<input type="file"></div>
+				<div>分类描述：<input type="text" placeholder="请输入分类描述"></div>
+			</div>
+		</div>
+		<div class="mdl-dialog__actions">
+			<button type="button" class="mdl-button">上传</button>
+			<button type="button" class="mdl-button close">取消</button>
+		</div>
+	</dialog>
+
+
     </div>
     <script src="__PUBLIC__/scripts/material.min.js"></script>
+	<script src="__PUBLIC__/scripts/dialog-polyfill.js"></script>
+    <script>
+    	var dialog = document.querySelector("dialog");
+    	var addDialogButton = document.querySelector("#add-dialog");
+    	var closeDialogButton = document.querySelector(".close");
+    	if (!dialog.showModal) {
+    		dialogPolyfill.registerDialog(dialog);
+    	}
+    	addDialogButton.addEventListener("click", function() {
+    		dialog.showModal();
+    	});
+    	closeDialogButton.addEventListener("click", function() {
+    		dialog.close();
+    	});
+    </script>
   </body>
 </html>
