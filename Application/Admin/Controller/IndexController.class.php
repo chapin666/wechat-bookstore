@@ -13,8 +13,6 @@ class IndexController extends Controller {
         $a = new Attachment();
         $list = $a->getAttachementById(1);
 
-
-
         $this->display();
     }
 

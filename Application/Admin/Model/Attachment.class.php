@@ -3,8 +3,9 @@
 
 class Attachment {
 	
-	public function getAttachementById($id) {
-		return "ok";
-	}
+		public function getAttachementById($id) {
+			$Attachment = M("attachment"); // 实例化User对象
+			return $Attachment->where('id=$id')->select();
+		}
 
 }
