@@ -1,0 +1,10 @@
+.div { margin:0 auto; width:100%; overflow:hidden; } 
+.line { position:relative; margin:0 auto; width:300px; text-align:left } 
+.line span.span { float:left; padding-top:2px; } 
+.file { position:absolute; left:0; width:250px; top:0;
+ height:28px; filter:alpha(opacity=0); opacity:0; cursor: pointer } 
+.file1 { float:left; margin-left:8px; z-index:1; width:66px;
+ height:28px; line-height:28px; background:url(../images/liulan.gif) no-repeat 0 0;
+ text-indent:-9999px; cursor: pointer } 
+.inputstyle { border:1px solid #BEBEBE; width:170px; float:left;
+ height:23px; line-height:23px; background:#FFF; z-index:99 } 

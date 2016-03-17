@@ -255,12 +255,15 @@ _:-ms-input-placeholder, :root .demo-graph {
           align-items: center;
 }
 
+.mdl-dialog {
+  padding: 20px 35px;
+}
 
 .mdl-dialog__content {
   margin-bottom: 5px;
 }
 
 
-.dialog-child-padding-10 div {
-  padding: 10px;
+.dialog-child-margin-10 div {
+  margin: 10px 0;
 }

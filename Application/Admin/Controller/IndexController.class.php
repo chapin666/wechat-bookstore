@@ -1,17 +1,22 @@
 <?php
 namespace Admin\Controller;
 use Think\Controller;
-use Admin\Model\Attachment;
+use Admin\Model\BookCategory;
+
 
 class IndexController extends Controller {
+
 
      public function index(){
        $this->display();
     }
 
     public function category() {
-        $a = new Attachment();
-        $list = $a->getAttachementById(1);
+
+        $c = new BookCategory();
+        $categoryList = $c->findList();
+
+        $this->assign('categorys', $categoryList);
 
         $this->display();
     }

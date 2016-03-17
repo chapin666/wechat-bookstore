@@ -1,11 +1,12 @@
-<?php 
-
+<?php
+namespace  Admin\Model;
 
 class Attachment {
-	
-		public function getAttachementById($id) {
-			$Attachment = M("attachment"); // 实例化User对象
-			return $Attachment->where('id=$id')->select();
-		}
+
+	public function getAttachementById($attachement) {
+		$a = M("attachment"); 
+		$attachmentModel = $a->where($attachment)->select();
+		return $a->parseFieldsMap($attachmentModel);
+	}
 
 }

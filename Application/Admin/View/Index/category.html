@@ -26,8 +26,9 @@
     <link href="http://fonts.lug.ustc.edu.cn/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="http://fonts.lug.ustc.edu.cn/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="__PUBLIC__/styles/material.min.css">
-	<link rel="stylesheet" href="__PUBLIC__/styles/dialog-polyfill.css">
+    <link rel="stylesheet" href="__PUBLIC__/styles/dialog-polyfill.css">
     <link rel="stylesheet" href="__PUBLIC__/styles/styles.css">
+    <link rel="stylesheet" href="__PUBLIC__/styles/upload.css">
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -105,87 +106,17 @@
 			  </tr>
 			</thead>
 			<tbody>
+			  <foreach name="categorys" item="vo">
 			  <tr>
-				<td class="mdl-data-table__cell--non-numeric">1</td>
-				<td class="mdl-data-table__cell--non-numeric">计算机/网络 </td>
-				<td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
+				<td class="mdl-data-table__cell--non-numeric">{$vo.id}</td>
+				<td class="mdl-data-table__cell--non-numeric">{$vo.name}</td>
+				<td class="mdl-data-table__cell--non-numeric">{$vo.create_time}</td>
 				<td class="mdl-data-table__cell--non-numeric">
 				  <a href="">修改</a>
 				  <a href="">删除</a>
 				</td>
 			  </tr>
-			    <tr>
-				<td class="mdl-data-table__cell--non-numeric">1</td>
-				<td class="mdl-data-table__cell--non-numeric">医学</td>
-				<td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
-				<td class="mdl-data-table__cell--non-numeric">
-				  <a href="">修改</a>
-				  <a href="">删除</a>
-				</td>
-			  </tr>
-			    <tr>
-				<td class="mdl-data-table__cell--non-numeric">1</td>
-				<td class="mdl-data-table__cell--non-numeric">外语</td>
-				<td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
-				<td class="mdl-data-table__cell--non-numeric">
-				  <a href="">修改</a>
-				  <a href="">删除</a>
-				</td>
-			  </tr>
-			    <tr>
-				<td class="mdl-data-table__cell--non-numeric">1</td>
-				<td class="mdl-data-table__cell--non-numeric">历史</td>
-				<td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
-				<td class="mdl-data-table__cell--non-numeric">
-				  <a href="">修改</a>
-				  <a href="">删除</a>
-				</td>
-			  </tr>
-			    <tr>
-				<td class="mdl-data-table__cell--non-numeric">1</td>
-				<td class="mdl-data-table__cell--non-numeric">社会科学</td>
-				<td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
-				<td class="mdl-data-table__cell--non-numeric">
-				  <a href="">修改</a>
-				  <a href="">删除</a>
-				</td>
-			  </tr>
-			    <tr>
-				<td class="mdl-data-table__cell--non-numeric">1</td>
-				<td class="mdl-data-table__cell--non-numeric">哲学/宗教</td>
-				<td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
-				<td class="mdl-data-table__cell--non-numeric">
-				  <a href="">修改</a>
-				  <a href="">删除</a>
-				</td>
-			  </tr>
-			    <tr>
-				<td class="mdl-data-table__cell--non-numeric">1</td>
-				<td class="mdl-data-table__cell--non-numeric">政治/军事 </td>
-				<td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
-				<td class="mdl-data-table__cell--non-numeric">
-				  <a href="">修改</a>
-				  <a href="">删除</a>
-				</td>
-			  </tr>
-			    <tr>
-				<td class="mdl-data-table__cell--non-numeric">1</td>
-				<td class="mdl-data-table__cell--non-numeric">保健/心理健康</td>
-				<td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
-				<td class="mdl-data-table__cell--non-numeric">
-				  <a href="">修改</a>
-				  <a href="">删除</a>
-				</td>
-			  </tr>
-			    <tr>
-				<td class="mdl-data-table__cell--non-numeric">1</td>
-				<td class="mdl-data-table__cell--non-numeric">计算机类</td>
-				<td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
-				<td class="mdl-data-table__cell--non-numeric">
-				  <a href="">修改</a>
-				  <a href="">删除</a>
-				</td>
-			  </tr>
+			</foreach>
 			</tbody>
         </table>
 
@@ -204,20 +135,41 @@
       </main>
 
 	  <!-- Dialog -->
-	<dialog class="mdl-dialog">
+	<form action="http://www.baidu.com" method="post">
+	<dialog class="mdl-dialog" >
 		<h4 class="mdl-dialog__title">添加图书分类</h4>
 		<div class="mdl-dialog__content">
-			<div class="dialog-child-padding-10">
-				<div>分类名称：<input type="text" placeholder="请输入分类名称"></div>
-				<div>分类图片：<input type="file"></div>
-				<div>分类描述：<input type="text" placeholder="请输入分类描述"></div>
+			<div class="dialog-child-margin-10">
+				<div class="mdl-textfield mdl-js-textfield">
+				    <input class="mdl-textfield__input" type="text"  id="name">
+				    <label class="mdl-textfield__label" for="name">请输入分类名称</label>
+				</div>
+				<div>
+				  <div class="div"> 
+				    <div class="line"> 
+					<span class="span"> 
+						<input name="" type="text" id="viewfile"
+						 onmouseout="document.getElementById('upload').style.display='none';" class="inputstyle" placeholder="请选择图片" /> 
+					</span> 
+					<label for="unload"  onmouseover="document.getElementById('upload').style.display='block';" class="file1">浏览...</label> 
+					<input type="file" onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';"  class="file" id="upload" /> 
+				    </div> 
+				  </div> 
+				</div>
+				<div class="mdl-textfield mdl-js-textfield">
+					<textarea class="mdl-textfield__input" type="text" 
+					 	rows= "2" id="description" ></textarea>
+					<label class="mdl-textfield__label" 
+						for="description">请输入分类描述...</label>
+				</div>
 			</div>
 		</div>
 		<div class="mdl-dialog__actions">
-			<button type="button" class="mdl-button">上传</button>
+			<button type="submit" class="mdl-button">上传</button>
 			<button type="button" class="mdl-button close">取消</button>
 		</div>
 	</dialog>
+	</form>
 
 
     </div>
