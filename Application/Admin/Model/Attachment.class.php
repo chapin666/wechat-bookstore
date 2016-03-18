@@ -3,10 +3,20 @@ namespace  Admin\Model;
 
 class Attachment {
 
-	public function getAttachementById($attachement) {
-		$a = M("attachment"); 
-		$attachmentModel = $a->where($attachment)->select();
-		return $a->parseFieldsMap($attachmentModel);
+
+	/* Insert data */
+	public function add($data) {
+		$model = M("attachment"); 
+		return $model->add($data);
 	}
+
+	public function getAttachementById($attachement) {
+		$model = M("attachment"); 
+		$attachmentModel = $model->where($attachment)->select();
+		return $model->parseFieldsMap($attachmentModel);
+	}
+
+
+
 
 }
