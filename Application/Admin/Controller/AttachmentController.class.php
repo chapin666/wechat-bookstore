@@ -65,12 +65,12 @@ class AttachmentController extends Controller {
 		$list		=	$attachmentModel ->add($data);
 		if ($list !== false)
 		{
-			require true;
+			return true;
 			//$this->success('上传图片成功！');
 		}
 		else
 		{
-			require false;
+			return false;
 			//$this->error('上传图片失败!');
 		}
 	}

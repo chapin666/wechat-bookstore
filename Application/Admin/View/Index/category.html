@@ -135,7 +135,7 @@
       </main>
 
 	  <!-- Dialog -->
-	<form action="{:U('Admin/Category/save')}" enctype="multipart/form-data" method="post">
+	<form enctype="multipart/form-data" method="post" id="category-form">
 	<dialog class="mdl-dialog" >
 		<h4 class="mdl-dialog__title">添加图书分类</h4>
 		<div class="mdl-dialog__content">
@@ -165,7 +165,7 @@
 			</div>
 		</div>
 		<div class="mdl-dialog__actions">
-			<button type="button" class="mdl-button" onclick="submitImgForm()">上传</button>
+			<button type="submit" class="mdl-button">上传</button>
 			<button type="button" class="mdl-button close">取消</button>
 		</div>
 	</dialog>
@@ -173,21 +173,47 @@
 
 
     </div>
+	<script src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
     <script src="__PUBLIC__/scripts/material.min.js"></script>
     <script src="__PUBLIC__/scripts/dialog-polyfill.js"></script>
     <script>
-    	var dialog = document.querySelector("dialog");
-    	var addDialogButton = document.querySelector("#add-dialog");
-    	var closeDialogButton = document.querySelector(".close");
-    	if (!dialog.showModal) {
-    		dialogPolyfill.registerDialog(dialog);
-    	}
-    	addDialogButton.addEventListener("click", function() {
-    		dialog.showModal();
-    	});
-    	closeDialogButton.addEventListener("click", function() {
-    		dialog.close();
-    	});
+
+		$(function() {
+			var dialog = document.querySelector("dialog");
+			var addDialogButton = document.querySelector("#add-dialog");
+			var closeDialogButton = document.querySelector(".close");
+			if (!dialog.showModal) {
+				dialogPolyfill.registerDialog(dialog);
+			}
+			addDialogButton.addEventListener("click", function() {
+				dialog.showModal();
+			});
+			closeDialogButton.addEventListener("click", function() {
+				dialog.close();
+			});
+
+			$("#category-form").on('submit',(function(e){
+				e.preventDefault();
+				$.ajax({
+					url: "{:U('Admin/Category/save')}",
+					type: "POST",
+					data:  new FormData(this),
+					contentType: false,
+					cache: false,
+					processData:false,
+					success: function(data){
+
+
+					},
+					error: function(){
+						alert("no ");
+					} 	        
+				});
+			}));
+
+		});
+
+    	
     </script>
   </body>
 </html>
