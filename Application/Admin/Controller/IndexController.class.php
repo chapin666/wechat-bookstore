@@ -1,7 +1,7 @@
 <?php
 namespace Admin\Controller;
 use Think\Controller;
-use Admin\Model\BookCategory;
+use Admin\Model\Category;
 
 
 class IndexController extends Controller {
@@ -13,7 +13,7 @@ class IndexController extends Controller {
 
     public function category() {
 
-        $c = new BookCategory();
+        $c = new Category();
         $categoryList = $c->findList();
 
         $this->assign('categorys', $categoryList);

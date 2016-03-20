@@ -10,7 +10,7 @@ class AttachmentController extends Controller {
 	/***
 	* 实现图片上传
 	*/
-	public function uploadImage($img){
+	public function uploadImage(){
 		import('@.ORG.UploadFile');
 
 		//导入上传类
@@ -47,30 +47,22 @@ class AttachmentController extends Controller {
 		else
 		{
 
-/*			//导入图片类
-			$image = new \Think\Image(); 
-
-			//给m_缩略图添加水印, Image::water('原文件路径','水印图片地址')
-			$image->water($info[upload]['savepath'] . $info[upload]['savename'], 
-					APP_PATH . '/Public/images/banner01.png');*/
-
-			//图片名赋值给 字段image
-			$img = $info[upload]['savename'];
+			$filename = $info[upload]['savename'];
 		}
 
 		
 		$attachmentModel = new Attachment;
 		//保存当前数据对象
-		$data['path']	=	$img;
+		$data['location']	=	$filename;
 		$list		=	$attachmentModel ->add($data);
 		if ($list !== false)
 		{
-			return true;
-			//$this->success('上传图片成功！');
+			$model = $attachmentModel->getAttachmentById($data);
+			return $model[0]['id'];
 		}
 		else
 		{
-			return false;
+			return "";
 			//$this->error('上传图片失败!');
 		}
 	}

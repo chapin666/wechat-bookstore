@@ -2,6 +2,7 @@
 namespace Admin\Controller;
 
 use Think\Controller;
+use Admin\Model\Category;
 
 
 class CategoryController extends  Controller  {
@@ -10,16 +11,22 @@ class CategoryController extends  Controller  {
 
 		$attachmentCtroller = new AttachmentController;
 
-		$status = false;
-
+		// Upload image
 		 if(!empty($_FILES))
 		 {
-		 	$img = $_POST['image'];
-	
-		 	$status = $attachmentCtroller->uploadImage($img);
+		 	$attachment_id = $attachmentCtroller->uploadImage();
 		 }
 
-		$this->ajaxReturn($_REQUEST);
+		 // save data to database
+		 $data['name'] = $_POST['category-title'];
+		 $data['attachment_id'] = $attachment_id;
+		 $data['description'] = $_POST['category-description'];
+		 
+		 $categoryDao = new Category();
+		 $categoryDao->save($data);
+
+
+		$this->ajaxReturn(true);
 	}
 
 }

@@ -260,7 +260,8 @@ _:-ms-input-placeholder, :root .demo-graph {
 }
 
 .mdl-dialog__content {
-  margin-bottom: 5px;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 

@@ -10,10 +10,9 @@ class Attachment {
 		return $model->add($data);
 	}
 
-	public function getAttachementById($attachement) {
+	public function getAttachmentById($attachment) {
 		$model = M("attachment"); 
-		$attachmentModel = $model->where($attachment)->select();
-		return $model->parseFieldsMap($attachmentModel);
+		return $model->where($attachment)->select();
 	}
 
 
