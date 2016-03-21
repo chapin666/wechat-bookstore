@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-cn">
+<html lang="zh-cn" data-ng-app="app">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,6 +25,7 @@
 
     <link href="http://fonts.lug.ustc.edu.cn/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="http://fonts.lug.ustc.edu.cn/icon?family=Material+Icons" rel="stylesheet">
+
     <link rel="stylesheet" href="__PUBLIC__/styles/material.min.css">
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
     <link rel="stylesheet" href="__PUBLIC__/styles/dialog-polyfill.css">
@@ -82,7 +83,7 @@
         </nav>
       </div>
 
-      <main class="mdl-layout__content mdl-color--grey-100">
+      <main class="mdl-layout__content mdl-color--grey-100" data-ng-controller="categoryCtrl">
 
         <!-- start mdl grid -->
         <div class="mdl-cell--11-col mdl-grid" style="margin: 20px auto; ">
@@ -183,9 +184,18 @@
     <script src="//oss.maxcdn.com/jquery.form/3.50/jquery.form.min.js"></script>
     <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
     <script src="__PUBLIC__/scripts/dialog-polyfill.js"></script>
+	<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
     <script>
 
+		var app = angular.module('app', []);
+		app.controller('categoryCtrl', function($scope) {
+			
+		});
+
+
+		// JQuery
 		$(function() {
+
 			var dialog = document.querySelector("dialog");
 			var addDialogButton = document.querySelector("#add-dialog");
 			var closeDialogButton = document.querySelector(".close");
@@ -200,17 +210,17 @@
 			});
 
 
-                    var options = {
-                            success: function (data) {
-                                  dialog.close();
-                                   var snackbarContainer = document.querySelector('#demo-toast-example');
-                                   var data = {message: ' success'};
-                                   snackbarContainer.MaterialSnackbar.showSnackbar(data);
-                                   setTimeout("window.location.reload()", 2750);
-                            }
-                    };
+			var options = {
+					success: function (data) {
+						  dialog.close();
+						   var snackbarContainer = document.querySelector('#demo-toast-example');
+						   var data = {message: ' success'};
+						   snackbarContainer.MaterialSnackbar.showSnackbar(data);
+						   setTimeout("window.location.reload()", 2750);
+					}
+			};
 
-                    $("#category-form").ajaxForm(options);
+			$("#category-form").ajaxForm(options);
 
 
 		});
