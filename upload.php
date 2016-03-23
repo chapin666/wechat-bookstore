@@ -1,19 +1,7 @@
 <?php
 
-	$jarr = array(
-		"appName" => "OAUpdate",
+	$str = "<span>飘城WEB俱乐部</span>";
 
-		"versionCode" => "1",
-
-		"versionName" => "0.2", 
-		
-		"apkUrl"=> "", 
-		
-		"changeLog" => "Version 0.1",
-
-		"updateTips" => "更新提示" 
-	);
-
-	$arr = json_encode($jarr);
+	$arr = json_encode($str);
 
 	print_r($arr);
