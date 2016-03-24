@@ -15,10 +15,9 @@ class IndexController extends Controller {
 
         $c = new Category();
         $categoryList = $c->findList();
-
         $this->assign('categorys', $categoryList);
-
         $this->display();
+
     }
 
 
