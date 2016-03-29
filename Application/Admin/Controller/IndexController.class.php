@@ -13,14 +13,10 @@ class IndexController extends Controller {
     }
 
 
-<<<<<<< Updated upstream
-        $c = new Category();
-=======
     /* 查询所有书籍分类Action*/
     public function category() {
         
-        $c = new BookCategory();
->>>>>>> Stashed changes
+        $c = new Category();
         $categoryList = $c->findList();
         $this->assign('categorys', $categoryList);
         $this->display();
