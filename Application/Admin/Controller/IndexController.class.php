@@ -6,6 +6,12 @@ use Admin\Model\Category;
 
 class IndexController extends Controller {
 
+
+    /* Login page */
+    public function login() {
+        $this->display();
+    }
+
     
     /* 首页Action */
     public function index(){
@@ -26,6 +32,10 @@ class IndexController extends Controller {
 
     /* 书籍列表Action */
     public function book() {
+        $this->display();
+    }
+
+    public function bookAdd() {
         $this->display();
     }
 
