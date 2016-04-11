@@ -27,6 +27,7 @@
     <link href="http://fonts.lug.ustc.edu.cn/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="__PUBLIC__/styles/material.min.css">
     <link rel="stylesheet" href="__PUBLIC__/styles/styles.css">
+    <link rel="stylesheet" href="__PUBLIC__/editor/themes/default/default.css" >
     <style>
 	.book-add  div {
 		display: block;
@@ -91,38 +92,47 @@
 			<span><b>当前位置 > </b> 图书管理 > 添加图书 </span>
 		</div>
 	</div>
-	<div class="mdl-cell--11-col  mdl-grid book-add" style="margin:0 auto;">
+	<div class="mdl-cell--10-col  mdl-grid book-add" style="margin:0 auto;">
 	<form action="">
-		<div class="mdl-textfield mdl-js-textfield">
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 		  <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="phone">
-		  <label class="mdl-textfield__label" for="phone">Phone</label>
+		  <label class="mdl-textfield__label" for="phone">Name</label>
 		  <span class="mdl-textfield__error">Digits only</span>
 		</div>
-		<div class="mdl-textfield mdl-js-textfield">
+
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-select">
+              <input class="mdl-textfield__input" type="text" id="select-section" />
+              <label class="mdl-textfield__label" for="sample3">Please select </label>
+              <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="select-section">
+                  <li class="mdl-menu__item">1</li>
+                  <li class="mdl-menu__item">2</li>
+                  <li class="mdl-menu__item">3</li>
+                  <li class="mdl-menu__item">4</li>
+                </ul>
+            </div>
+
+
+
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		  <label for="chkbox1" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                  <input type="checkbox" id="chkbox1" class="mdl-checkbox__input">
+                  <span class="mdl-checkbox__label">Enable AutoSave</span>
+                </label>
+		</div>
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 		  <input class="mdl-textfield__input" type="text" id="user" pattern="[A-Z,a-z, ]*">
 		  <label class="mdl-textfield__label" for="user">User name</label>
 		  <span class="mdl-textfield__error">Letters and spaces only</span>
 		</div>
-		<div class="mdl-textfield mdl-js-textfield">
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 		  <input class="mdl-textfield__input" type="text" id="user" pattern="[A-Z,a-z, ]*">
 		  <label class="mdl-textfield__label" for="user">User name</label>
 		  <span class="mdl-textfield__error">Letters and spaces only</span>
 		</div>
-		<div class="mdl-textfield mdl-js-textfield">
-		  <input class="mdl-textfield__input" type="text" id="user" pattern="[A-Z,a-z, ]*">
-		  <label class="mdl-textfield__label" for="user">User name</label>
-		  <span class="mdl-textfield__error">Letters and spaces only</span>
-		</div>
-		<div class="mdl-textfield mdl-js-textfield">
-		  <input class="mdl-textfield__input" type="text" id="user" pattern="[A-Z,a-z, ]*">
-		  <label class="mdl-textfield__label" for="user">User name</label>
-		  <span class="mdl-textfield__error">Letters and spaces only</span>
-		</div>
-		<div class="mdl-textfield mdl-js-textfield">
-		  <input class="mdl-textfield__input" type="text" id="user" pattern="[A-Z,a-z, ]*">
-		  <label class="mdl-textfield__label" for="user">User name</label>
-		  <span class="mdl-textfield__error">Letters and spaces only</span>
-		</div>
+
+              <div class="mdl-textfield">
+		  <textarea id="editor_id" name="content" style="width:700px;height:300px;"></textarea>
+              </div>
 
 		<!-- Colored raised button -->
 		<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary">
@@ -137,6 +147,36 @@
       </main>
 
    </div>
-   <script src="__PUBLIC__/scripts/material.min.js"></script>
+    <script src="__PUBLIC__/scripts/material.min.js"></script>
+    <script src="__PUBLIC__/scripts/jquery.min.js"></script>
+    <script src="__PUBLIC__/editor/kindeditor-all-min.js" ></script>
+    <script src="__PUBLIC__/editor/lang/zh-CN.js" ></script>
+   <script>
+
+    $(function() {
+
+          var editor;
+          KindEditor.ready(function(K) {
+            editor = K.create('textarea[name="content"]', {
+              resizeType : 1,
+              allowPreviewEmoticons : false,
+              allowImageUpload : false,
+              items : [
+                'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+                'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+                'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+            });
+        });
+
+
+      $('div.mdl-select > ul > li').click(function(e) {
+          var text = $(e.target).text();
+          $(e.target).parents('.mdl-select').addClass('is-dirty').children('input').val(text);
+      });
+    });
+
+   
+
+   </script>
   </body>
 </html>
