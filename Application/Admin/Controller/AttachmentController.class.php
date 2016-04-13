@@ -10,7 +10,7 @@ class AttachmentController extends Controller {
 	/***
 	* 实现图片上传
 	*/
-	public function uploadImage(){
+	public function uploadImage($path){
 		import('@.ORG.UploadFile');
 
 		//导入上传类
@@ -20,7 +20,7 @@ class AttachmentController extends Controller {
 		//设置上传文件类型
 		$upload->allowExts	=	explode(',', 'jpg,gif,png,jpeg');
 		//设置附件上传目录
-		$upload->savePath	=	'./categorys/';
+		$upload->savePath	=	'./' .  $path .'/';
 		//设置需要生成缩略图，仅对图像文件有效
 		$upload->thumb	=	true;
 		// 设置引用图片类库包路径

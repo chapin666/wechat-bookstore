@@ -98,75 +98,84 @@
 		</div>
 	</div>
 	<div class="mdl-cell--10-col  mdl-grid book-add" style="margin:0 auto;">
-	<form action="">
-		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-		  <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="phone">
-		  <label class="mdl-textfield__label" for="phone">图书名称</label>
-		  <span class="mdl-textfield__error">Digits only</span>
+	<form action="{:U('Admin/Book/save')}" method="post"   enctype="multipart/form-data">
+		
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		  <input class="mdl-textfield__input" type="text" id="book-name" name="book-name">
+		  <label class="mdl-textfield__label" for="book-name">图书名称</label>
+		  <span class="mdl-textfield__error"></span>
 		</div>
 
-    <div>
-          <div class="div"> 
-            <div class="line"> 
-          <span class="span"> 
-            <input name="" type="text" id="viewfile"
-             onmouseout="document.getElementById('upload').style.display='none';" class="inputstyle" placeholder="请选择图片" /> 
-          </span> 
-          <label for="unload"  onmouseover="document.getElementById('upload').style.display='block';" class="file1">浏览...</label> 
-          <input type="file" onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';"  class="file" id="upload" name="upload" /> 
-            </div> 
-          </div> 
-        </div>
+              <div>
+                <div class="div"> 
+                  <div class="line"> 
+                    <span class="span"> 
+                      <input name="" type="text" id="viewfile"
+                        onmouseout="document.getElementById('upload').style.display='none';" class="inputstyle" placeholder="请选择图片" /></span>
+                        <label for="unload"  onmouseover="document.getElementById('upload').style.display='block';"
+                          class="file1">浏览...</label> 
+                        <input type="file" onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';"  class="file" id="upload" name="upload" /> 
+                    </div> 
+                  </div> 
+              </div>
 
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-select">
-              <input class="mdl-textfield__input" type="text" id="select-section" />
-              <label class="mdl-textfield__label" for="sample3">图书分类</label>
-              <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="select-section">
-                  <li class="mdl-menu__item">1</li>
-                  <li class="mdl-menu__item">2</li>
-                  <li class="mdl-menu__item">3</li>
-                  <li class="mdl-menu__item">4</li>
-                </ul>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" id="user" pattern="[A-Z,a-z, ]*">
-              <label class="mdl-textfield__label" for="user">原图书价</label>
-              <span class="mdl-textfield__error">Letters and spaces only</span>
-            </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-select">
+                <input class="mdl-textfield__input" type="text" id="book-category-name" name="book-category-name"/>
+                <label class="mdl-textfield__label" for="book-category-name">图书分类</label>
+                <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="book-category-name">
+                    <li class="mdl-menu__item">1</li>
+                    <li class="mdl-menu__item">2</li>
+                    <li class="mdl-menu__item">3</li>
+                    <li class="mdl-menu__item">4</li>
+                  </ul>
+              </div>
+
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="price" name="price">
+                <label class="mdl-textfield__label" for="price">原图书价</label>
+                <span class="mdl-textfield__error"></span>
+              </div>
+
+
 		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
-		  <label for="chkbox1" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-                  <input type="checkbox" id="chkbox1" class="mdl-checkbox__input">
+		  <label for="is-discount" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                  <input type="checkbox" id="is-discount" name="is-discount" class="mdl-checkbox__input">
                   <span class="mdl-checkbox__label">是否折扣</span>
                 </label>
 		</div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" id="user" pattern="[A-Z,a-z, ]*">
-              <label class="mdl-textfield__label" for="user">现图书价</label>
-              <span class="mdl-textfield__error">Letters and spaces only</span>
-            </div>
+
+              <div id="price-now-box" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="display: none;">
+                <input class="mdl-textfield__input" type="text" id="price-now" name="price-now" >
+                <label class="mdl-textfield__label" for="price-now">现图书价</label>
+                <span class="mdl-textfield__error"></span>
+              </div>
+
 		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-		  <input class="mdl-textfield__input" type="text" id="user" pattern="[A-Z,a-z, ]*">
-		  <label class="mdl-textfield__label" for="user">出版社</label>
-		  <span class="mdl-textfield__error">Letters and spaces only</span>
+		  <input class="mdl-textfield__input" type="text" id="publish" name="publish" pattern="[A-Z,a-z, ]*">
+		  <label class="mdl-textfield__label" for="publish">出版社</label>
+		  <span class="mdl-textfield__error"></span>
 		</div>
-		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-		  <input class="mdl-textfield__input" type="text" id="user" pattern="[A-Z,a-z, ]*">
-		  <label class="mdl-textfield__label" for="user">作者</label>
+		
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		  <input class="mdl-textfield__input" type="text" id="author" name="author" pattern="[A-Z,a-z, ]*">
+		  <label class="mdl-textfield__label" for="author">作者</label>
 		  <span class="mdl-textfield__error">Letters and spaces only</span>
 		</div>
 
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="book-total" name="book-total" pattern="\d">
+                <label class="mdl-textfield__label" for="book-total">图书数量</label>
+                <span class="mdl-textfield__error">数量只能为1到10000</span>
+              </div>
+
               <div class="mdl-textfield">
-		  <textarea id="editor_id" name="content" style="width:700px;height:300px;">图书描述...</textarea>
+		  <textarea id="content" name="content" style="width:700px;height:300px;">图书描述...</textarea>
               </div>
 
 		<!-- Colored raised button -->
-		<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary">
-		  保存
-		</button>
+		<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary">保存</button>
 		<!-- Accent-colored raised button -->
-		<button class="mdl-button mdl-js-button mdl-button--raised ">
-		  取消
-		</button>
+		<button class="mdl-button mdl-js-button mdl-button--raised">取消</button>
 	</form>
 	</div>
       </main>
@@ -194,10 +203,20 @@
         });
 
 
-      $('div.mdl-select > ul > li').click(function(e) {
-          var text = $(e.target).text();
-          $(e.target).parents('.mdl-select').addClass('is-dirty').children('input').val(text);
-      });
+        $('div.mdl-select > ul > li').click(function(e) {
+            var text = $(e.target).text();
+            $(e.target).parents('.mdl-select').addClass('is-dirty').children('input').val(text);
+        });
+
+        $("#is-discount").click(function() {
+            if ($(this).is(":checked")) {
+              $("#price-now-box").css('display', 'block');
+            } else {
+               $("#price-now-box").css('display','none');
+            }
+        });
+
+
     });
 
    

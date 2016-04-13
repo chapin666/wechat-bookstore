@@ -14,7 +14,7 @@ class CategoryController extends  Controller  {
 		// Upload image
 		 if(!empty($_FILES))
 		 {
-		 	$attachment_id = $attachmentCtroller->uploadImage();
+		 	$attachment_id = $attachmentCtroller->uploadImage('categorys');
 		 }
 
 		 // save data to database
