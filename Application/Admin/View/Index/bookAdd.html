@@ -28,10 +28,15 @@
     <link rel="stylesheet" href="__PUBLIC__/styles/material.min.css">
     <link rel="stylesheet" href="__PUBLIC__/styles/styles.css">
     <link rel="stylesheet" href="__PUBLIC__/editor/themes/default/default.css" >
+     <link rel="stylesheet" href="__PUBLIC__/styles/upload.css">
     <style>
 	.book-add  div {
 		display: block;
 	}
+      .div {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
     </style>
   </head>
   <body>
@@ -96,13 +101,26 @@
 	<form action="">
 		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 		  <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="phone">
-		  <label class="mdl-textfield__label" for="phone">Name</label>
+		  <label class="mdl-textfield__label" for="phone">图书名称</label>
 		  <span class="mdl-textfield__error">Digits only</span>
 		</div>
 
+    <div>
+          <div class="div"> 
+            <div class="line"> 
+          <span class="span"> 
+            <input name="" type="text" id="viewfile"
+             onmouseout="document.getElementById('upload').style.display='none';" class="inputstyle" placeholder="请选择图片" /> 
+          </span> 
+          <label for="unload"  onmouseover="document.getElementById('upload').style.display='block';" class="file1">浏览...</label> 
+          <input type="file" onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';"  class="file" id="upload" name="upload" /> 
+            </div> 
+          </div> 
+        </div>
+
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-select">
               <input class="mdl-textfield__input" type="text" id="select-section" />
-              <label class="mdl-textfield__label" for="sample3">Please select </label>
+              <label class="mdl-textfield__label" for="sample3">图书分类</label>
               <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="select-section">
                   <li class="mdl-menu__item">1</li>
                   <li class="mdl-menu__item">2</li>
@@ -110,28 +128,35 @@
                   <li class="mdl-menu__item">4</li>
                 </ul>
             </div>
-
-
-
-		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="user" pattern="[A-Z,a-z, ]*">
+              <label class="mdl-textfield__label" for="user">原图书价</label>
+              <span class="mdl-textfield__error">Letters and spaces only</span>
+            </div>
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
 		  <label for="chkbox1" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
                   <input type="checkbox" id="chkbox1" class="mdl-checkbox__input">
-                  <span class="mdl-checkbox__label">Enable AutoSave</span>
+                  <span class="mdl-checkbox__label">是否折扣</span>
                 </label>
 		</div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="user" pattern="[A-Z,a-z, ]*">
+              <label class="mdl-textfield__label" for="user">现图书价</label>
+              <span class="mdl-textfield__error">Letters and spaces only</span>
+            </div>
 		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 		  <input class="mdl-textfield__input" type="text" id="user" pattern="[A-Z,a-z, ]*">
-		  <label class="mdl-textfield__label" for="user">User name</label>
+		  <label class="mdl-textfield__label" for="user">出版社</label>
 		  <span class="mdl-textfield__error">Letters and spaces only</span>
 		</div>
 		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 		  <input class="mdl-textfield__input" type="text" id="user" pattern="[A-Z,a-z, ]*">
-		  <label class="mdl-textfield__label" for="user">User name</label>
+		  <label class="mdl-textfield__label" for="user">作者</label>
 		  <span class="mdl-textfield__error">Letters and spaces only</span>
 		</div>
 
               <div class="mdl-textfield">
-		  <textarea id="editor_id" name="content" style="width:700px;height:300px;"></textarea>
+		  <textarea id="editor_id" name="content" style="width:700px;height:300px;">图书描述...</textarea>
               </div>
 
 		<!-- Colored raised button -->
