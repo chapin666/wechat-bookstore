@@ -3,15 +3,16 @@ namespace Admin\Model;
 
 class Category {
 
-	public function findList() {
+	public function findAll() {
 		$c = M("book_category");
 		return $c->select();
 	}
 
+
 	public function findCategoryByName($name) {
 		$c = M("book_category");
 
-		return $c->where('name = \\'' .  $name .'\\'')->find();
+		return $c->where('name = ' .  $name)->find();
 	}
 
 

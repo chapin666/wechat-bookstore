@@ -100,11 +100,11 @@
 	<div class="mdl-cell--10-col  mdl-grid book-add" style="margin:0 auto;">
 	<form action="{:U('Admin/Book/save')}" method="post"   enctype="multipart/form-data">
 		
-              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-		  <input class="mdl-textfield__input" type="text" id="book-name" name="book-name">
-		  <label class="mdl-textfield__label" for="book-name">图书名称</label>
-		  <span class="mdl-textfield__error"></span>
-		</div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="book-name" name="book-name"  maxlength="20" required="required">
+                <label class="mdl-textfield__label" for="book-name">图书名称</label>
+                <span class="mdl-textfield__error">图书名称必填哦</span>
+            </div>
 
               <div>
                 <div class="div"> 
@@ -131,45 +131,45 @@
               </div>
 
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="price" name="price">
+                <input class="mdl-textfield__input" type="text" id="price" name="price" pattern="(\d)+(\.\d+)?">
                 <label class="mdl-textfield__label" for="price">原图书价</label>
-                <span class="mdl-textfield__error"></span>
+                <span class="mdl-textfield__error">必须为数字</span>
               </div>
 
 
-		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
-		  <label for="is-discount" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-                  <input type="checkbox" id="is-discount" name="is-discount" class="mdl-checkbox__input">
-                  <span class="mdl-checkbox__label">是否折扣</span>
-                </label>
-		</div>
+		      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
+                  <label for="is-discount" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                    <input type="checkbox" id="is-discount" name="is-discount" class="mdl-checkbox__input">
+                    <span class="mdl-checkbox__label">是否折扣</span>
+                  </label>
+		      </div>
 
               <div id="price-now-box" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="display: none;">
-                <input class="mdl-textfield__input" type="text" id="price-now" name="price-now" >
+                <input class="mdl-textfield__input" type="text" id="price-now" name="price-now" pattern="(\d)+(\.\d+)?">
                 <label class="mdl-textfield__label" for="price-now">现图书价</label>
-                <span class="mdl-textfield__error"></span>
+                <span class="mdl-textfield__error">必须为数字</span>
               </div>
 
-		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-		  <input class="mdl-textfield__input" type="text" id="publish" name="publish" pattern="[A-Z,a-z, ]*">
-		  <label class="mdl-textfield__label" for="publish">出版社</label>
-		  <span class="mdl-textfield__error"></span>
-		</div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="publish" name="publish" pattern="^[a-zA-Z0-9_\u4e00-\u9fa5]+$">
+		          <label class="mdl-textfield__label" for="publish">出版社</label>
+                  <span class="mdl-textfield__error">必须是数字、字母、汉字和下划线</span>
+              </div>
 		
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-		  <input class="mdl-textfield__input" type="text" id="author" name="author" pattern="[A-Z,a-z, ]*">
-		  <label class="mdl-textfield__label" for="author">作者</label>
-		  <span class="mdl-textfield__error">Letters and spaces only</span>
-		</div>
+                  <input class="mdl-textfield__input" type="text" id="author" name="author" pattern="^[a-zA-Z0-9_\u4e00-\u9fa5]+$">
+                  <label class="mdl-textfield__label" for="author">作者</label>
+                  <span class="mdl-textfield__error">必须是数字、字母、汉字和下划线</span>
+              </div>
 
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="book-total" name="book-total" pattern="\d">
+                <input class="mdl-textfield__input" type="text" id="book-total" name="book-total" pattern="\d+" maxlength="4">
                 <label class="mdl-textfield__label" for="book-total">图书数量</label>
                 <span class="mdl-textfield__error">数量只能为1到10000</span>
               </div>
 
               <div class="mdl-textfield">
-		  <textarea id="content" name="content" style="width:700px;height:300px;">图书描述...</textarea>
+		          <textarea id="content" name="content" style="width:700px;height:300px;">图书描述...</textarea>
               </div>
 
 		<!-- Colored raised button -->
