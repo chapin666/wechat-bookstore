@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-cn" ng-app="app">
+<html lang="zh-cn">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="__PUBLIC__/styles/upload.css">
     <link rel="stylesheet" href="__PUBLIC__/editor/themes/default/default.css" >
   </head>
-  <body ng-controller="categoryCtrl">
+  <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 
 
@@ -79,7 +79,7 @@
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--cyan-300 mdl-color-text--white">
           <a class="mdl-navigation__link" href="{:U('Admin/Index/index')}"><i class="mdl-color-text--white material-icons" role="presentation">home</i>主页</a>
-          <a class="mdl-navigation__link" href="{:U('Admin/Index/category')}"><i class="mdl-color-text--white material-icons" role="presentation">more</i>图书分类</a>
+          <a class="mdl-navigation__link" href="{:U('Admin/Category/findAll')}"><i class="mdl-color-text--white material-icons" role="presentation">more</i>图书分类</a>
 		  <a class="mdl-navigation__link" href="{:U('Admin/Index/book')}"><i class="mdl-color-text--white material-icons" role="presentation">local_library</i>图书管理</a>
 		  <a class="mdl-navigation__link" href="{:U('Admin/Index/user')}"><i class="mdl-color-text--white material-icons" role="presentation">people</i>会员中心</a>
           <a class="mdl-navigation__link" href="{:U('Admin/Index/order')}"><i class="mdl-color-text--white material-icons" role="presentation">shopping_cart</i>订单管理</a>
@@ -105,11 +105,8 @@
 	<script src="__PUBLIC__/scripts/dialog-polyfill.js"></script>
 	<script src="__PUBLIC__/scripts/angular.min.js"></script>
 	<script src="__PUBLIC__/scripts/material.min.js"></script>
-	<script src="__PUBLIC__/scripts/controller/category.js"></script> 
-	<script src="__PUBLIC__/scripts/service/multipartForm.js"></script>
-	<script src="__PUBLIC__/scripts/directives/fileModel.js"></script>
-    <script src="__PUBLIC__/editor/kindeditor-all-min.js" ></script>
-    <script src="__PUBLIC__/editor/lang/zh-CN.js" ></script>
+       <script src="__PUBLIC__/editor/kindeditor-all-min.js" ></script>
+       <script src="__PUBLIC__/editor/lang/zh-CN.js" ></script>
 	<script src="__PUBLIC__/scripts/editor.js" ></script>
 	<script src="__PUBLIC__/scripts/dialog.js"></script>
 

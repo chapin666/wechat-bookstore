@@ -23,7 +23,7 @@ class Category {
 
 	public function deleteById($id) {
 	    $c = M("book_category");
-		return $c->where("id=".$id)->delete();
+	    return $c->where("id=".$id)->delete();
 	}
 
 }

@@ -11,7 +11,7 @@
 			</div>
 		</div>
 
-        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-cell--11-col" style="margin: 0 auto;">
+        		<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-cell--11-col" style="margin: 0 auto;">
 			<thead>
 			  <tr>
 				<th class="mdl-data-table__cell--non-numeric">分类编号</th>
@@ -28,12 +28,12 @@
 				<td class="mdl-data-table__cell--non-numeric">{$vo.create_time}</td>
 				<td class="mdl-data-table__cell--non-numeric">
 				  <a href="/Admin/Category/put?id={$vo.id}">修改</a>
-				  <a href="/Admin/Category/deleteById?id={$vo.id}">删除</a>
+				  <a href="{:U('/Admin/Category/delete', array('id'=>$vo['id']))}">删除</a>
 				</td>
 			  </tr>
 			</foreach>
 			</tbody>
-        </table>
+        		</table>
 
 		<div class="mdl-cell--11-col" style="margin: 30px auto 30px auto; text-align: center;">
 			<button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">skip_previous</i></button>
@@ -51,13 +51,13 @@
 
 
 	<!-- Dialog -->
-	<!-- <form id="category-form" action="{:U('Admin/Category/save')}" method="post" enctype="multipart/form-data" > -->
+      <form id="category-form" action="{:U('Admin/Category/save')}" method="post" enctype="multipart/form-data" >
 	<dialog class="mdl-dialog" >
 		<h4 class="mdl-dialog__title">添加图书分类</h4>
 		<div class="mdl-dialog__content">
 			<div class="dialog-child-margin-10">
 				<div class="mdl-textfield mdl-js-textfield">
-				    <input class="mdl-textfield__input" type="text"  id="category-title" name="category-title" ng-model="category.title">
+				    <input class="mdl-textfield__input" type="text"  id="title" name="title">
 				    <label class="mdl-textfield__label" for="name">请输入分类名称</label>
 				</div>
 				<div>
@@ -68,23 +68,22 @@
 						 onmouseout="document.getElementById('upload').style.display='none';" class="inputstyle" placeholder="请选择图片" /> 
 					</span> 
 					<label for="unload"  onmouseover="document.getElementById('upload').style.display='block';" class="file1">浏览...</label> 
-					<input type="file" onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';"  class="file" id="upload" name="upload"  file-model="category.upload"/> 
+					<input type="file" onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';"  class="file" id="upload" name="upload" /> 
 				    </div> 
 				  </div> 
 				</div>
 				<div class="mdl-textfield mdl-js-textfield">
 					<textarea class="mdl-textfield__input" type="text" 
-					 	rows= "1" id="description" name="category-description"
-					 	ng-model="category.description"></textarea>
+					 	rows= "1" id="description" name="description"></textarea>
 					<label class="mdl-textfield__label" 
 						for="description">请输入分类描述...</label>
 				</div>
 			</div>
 		</div>
 		<div class="mdl-dialog__actions">
-			<button type="submit" class="mdl-button" ng-click="Submit()">上传</button>
+			<button type="submit" class="mdl-button">上传</button>
 			<button type="button" class="mdl-button close">取消</button>
 		</div>
 
 	</dialog>
-    <!-- </form> -->
+     </form>
