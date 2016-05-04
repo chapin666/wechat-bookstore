@@ -11,7 +11,6 @@ class Category {
 
 	public function findCategoryByName($name) {
 		$c = M("book_category");
-
 		return $c->where('name = ' .  $name)->find();
 	}
 
@@ -19,6 +18,12 @@ class Category {
 	public function save($data) {
 		$c = M("book_category");
 		return $c->add($data);
+	}
+
+
+	public function deleteById($id) {
+	    $c = M("book_category");
+		return $c->where("id=".$id)->delete();
 	}
 
 }

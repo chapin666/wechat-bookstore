@@ -10,23 +10,23 @@ class CategoryController extends  Controller  {
     // 保存分类
     public function save() {
 
-	$attachmentCtroller = new AttachmentController;
+	    $attachmentCtroller = new AttachmentController;
 
-	// Upload image
-	 if(!empty($_FILES))
-	 {
-	 	$attachment_id = $attachmentCtroller->uploadImage('categorys');
-	 }
+	    // Upload image
+	    if(!empty($_FILES))
+	    {
+	 	    $attachment_id = $attachmentCtroller->uploadImage('categorys');
+	    }
 
-	 // save data to database
-	 $data['name'] = $_POST['category-title'];
-	 $data['attachment_id'] = $attachment_id;
-	 $data['description'] = $_POST['category-description'];
+	    // save data to database
+	    $data['name'] = $_POST['title'];
+	    $data['attachment_id'] = $attachment_id;
+	    $data['description'] = $_POST['description'];
 	 
-	 $categoryModel = new Category();
-	 $categoryModel->save($data);
+	    $categoryModel = new Category();
+	    $categoryModel->save($data);
 
-	 $this->ajaxReturn(true);
+	    $this->ajaxReturn(true);
     }
 
 
@@ -36,5 +36,14 @@ class CategoryController extends  Controller  {
     	$categorys = $categoryModel->findAll();
     	$this->ajaxReturn($categorys);
     }
+
+
+    // 通过ID删除分类
+	public function deleteById() {
+		$id = 3;//$_GET['id'];
+        $categoryModel = new Category();
+		$result = $categoryModel->deleteById($id);
+	    return $this->ajaxReturn($result);
+	}
 
 }

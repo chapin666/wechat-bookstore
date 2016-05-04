@@ -1,13 +1,13 @@
 app.service('multipartForm', ['$http', function($http) {
-	this.post = function(uploadUrl, data) {
+	this.post = function(uploadUrl, data, callback) {
                   var fd = new FormData();
                   for (var key in data) {
                   	fd.append(key, data[key]);
                   }
-                  $http.post(uploadUrl, fd, {
-                  	alert("ok");
+                  
+                  return $http.post(uploadUrl, fd, {
                   	transformRequest: angular.identity,
-                           headers: { 'Content-Type': undefined }
+                     headers: { 'Content-Type': undefined }
                   });
 	}
 }]);

@@ -80,4 +80,5 @@ class BaseController extends Controller {
 		$this->weChat->valid();
 		$this->weChat->createMenu($this->menu);	
 	}
+
 }
