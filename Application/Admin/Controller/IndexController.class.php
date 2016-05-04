@@ -21,6 +21,11 @@ class IndexController extends Controller {
 
     /* 查询所有书籍分类Action*/
     public function category() {
+
+        $categoryModel = new Category();
+        $categorys = $categoryModel->findAll();
+
+        $this->assign('categorys', $categorys);
         $this->display();
     }
 

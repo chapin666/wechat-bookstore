@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-cn" data-ng-app="app">
+<html lang="zh-cn" ng-app="app">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="__PUBLIC__/styles/styles.css">
     <link rel="stylesheet" href="__PUBLIC__/styles/upload.css">
   </head>
-  <body>
+  <body ng-controller="categoryCtrl">
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--cyan-500">
         <div class="mdl-layout__header-row">
@@ -83,7 +83,7 @@
         </nav>
       </div>
 
-      <main class="mdl-layout__content mdl-color--grey-100" data-ng-controller="categoryCtrl">
+      <main class="mdl-layout__content mdl-color--grey-100" >
 
         <!-- start mdl grid -->
         <div class="mdl-cell--11-col mdl-grid" style="margin: 20px auto; ">
@@ -137,13 +137,13 @@
 
 
 	  <!-- Dialog -->
-	<form id="category-form" action="{:U('Admin/Category/save')}" method="post" enctype="multipart/form-data" >
+	<!-- <form id="category-form" action="{:U('Admin/Category/save')}" method="post" enctype="multipart/form-data" > -->
 	<dialog class="mdl-dialog" >
 		<h4 class="mdl-dialog__title">添加图书分类</h4>
 		<div class="mdl-dialog__content">
 			<div class="dialog-child-margin-10">
 				<div class="mdl-textfield mdl-js-textfield">
-				    <input class="mdl-textfield__input" type="text"  id="category-title" name="category-title">
+				    <input class="mdl-textfield__input" type="text"  id="category-title" name="category-title" ng-model="category.title">
 				    <label class="mdl-textfield__label" for="name">请输入分类名称</label>
 				</div>
 				<div>
@@ -154,24 +154,27 @@
 						 onmouseout="document.getElementById('upload').style.display='none';" class="inputstyle" placeholder="请选择图片" /> 
 					</span> 
 					<label for="unload"  onmouseover="document.getElementById('upload').style.display='block';" class="file1">浏览...</label> 
-					<input type="file" onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';"  class="file" id="upload" name="upload" /> 
+					<input type="file" onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';"  class="file" id="upload" name="upload"  file-model="category.upload"/> 
 				    </div> 
 				  </div> 
 				</div>
 				<div class="mdl-textfield mdl-js-textfield">
 					<textarea class="mdl-textfield__input" type="text" 
-					 	rows= "1" id="description" name="category-description"></textarea>
+					 	rows= "1" id="description" name="category-description"
+					 	ng-model="category.description"></textarea>
 					<label class="mdl-textfield__label" 
 						for="description">请输入分类描述...</label>
 				</div>
 			</div>
 		</div>
 		<div class="mdl-dialog__actions">
-			<button type="submit" class="mdl-button">上传</button>
+			<button type="submit" class="mdl-button" ng-click="Submit()">上传</button>
 			<button type="button" class="mdl-button close">取消</button>
 		</div>
+
+		{{category}}
 	</dialog>
-	</form>
+             <!-- </form> -->
 
 
        <div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
@@ -181,56 +184,32 @@
 
     </div>
     <script src="__PUBLIC__/scripts/jquery.min.js"></script>
-	<script src="__PUBLIC__/scripts/dialog-polyfill.js"></script>
+    <script src="__PUBLIC__/scripts/jquery.form.js"></script>
+    <script src="__PUBLIC__/scripts/dialog-polyfill.js"></script>
     <script src="__PUBLIC__/scripts/angular.min.js"></script>
     <script src="__PUBLIC__/scripts/material.min.js"></script>
-	<script src="//oss.maxcdn.com/jquery.form/3.50/jquery.form.min.js"></script>
+    <script src="__PUBLIC__/scripts/controller/category.js"></script> 
+    <script src="__PUBLIC__/scripts/service/multipartForm.js"></script>
+    <script src="__PUBLIC__/scripts/directives/fileModel.js"></script>
     <script>
 
-		var app = angular.module('app', []);
-		app.controller('categoryCtrl', function($scope, $http) {
-			$http({
-				method: 'GET',
-				url: '/Admin/category/findAll'
-			}).success(function(response, status, headers, config) {
-			    console.log(response);
-			});
+	// JQuery
+	$(function() {
+
+		var dialog = document.querySelector("dialog");
+		var addDialogButton = document.querySelector("#add-dialog");
+		var closeDialogButton = document.querySelector(".close");
+		if (!dialog.showModal) {
+			dialogPolyfill.registerDialog(dialog);
+		}
+		addDialogButton.addEventListener("click", function() {
+			dialog.showModal();
 		});
-
-
-		// JQuery
-		$(function() {
-
-			var dialog = document.querySelector("dialog");
-			var addDialogButton = document.querySelector("#add-dialog");
-			var closeDialogButton = document.querySelector(".close");
-			if (!dialog.showModal) {
-				dialogPolyfill.registerDialog(dialog);
-			}
-			addDialogButton.addEventListener("click", function() {
-				dialog.showModal();
-			});
-			closeDialogButton.addEventListener("click", function() {
-				dialog.close();
-			});
-
-
-			var options = {
-					success: function (data) {
-						  dialog.close();
-						   var snackbarContainer = document.querySelector('#demo-toast-example');
-						   var data = {message: ' success'};
-						   snackbarContainer.MaterialSnackbar.showSnackbar(data);
-						   setTimeout("window.location.reload()", 2750);
-					}
-			};
-
-			$("#category-form").ajaxForm(options);
-
-
+		closeDialogButton.addEventListener("click", function() {
+			dialog.close();
 		});
+	});
 
-    	
     </script>
   </body>
 </html>
