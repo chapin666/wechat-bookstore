@@ -1,4 +1,5 @@
-
+      <main class="mdl-layout__content mdl-color--grey-100" >
+      	
         <!-- start mdl grid -->
         <div class="mdl-cell--11-col mdl-grid" style="margin: 20px auto; ">
 
@@ -27,7 +28,7 @@
 				<td class="mdl-data-table__cell--non-numeric">{$vo.name}</td>
 				<td class="mdl-data-table__cell--non-numeric">{$vo.create_time}</td>
 				<td class="mdl-data-table__cell--non-numeric">
-				  <a href="/Admin/Category/put?id={$vo.id}">修改</a>
+				  <a href="javascript:void(0)" onclick="editCategory({$vo['id']})">修改</a>
 				  <a href="{:U('/Admin/Category/delete', array('id'=>$vo['id']))}">删除</a>
 				</td>
 			  </tr>
@@ -50,7 +51,7 @@
       </main>
 
 
-	<!-- Dialog -->
+     <!-- Dialog -->
       <form id="category-form" action="{:U('Admin/Category/save')}" method="post" enctype="multipart/form-data" >
 	<dialog class="mdl-dialog" >
 		<h4 class="mdl-dialog__title">添加图书分类</h4>

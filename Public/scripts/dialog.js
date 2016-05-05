@@ -13,5 +13,11 @@ $(function() {
 	closeDialogButton.addEventListener("click", function() {
 		dialog.close();
 	});
-
 });
+
+
+
+function editCategory(id) {
+	var dialog = document.querySelector("dialog");
+	dialog.showModal();
+}
