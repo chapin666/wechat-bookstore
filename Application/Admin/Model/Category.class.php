@@ -15,9 +15,23 @@ class Category {
 	}
 
 
-	public function save($data) {
+	public function findCategoryById($id) {
+		$c = M("book_category");
+		return $c->join('attachment ON attachment.id = book_category.attachment_id' )
+			      ->field('book_category.id, name, create_time, description, attachment_id, location')
+				  ->where('book_category.id = ' .  $id)->find();
+	}
+
+
+	public function add($data) {
 		$c = M("book_category");
 		return $c->add($data);
+	}
+
+
+	public function update($data) {
+		$c = M("book_category");
+		$c->save($data);
 	}
 
 
@@ -25,5 +39,6 @@ class Category {
 	    $c = M("book_category");
 	    return $c->where("id=".$id)->delete();
 	}
+
 
 }

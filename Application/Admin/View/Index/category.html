@@ -52,8 +52,8 @@
 
 
      <!-- Dialog -->
-      <form id="category-form" action="{:U('Admin/Category/save')}" method="post" enctype="multipart/form-data" >
-	<dialog class="mdl-dialog" >
+     <form id="category-form" action="{:U('Admin/Category/add')}" method="post" enctype="multipart/form-data" >
+	 <dialog id="dialog-add" class="mdl-dialog" >
 		<h4 class="mdl-dialog__title">添加图书分类</h4>
 		<div class="mdl-dialog__content">
 			<div class="dialog-child-margin-10">
@@ -82,9 +82,48 @@
 			</div>
 		</div>
 		<div class="mdl-dialog__actions">
-			<button type="submit" class="mdl-button">上传</button>
+			<button type="submit" class="mdl-button">添加</button>
 			<button type="button" class="mdl-button close">取消</button>
 		</div>
 
-	</dialog>
+	 </dialog>
+     </form>
+
+
+	 <form id="category-form" action="{:U('/Admin/Category/put')}" method="post" enctype="multipart/form-data" >
+	 <dialog id="dialog-edit" class="mdl-dialog" >
+		<h4 class="mdl-dialog__title">修改图书分类</h4>
+		<div class="mdl-dialog__content">
+			<div class="dialog-child-margin-10">
+				<div class="mdl-textfield mdl-js-textfield">
+				    <input class="mdl-textfield__input" type="text"  id="edit-title" name="title" value="名称">
+				    <label class="mdl-textfield__label" for="name">请输入分类名称</label>
+				</div>
+				<div>
+				  <div class="div"> 
+				    <div class="line"> 
+					<span class="span"> 
+						<input name="" type="text" id="edit-viewfile"
+						 onmouseout="document.getElementById('edit-upload').style.display='none';" class="inputstyle" placeholder="请选择图片" /> 
+					</span> 
+					<label for="unload"  onmouseover="document.getElementById('edit-upload').style.display='block';" class="file1">浏览...</label> 
+					<input type="file" onchange="document.getElementById('edit-viewfile').value=this.value;this.style.display='none';"  class="file" id="edit-upload" name="upload" /> 
+				    </div> 
+				  </div> 
+				</div>
+				<div class="mdl-textfield mdl-js-textfield">
+					<textarea class="mdl-textfield__input" type="text" 
+					 	rows= "1" id="edit-description" name="description"></textarea>
+					<label class="mdl-textfield__label" 
+						for="description"></label>
+				</div>
+			</div>
+		</div>
+		<div class="mdl-dialog__actions">
+			<button type="submit" class="mdl-button">修改</button>
+			<button type="button" class="mdl-button close-edit">取消</button>
+		</div>
+
+	 </dialog>
+	 <input type="hidden" name="id" id="edit-id">
      </form>
