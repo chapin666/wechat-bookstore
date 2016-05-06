@@ -20,7 +20,9 @@ class BookController extends  Controller  {
 		 }
 
 		 $data['attachment_id'] = $attachment_id;
+	
 		 $data['name'] = $_POST['book-name'];
+		 $data['type'] = $_POST['book-category-name'];
 		 $data['author'] = $_POST['author'];
 		 $data['press'] = $_POST['publish'];
 		 $data['price'] = $_POST['price'];
@@ -43,5 +45,7 @@ class BookController extends  Controller  {
 		$this->ajaxReturn(true);
 
 	}
+
+
 
 }

@@ -7,21 +7,21 @@ use Admin\Model\Category;
 class IndexController extends Controller {
 
 
-    /* Login page */
+    // Login page 
     public function login() {
         $this->display();
     }
 
     
-    /* 首页Action */
+    // 首页Action 
     public function index(){
+
        $this->display();
     }
 
 
-    /* 查询所有书籍分类Action*/
+    // 查询所有书籍分类Action
     public function category() {
-
         $categoryModel = new Category();
         $categorys = $categoryModel->findAll();
 
@@ -30,21 +30,30 @@ class IndexController extends Controller {
     }
 
 
-    /* 书籍列表Action */
+
+    // 书籍列表Action
     public function book() {
         $this->display();
     }
 
+
+
+    // 添加图书
     public function bookAdd() {
+		$categoryModel = new Category();
+        $categorys = $categoryModel->findAll();
+        $this->assign('categorys', $categorys);
         $this->display();
     }
 
-    /* 订单列表Action */
+
+	// 订单列表Action
     public function order() {
 	   $this->display();
     }
 
-    /* 用户管理Action */
+
+    // 用户管理Action
     public function user() {
 	   $this->display();
     }

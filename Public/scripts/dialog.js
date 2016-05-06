@@ -13,6 +13,7 @@ $(function() {
 	closeDialogButton.addEventListener("click", function() {
 		dialog.close();
 	});
+
 });
 
 

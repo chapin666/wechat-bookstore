@@ -59,11 +59,14 @@ class CategoryController extends  Controller  {
 	}
 
 
+
+	// 通过ID查询图书分类
 	public function findCategoryById() {
 	    $id = $_POST['id'];
 		$categoryModel = new Category();
 		return $this->ajaxReturn($categoryModel->findCategoryById($id));
 	}
+
 
 
 	// 通过ID删除分类
@@ -73,5 +76,7 @@ class CategoryController extends  Controller  {
 		$result = $categoryModel->deleteById($id);
 		$this->findAll();
 	}
+
+
 
 }
