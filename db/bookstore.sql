@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `bookstore`.`book` (
   `remark` VARCHAR(45) NULL,
   `attachment_id` INT UNSIGNED NOT NULL,
   `is_discount` TINYINT(1) NULL DEFAULT 0,
-  `price-now` DECIMAL(6,3) NULL,
+  `price_now` DECIMAL(6,3) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_book_book_category1_idx` (`book_category_id` ASC),
   INDEX `fk_book_attachment1_idx` (`attachment_id` ASC),

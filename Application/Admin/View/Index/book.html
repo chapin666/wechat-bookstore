@@ -26,54 +26,23 @@
 			  </tr>
 			</thead>
 			<tbody>
-			  <tr>
-				<td class="mdl-data-table__cell--non-numeric">1</td>
-				<td class="mdl-data-table__cell--non-numeric">ReactiveX编程指南</td>
-				<td class="mdl-data-table__cell--non-numeric">计算机类</td>
-				<td class="mdl-data-table__cell--non-numeric">2016-2-8</td>
-				<td class="mdl-data-table__cell--non-numeric">43</td>
-				<td class="mdl-data-table__cell--non-numeric">20</td>
+
+			<volist name="books" id="book">
+			<tr>
+				<td class="mdl-data-table__cell--non-numeric">{$book.id}</td>
+				<td class="mdl-data-table__cell--non-numeric">{$book.name}</td>
 				<td class="mdl-data-table__cell--non-numeric">
-				  <a href="">修改</a>
-				  <a href="">删除</a>
+					{$book.book_category_name}
 				</td>
-			  </tr>
-			  <tr>
-				<td class="mdl-data-table__cell--non-numeric">2</td>
-				<td class="mdl-data-table__cell--non-numeric">Golang圣经</td>
-				<td class="mdl-data-table__cell--non-numeric">计算机类</td>
-				<td class="mdl-data-table__cell--non-numeric">2015-1-15</td>
-				<td class="mdl-data-table__cell--non-numeric">48</td>
-				<td class="mdl-data-table__cell--non-numeric">80</td>
+				<td class="mdl-data-table__cell--non-numeric">{$book.publish_time}</td>
+				<td class="mdl-data-table__cell--non-numeric">{$book.price_now }</td>
+				<td class="mdl-data-table__cell--non-numeric">{$book.total_count}</td>
 				<td class="mdl-data-table__cell--non-numeric">
-				  <a href="">修改</a>
-				  <a href="">删除</a>
+				  <a href="{:U('/Admin/book/update', array('id'=>$book['id']))}">修改</a>
+				  <a href="{:U('/Admin/book/delete', array('id'=>$book['id']))}">删除</a>
 				</td>
-			  </tr>
-			  <tr>
-				<td class="mdl-data-table__cell--non-numeric">3</td>
-				<td class="mdl-data-table__cell--non-numeric">数据库系统概念</td>
-				<td class="mdl-data-table__cell--non-numeric">计算机类</td>
-				<td class="mdl-data-table__cell--non-numeric">2014-12-13</td>
-				<td class="mdl-data-table__cell--non-numeric">99</td>
-				<td class="mdl-data-table__cell--non-numeric">100</td>
-				<td class="mdl-data-table__cell--non-numeric">
-				  <a href="">修改</a>
-				  <a href="">删除</a>
-				</td>
-			  </tr>
-			  <tr>
-				<td class="mdl-data-table__cell--non-numeric">4</td>
-				<td class="mdl-data-table__cell--non-numeric">javascript设计模式</td>
-				<td class="mdl-data-table__cell--non-numeric">计算机类</td>
-				<td class="mdl-data-table__cell--non-numeric">2015-2-13</td>
-				<td class="mdl-data-table__cell--non-numeric">70</td>
-				<td class="mdl-data-table__cell--non-numeric">45</td>
-				<td class="mdl-data-table__cell--non-numeric">
-				  <a href="">修改</a>
-				  <a href="">删除</a>
-				</td>
-			  </tr>
+			</tr>
+			</volist>
 		</table>
 
 		<div class="mdl-cell--11-col" style="margin: 30px auto 30px auto; text-align: center;">

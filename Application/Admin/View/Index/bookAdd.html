@@ -4,14 +4,15 @@
 	.book-add  div {
 		display: block;
 	}
-      .div {
-        padding-top: 10px;
-        padding-bottom: 10px;
-      }
+
+        .div {
+             padding-top: 10px;
+             padding-bottom: 10px;
+       }
 
 	   #book-category-name {
-	    padding-top: 20px;
-        padding-bottom: 10px;
+	      padding-top: 20px;
+             padding-bottom: 10px;
 	   }
     </style>
  
@@ -26,7 +27,7 @@
 	<form action="{:U('Admin/Book/save')}" method="post"   enctype="multipart/form-data">
 		
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="book-name" name="book-name"  maxlength="20" >
+                <input class="mdl-textfield__input" type="text" id="book-name" name="book-name"  maxlength="20"  value="{$book.name}">
                 <label class="mdl-textfield__label" for="book-name">图书名称</label>
                 <span class="mdl-textfield__error">图书名称必填哦</span>
             </div>
@@ -36,7 +37,7 @@
                   <div class="line"> 
                     <span class="span"> 
                       <input name="" type="text" id="viewfile"
-                        onmouseout="document.getElementById('upload').style.display='none';" class="inputstyle" placeholder="请选择图片" /></span>
+                        onmouseout="document.getElementById('upload').style.display='none';" class="inputstyle" placeholder="请选择图片"  value="{$book.location}" /></span>
                         <label for="unload"  onmouseover="document.getElementById('upload').style.display='block';"
                           class="file1">浏览...</label> 
                         <input type="file" onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';"  class="file" id="upload" name="upload" /> 
@@ -49,7 +50,11 @@
 			  <select id="book-category-name" class="mdl-selectfield__select" name="book-category-name">
 					<option value=""></option>
 					<volist name="categorys" id="vo">
-						<option value="{$vo.id}">{$vo.name}</option>
+                                                <eq name="vo.id" value="$book['book_category_id']">
+                                                    <option value="{$vo.id}" selected>{$vo.name}</option>
+                                                <else/>
+                                                    <option value="{$vo.id}">{$vo.name}</option>
+                                                </eq>
 					</volist>
 			  </select>
 			  <label class="mdl-selectfield__label" for="book-category-name">图书分类</label>
@@ -58,51 +63,63 @@
 
 
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="price" name="price" pattern="(\d)+(\.\d+)?">
+                <input class="mdl-textfield__input" type="text" id="price" name="price" pattern="(\d)+(\.\d+)?"
+                   value="{$book.price}">
                 <label class="mdl-textfield__label" for="price">原图书价</label>
                 <span class="mdl-textfield__error">必须为数字</span>
               </div>
 
-
-		      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
-                  <label for="is-discount" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-                    <input type="checkbox" id="is-discount" name="is-discount" class="mdl-checkbox__input">
-                    <span class="mdl-checkbox__label">是否折扣</span>
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
+                    <label for="is-discount" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                    <eq name="book.is_discount" value="1">
+                       <input type="checkbox" id="is-discount" name="is-discount" 
+                                  class="mdl-checkbox__input"  checked >
+                    <else/>
+                         <input type="checkbox" id="is-discount" name="is-discount" 
+                                  class="mdl-checkbox__input"  >
+                     </eq>
+                      <span class="mdl-checkbox__label">是否折扣</span>
                   </label>
-		      </div>
+		</div>
 
-              <div id="price-now-box" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="display: none;">
-                <input class="mdl-textfield__input" type="text" id="price-now" name="price-now" pattern="(\d)+(\.\d+)?">
+             <eq name="book.is_discount" value="1">
+                      <div id="price-now-box" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
+                    <else/>
+                      <div id="price-now-box" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="display: none;">
+                     </eq>
+                <input class="mdl-textfield__input" type="text" id="price-now" name="price-now" pattern="(\d)+(\.\d+)?" value="{$book.price_now}">
                 <label class="mdl-textfield__label" for="price-now">现图书价</label>
                 <span class="mdl-textfield__error">必须为数字</span>
               </div>
 
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" type="text" id="publish" name="publish" pattern="^[a-zA-Z0-9_\u4e00-\u9fa5]+$">
+                  <input class="mdl-textfield__input" type="text" id="publish" name="publish" pattern="^[a-zA-Z0-9_\u4e00-\u9fa5]+$" value="{$book.press}">
 		          <label class="mdl-textfield__label" for="publish">出版社</label>
                   <span class="mdl-textfield__error">必须是数字、字母、汉字和下划线</span>
               </div>
 		
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" type="text" id="author" name="author" pattern="^[a-zA-Z0-9_\u4e00-\u9fa5]+$">
+                  <input class="mdl-textfield__input" type="text" id="author" name="author" pattern="^[a-zA-Z0-9_\u4e00-\u9fa5]+$" value="{$book.author}">
                   <label class="mdl-textfield__label" for="author">作者</label>
                   <span class="mdl-textfield__error">必须是数字、字母、汉字和下划线</span>
               </div>
 
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="book-total" name="book-total" pattern="\d+" maxlength="4">
+                <input class="mdl-textfield__input" type="text" id="book-total" name="book-total" pattern="\d+" maxlength="4" value="{$book.total_count}">
                 <label class="mdl-textfield__label" for="book-total">图书数量</label>
                 <span class="mdl-textfield__error">数量只能为1到10000</span>
               </div>
 
               <div class="mdl-textfield">
-		          <textarea id="content" name="content" style="width:700px;height:300px;">图书描述...</textarea>
+		          <textarea id="content" name="content" style="width:700px;height:300px;">{$book.description}</textarea>
               </div>
 
 		<!-- Colored raised button -->
 		<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary">保存</button>
 		<!-- Accent-colored raised button -->
 		<button class="mdl-button mdl-js-button mdl-button--raised">取消</button>
+
+              <input type="hidden" name="book-id"  value="{$book.id}">
 	</form>
 	</div>
 </main>

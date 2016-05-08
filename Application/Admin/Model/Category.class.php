@@ -40,5 +40,11 @@ class Category {
 	    return $c->where("id=".$id)->delete();
 	}
 
+	// count
+	public function count() {
+		$c = M("book_category");
+		return $c->count();
+	}
+
 
 }

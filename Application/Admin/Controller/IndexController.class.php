@@ -2,6 +2,7 @@
 namespace Admin\Controller;
 use Think\Controller;
 use Admin\Model\Category;
+use Admin\Model\Book;
 
 
 class IndexController extends Controller {
@@ -16,7 +17,15 @@ class IndexController extends Controller {
     // 首页Action 
     public function index(){
 
-       $this->display();
+        $categoryModel = new Category;
+        $bookModel = new Book;
+
+        $category_count = $categoryModel->count();
+        $book_count = $bookModel->count();
+
+        $this->assign('category_count', $category_count);
+        $this->assign('book_count', $book_count);
+        $this->display();
     }
 
 
@@ -33,29 +42,36 @@ class IndexController extends Controller {
 
     // 书籍列表Action
     public function book() {
+
+        $bookModel = new Book();
+        $books = $bookModel->findAll();   
+
+        $this->assign('books',  $books);
+
         $this->display();
+
     }
 
 
 
     // 添加图书
     public function bookAdd() {
-		$categoryModel = new Category();
+        $categoryModel = new Category();
         $categorys = $categoryModel->findAll();
         $this->assign('categorys', $categorys);
         $this->display();
     }
 
 
-	// 订单列表Action
+     // 订单列表Action
     public function order() {
-	   $this->display();
+        $this->display();
     }
 
 
     // 用户管理Action
     public function user() {
-	   $this->display();
+        $this->display();
     }
 
 }

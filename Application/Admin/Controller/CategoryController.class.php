@@ -28,7 +28,7 @@ class CategoryController extends  Controller  {
 	}
 
 
-    // 修改图书分类实体
+               // 修改图书分类实体
 	public function put() {
 
 		$attachmentCtroller = new AttachmentController;
@@ -63,8 +63,8 @@ class CategoryController extends  Controller  {
 	// 通过ID查询图书分类
 	public function findCategoryById() {
 	    $id = $_POST['id'];
-		$categoryModel = new Category();
-		return $this->ajaxReturn($categoryModel->findCategoryById($id));
+	    $categoryModel = new Category();
+	     return $this->ajaxReturn($categoryModel->findCategoryById($id));
 	}
 
 
