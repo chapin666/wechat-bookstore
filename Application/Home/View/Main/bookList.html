@@ -29,7 +29,7 @@
 				<ul data-role="listview" class="listview book-list" style="margin: 0;">
 					<volist name="books" id="book">
 					<li>
-						<a href="/Home/Main/book">
+						<a href="{:U('/Home/Main/book', array('id'=>$book['id']))}">
 							<img src="__ROOT__/Uploads/{$book.location}" alt="">
 							<div class="book-item">
 								<h4>{$book.name}</h4>

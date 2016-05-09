@@ -37,21 +37,27 @@ class BookController extends  Controller  {
 		 $attachmentCtroller = new AttachmentController;
 		 $attachment_id = "1";
 
-		// Upload image
-		if (isset($_POST['book-id']) && !empty($_POST['book-id'])) { //update
-			 if(!empty($_FILES['upload']['name']))
-			 {
-			     $attachment_id = $attachmentCtroller->uploadImage('books');
-			     $data['attachment_id'] = $attachment_id;
-			 }
-			 $data['id'] =  $_POST['book-id'];
-			 $bookModel->save($data);
-		} else {  // Add
+
+		  // 如果文件存在
+		 if(!empty($_FILES['upload']['name'])) {
+
+			$attachment_id = $attachmentCtroller->uploadImage('books');
 			$data['attachment_id'] = $attachment_id;
-			 $bookModel->add($data);
+
+
+			// Upload image
+			if (isset($_POST['book-id']) && !empty($_POST['book-id'])) { //update
+				$data['id'] =  $_POST['book-id'];
+				$bookModel->save($data);
+			} else {
+				$bookModel->add($data);
+			}
+
+		} else {  // Add
+			$bookModel->add($data);
 		}
 
-		 $this->findAll();
+		$this->findAll();
 	}
 
 

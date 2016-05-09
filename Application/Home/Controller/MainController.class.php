@@ -16,22 +16,31 @@ class MainController extends Controller {
 		$this->display();
 	}
 
-
-	public function category() {
-		$this->display();
-	}
-
-
 	public function bookList() {
 		$id = I('id');
-		$bookModel = new Book();
 
+		$bookModel = new Book();
 		$books = $bookModel->findBookByCategoryId($id);
 
 		$this->assign("books",  $books);
 		$this->display();
 	}
 
+	
+	public function book() {
+		$id = I('id');
+
+		$bookModel = new Book();
+		$book = $bookModel->findBookById($id);
+
+		$this->assign("book", $book);
+		$this->display();
+	}
+
+
+	public function category() {
+		$this->display();
+	}
 
 	
 	public function cart() {
@@ -42,10 +51,6 @@ class MainController extends Controller {
 		$this->display();
 	}
 
-
-	public function book() {
-		$this->display();
-	}
 
 	public function address() {
 		$this->display();
