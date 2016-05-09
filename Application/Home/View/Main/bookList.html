@@ -27,71 +27,21 @@
 					
 				</div>
 				<ul data-role="listview" class="listview book-list" style="margin: 0;">
+					<volist name="books" id="book">
 					<li>
 						<a href="/Home/Main/book">
-							<img src="__PUBLIC__/images/child-cover.jpg" alt="">
+							<img src="__ROOT__/Uploads/{$book.location}" alt="">
 							<div class="book-item">
-								<h4>笑猫日记-小白的选择</h4>
+								<h4>{$book.name}</h4>
 								<p>
-									<span class="price-now">￥49.5</span>
-									<span class="price-normal color-gray"><s>￥55</s></span>
+									<span class="price-now">￥{$book.price_now}</span>
+									<span class="price-normal color-gray"><s>￥{$book.price}</s></span>
 								</p>
-								<p class="pay-number color-gray">100人付款</p>
+								<p class="pay-number color-gray">{$book.sell_count}人付款</p>
 							</div>
 						</a>
 					</li>
-					<li>
-						<a href="/Home/Main/book">
-							<img src="__PUBLIC__/images/child-cover.jpg" alt="">
-							<div class="book-item">
-								<h4>笑猫日记-小白的选择</h4>
-								<p>
-									<span class="price-now">￥49.5</span>
-									<span class="price-normal color-gray"><s>￥55</s></span>
-								</p>
-								<p class="pay-number color-gray">100人付款</p>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="/Home/Main/book">
-							<img src="__PUBLIC__/images/child-cover.jpg" alt="">
-							<div class="book-item">
-								<h4>笑猫日记-小白的选择</h4>
-								<p>
-									<span class="price-now">￥49.5</span>
-									<span class="price-normal color-gray"><s>￥55</s></span>
-								</p>
-								<p class="pay-number color-gray">100人付款</p>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="/Home/Main/book">
-							<img src="__PUBLIC__/images/child-cover.jpg" alt="">
-							<div class="book-item">
-								<h4>笑猫日记-小白的选择</h4>
-								<p>
-									<span class="price-now">￥49.5</span>
-									<span class="price-normal color-gray"><s>￥55</s></span>
-								</p>
-								<p class="pay-number color-gray">100人付款</p>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="/Home/Main/book">
-							<img src="__PUBLIC__/images/child-cover.jpg" alt="">
-							<div class="book-item">
-								<h4>笑猫日记-小白的选择</h4>
-								<p>
-									<span class="price-now">￥49.5</span>
-									<span class="price-normal color-gray"><s>￥55</s></span>
-								</p>
-								<p class="pay-number color-gray">100人付款</p>
-							</div>
-						</a>
-					</li>
+					</volist>
 				</ul>
 			</div>
 		</main><!-- // end main -->

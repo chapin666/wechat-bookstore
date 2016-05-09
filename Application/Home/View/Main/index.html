@@ -42,55 +42,17 @@
 
 
 			<ul data-role="listview" class="listview"  style="margin: 0;">
+				<volist  name="categorys" id="category">
 				<li>
-					<a href="/Home/Main/bookList">
-						<img src="__PUBLIC__/images/child-cover.jpg" alt="">
+					<a href="{:U('/Home/Main/bookList', array('id'=>$category['id']))}">
+						<img src="__ROOT__/Uploads/{$category.location}" alt="">
 						<div class="book-text">
-							<h2>少儿类</h2>
-							<p>少儿类描述</p>
+							<h2>{$category.name}</h2>
+							<p>{$category.description}</p>
 						</div>
 					</a>
 				</li>
-				<li>
-					<a href="/Home/Main/bookList">
-						<img src="__PUBLIC__/images/social-cover.jpg" alt="">
-						<div class="book-text">
-							<h2>社科类</h2>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="/Home/Main/bookList">
-						<img src="__PUBLIC__/images/art-cover.jpg" alt="">
-						<div class="book-text">
-							<h2>文艺</h2>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="/Home/Main/bookList">
-						<img src="__PUBLIC__/images/life-cover.jpg" alt="">
-						<div class="book-text">
-							<h2>休闲与生活</h2>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="/Home/Main/bookList">
-						<img src="__PUBLIC__/images/doctor-cover.jpg" alt="">
-						<div class="book-text">
-							<h2>医学</h2>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="/Home/Main/bookList">
-						<img src="__PUBLIC__/images/computer-cover.jpg" alt="">
-						<div class="book-text">
-							<h2>计算机</h2>
-						</div>
-					</a>
-				</li>
+				</volist>
 			</ul>
 		</main><!-- // end main -->
 

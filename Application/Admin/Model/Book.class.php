@@ -32,6 +32,14 @@ class Book {
 	}
 
 
+	public function findBookByCategoryId($id) {
+		$c = M("book");
+		return  $c->join('attachment ON attachment.id = book.attachment_id' )
+			  ->field("book.*, attachment.location")
+			   ->where('book.book_category_id = ' .  $id)->select();
+	} 
+
+
 	// delete a record from book table.
 	public function delete($id) {
  		$c = M("book");

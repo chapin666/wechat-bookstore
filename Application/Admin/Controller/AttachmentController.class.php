@@ -39,6 +39,7 @@ class AttachmentController extends Controller {
 
 		//如果上传不成功
 		$info = $upload->upload();
+
 		if (!$info)
 		{
 			//捕获上传异常
@@ -47,7 +48,7 @@ class AttachmentController extends Controller {
 		else
 		{
 
-			$filename = $info[upload]['savename'];
+			$filename = $info[upload]['savepath'] . $info[upload]['savename'];
 		}
 
 		
