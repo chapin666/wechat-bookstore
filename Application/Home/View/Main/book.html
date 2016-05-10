@@ -38,21 +38,21 @@
 			</div><!-- // end swiper -->
 
 			<div class="book-title">《{$book.name}》</div>
-			<div class="price-box">
+			<div class="price-box" id="price-box">
 				<p>销售价：<span class="color-red font-solid">￥{$book.price_now}</span></p>
 				<p>市场价：<span class="color-red font-solid"><del>￥{$book.price}</del></span></p>
 				<p>邮费：￥0</p>
 			</div>
 			<div class="number-box">
 				<span>数量：</span>
-				<a id="add" href="#">-</a>
-				<input id="book-number" class="number-input" type="text" data-role="none" value="1" >
-				<a id="sub" href="#">+</a>
-				<span class="inventory">(库存{$book.total_count}件)</span>
+				<a id="sub" href="javascript:void(0)">-</a>
+				<input id="book-number" class="number-input" type="text" data-role="none" value="1" readonly>
+				<a id="add" href="javascript:void(0)" >+</a>
+				<span class="inventory">(库存<span id="book-total">{$book.total_count}</span>件)</span>
 			</div>
 			<div class="btn-box">
-				<button  class="ui-btn ui-btn-inline">立即购买</button>
-				<button  class="ui-btn ui-btn-inline">加入购物车</button>
+				<a href="/Home/Main/cart"><button  class="ui-btn ui-btn-inline">立即购买</button></a>
+				<button  class="ui-btn ui-btn-inline" id="add-cart">加入购物车</button>
 			</div>
 
 			 <div class="tabs" id="parentHorizontalTab">
@@ -73,8 +73,36 @@
 
 		<script src="__PUBLIC__/scripts/easyResponsiveTabs.js"></script>
 		<script src="__PUBLIC__/scripts/swiper-3.3.0.jquery.min.js"></script>
+		<script src="__PUBLIC__/scripts/toast.js"></script>
 		<script>
 			  $(document).ready(function() {
+
+			  	$("#add").click(function() {
+			  	 	var value = $("#book-number").val();
+			  	 	var total = parseInt($("#book-total").html());
+			  	 	if (value < total) {
+			  	 		value ++;
+			  	 		$("#book-number").val(value);
+			  	 	}
+			  	});
+
+				$("#sub").click(function() {
+			  		var value = $("#book-number").val();
+			  		if (value >  1) {
+			  			value--;
+			  			$("#book-number").val(value);
+			  		}
+			 	 });
+
+				
+				$("#add-cart").click(function() {
+    					new Toast({
+    						context:$('#price-box'), 
+    						message: '添加购物车成功'
+    					}).show();
+				});
+
+
 				//Horizontal Tab
 				$('#parentHorizontalTab').easyResponsiveTabs({
 					type: 'default', //Types: default, vertical, accordion
@@ -85,6 +113,7 @@
 					}
 				});
 
+				// Swiper
 				 var mySwiper = new Swiper ('.swiper-container', {
 				    direction: 'horizontal',
 				    loop: true,
@@ -93,6 +122,7 @@
 				 });
 			  });
 
+			
 		</script>
 	</div>
 
