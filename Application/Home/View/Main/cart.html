@@ -18,56 +18,37 @@
 		<!--  start main  -->
 		<main data-role="main" class="ui-content">
 			<hr />
-			<div class="book-info" >
+			<volist id="book" name="books">
+			<div id="{$book.bookId}" class="book-info" >
 				<div class="book-cover" style="display: inline-block;">
-					<img src="__PUBLIC__/images/banner01.png">
+					<img src="__ROOT__/Uploads/{$book.location}">
 				</div>
 				<div class="book-other" style="display: inline-block;">
-					<div><b>《OK, Good》</b></div>
-					<div>销售价：<span class="color-red font-solid">￥23.8</span></div>
+					<div><b>《{$book.name}》</b></div>
+					<div>销售价：<span class="color-red font-solid">￥<span id="price-now-{$book.bookId}">{$book.price_now}</span></span></div>
 					<div>邮费：￥0</div>
 					<div>
 						<span>数量：</span>
-						<a id="add" href="#">-</a>
-						<input id="book-number" class="number-input" type="text" data-role="none" value="1" >
-						<a id="sub" href="#">+</a>
+						<a id="sub-{$book.bookId}" href="javascript:void(0)" onclick="sub({$book.bookId})">-</a>
+						<input id="book-number-{$book.bookId}" class="number-input" type="text" data-role="none" value="{$book.bookNum}" >
+						<a id="add-{$book.bookId}" href="javascript:void(0)" onclick="add({$book.bookId})">+</a>
 					</div>
 					<div>
-						<span>库存：20</span>
+						<span>库存：<span id="book-total-{$book.bookId}">{$book.total_count}</span></span>
 						<span class="del"><a href="#">删除</a></span>
 					</div>
 				</div>
 			</div>
 			<hr />
-			<div class="book-info" >
-				<div class="book-cover" style="display: inline-block;">
-					<img src="__PUBLIC__/images/computer-cover.jpg">
-				</div>
-				<div class="book-other" style="display: inline-block;">
-					<div><b>《人月神话》</b></div>
-					<div>销售价：<span class="color-red font-solid">￥50</span></div>
-					<div>邮费：￥0</div>
-					<div>
-						<span>数量：</span>
-						<a id="add" href="#">-</a>
-						<input id="book-number" class="number-input" type="text" data-role="none" value="1" >
-						<a id="sub" href="#">+</a>
-					</div>
-					<div>
-						<span>库存：20</span>
-						<span class="del"><a href="#">删除</a></span>
-					</div>
-				</div>
-			</div>
-			<hr />
+			</volist>
 			
 			<div class="book-total">
-				<span>商品总数：<span class="color-red">2</span></span>
-				<span>商品总额：<span class="color-red">￥71.5</span></span>
+				<span>商品总数：<span class="color-red">{:count($books)}</span></span>
+				<span>商品总额：<span class="color-red price-total">￥</span></span>
 			</div>
 			<div class="book-operation">
 				<div class="btn-box">
-					<a href="#"  class="ui-btn ui-btn-inline">继续购物</a>
+					<a href="/Home/Main/index.html"  class="ui-btn ui-btn-inline">继续购物</a>
 					<a href="/Home/Main/address.html" class="ui-btn ui-btn-inline">下单结算</a>
 				</div>
 			</div>
@@ -75,5 +56,60 @@
 		</main> <!-- // end main-->
 
 	</div>
+
+
+	<script>
+
+		function add($id) {
+			var value = $("#book-number-"+$id).val();
+			var total = parseInt($("#book-total-"+$id).html());
+
+			if (value < total) {
+				value ++;
+				$("#book-number-"+$id).val(value);
+				cal();
+			}
+		}
+
+		function sub($id) {
+			var value = $("#book-number-"+$id).val();
+			if (value >  1) {
+				value--;
+				$("#book-number-"+$id).val(value);
+				cal();
+			}
+		}
+
+		function cal() {
+			var total = 0;
+			$(".book-info").each(function(index, ele) {
+				var id = this.id;
+				var bookPrice = parseFloat($("#price-now-"+id).html());
+				var bookNum = $("#book-number-"+id).val();
+
+				total += (bookPrice * bookNum);
+			});
+
+			$(".price-total").html("￥" + total);
+		}
+
+
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function() {
+					oldonload();
+					func();
+				};
+			}
+		}
+
+
+		addLoadEvent(cal);
+
+
+	</script>
 
 </body>

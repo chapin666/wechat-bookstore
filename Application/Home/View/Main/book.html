@@ -104,10 +104,18 @@
 						   	'bookNum': $("#book-number").val()
 						},
 						function(text, status) {
-							new Toast({
-    								context:$('#price-box'), 
+							if (status === "success") {
+								new Toast({
+    								context: $('#price-box'), 
     								message: '添加购物车成功'
     							}).show();
+							} else {
+								new Toast({
+    								context: $('#price-box'), 
+    								message: '网络问题，添加购物车失败'
+    							}).show();
+							}
+							
 						});
 				});
 

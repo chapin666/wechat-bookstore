@@ -46,6 +46,26 @@ class MainController extends Controller {
 
 	
 	public function cart() {
+
+		$cookieUtil = new CookieUtil();
+		$bookModel = new Book();
+		$cookies = $cookieUtil->getAll();
+
+		$i = 0;
+		$books = array();
+		foreach ($cookies as $key => $value) {
+
+			$bookNum = $value;
+			$bookId = $key;
+			$book = $bookModel->findBookById($bookId);
+
+			$books[$i] = array('bookNum' => $bookNum, "bookId" => $bookId, "name" => $book['name'],
+				"location" => $book['location'], "price_now" => $book['price_now'], "total_count" => $book['total_count']);
+			$i++;
+		}
+		
+
+		$this->assign("books", $books);
 		$this->display();
 	}
 
@@ -66,7 +86,7 @@ class MainController extends Controller {
 		$this->display();
 	}
 
-
+	// Add cookie 
 	public function addCart() {
 		$bookId = $_POST['bookId'];
 		$bookNum = $_POST["bookNum"];
@@ -74,7 +94,9 @@ class MainController extends Controller {
 		$cookieUtil = new CookieUtil();
 		$cookieUtil->add($bookId, $bookNum);
 
-		$this->ajaxReturn($bookId . "  " . $bookNum);
+		$this->ajaxReturn(true);
+
 	}
+
 	
 }

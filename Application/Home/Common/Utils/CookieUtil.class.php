@@ -28,7 +28,7 @@ class CookieUtil {
 
 
 	public function getAll() {
-		return  cookie($this->cookieName);
+		return cookie($this->cookieName);
 	}
 
 
