@@ -4,11 +4,13 @@ namespace Home\Controller;
 use Think\Controller;
 use Admin\Model\Category;
 use Admin\Model\Book;
+use Home\Common\Utils\CookieUtil;
 
 class MainController extends Controller {
 
 
 	public function index() {
+
 		$category = new Category();
 		$categorys = $category->findAll();
 
@@ -62,6 +64,17 @@ class MainController extends Controller {
 
 	public function order() {
 		$this->display();
+	}
+
+
+	public function addCart() {
+		$bookId = $_POST['bookId'];
+		$bookNum = $_POST["bookNum"];
+
+		$cookieUtil = new CookieUtil();
+		$cookieUtil->add($bookId, $bookNum);
+
+		$this->ajaxReturn($bookId . "  " . $bookNum);
 	}
 	
 }
