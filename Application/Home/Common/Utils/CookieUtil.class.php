@@ -32,6 +32,22 @@ class CookieUtil {
 	}
 
 
+	public function setNum($id, $num) {
+		$datas = $cookies = cookie($this->cookieName);
+
+		foreach ($cookies as $key => $value) {
+			if ($key != "" && $value != "") {
+				if ($key == $id) {
+					$datas[$id]  = $num;
+					break;
+				}
+			}
+		}
+
+		cookie($this->cookieName,  $datas,  $this->expires);
+	}
+
+
 	public function del() {
 		
 	}

@@ -53,19 +53,26 @@ class MainController extends Controller {
 
 		$i = 0;
 		$books = array();
+
+
 		foreach ($cookies as $key => $value) {
 
-			$bookNum = $value;
-			$bookId = $key;
-			$book = $bookModel->findBookById($bookId);
+			if ($key != "" && $value != "") {
 
-			$books[$i] = array('bookNum' => $bookNum, "bookId" => $bookId, "name" => $book['name'],
-				"location" => $book['location'], "price_now" => $book['price_now'], "total_count" => $book['total_count']);
-			$i++;
+				$bookNum = $value;
+				$bookId = $key;
+				$book = $bookModel->findBookById($bookId);
+
+				$books[$i] = array('bookNum' => $bookNum, "bookId" => $bookId, "name" => $book['name'],
+					"location" => $book['location'], "price_now" => $book['price_now'], "total_count" => $book['total_count']);
+				$i++;
+			}
 		}
-		
+
+
 
 		$this->assign("books", $books);
+
 		$this->display();
 	}
 
@@ -95,8 +102,21 @@ class MainController extends Controller {
 		$cookieUtil->add($bookId, $bookNum);
 
 		$this->ajaxReturn(true);
-
 	}
+
+
+	// Buy
+	public function buy() {
+
+		$bookId = $_POST['book-id'];
+		$bookNum = $_POST['book-number'];
+		
+		$cookieUtil = new CookieUtil();
+		$cookieUtil->add($bookId, $bookNum);
+
+		$this->redirect('/Home/Main/cart');
+	}
+
 
 	
 }

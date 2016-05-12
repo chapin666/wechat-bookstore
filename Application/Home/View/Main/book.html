@@ -4,6 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
 	<link rel="stylesheet" href="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.css">
 	<link rel="stylesheet" href="__PUBLIC__/styles/home.css">
 	<script src="__PUBLIC__/scripts/jquery.min.js"></script>
@@ -43,18 +46,20 @@
 				<p>市场价：<span class="color-red font-solid"><del>￥{$book.price}</del></span></p>
 				<p>邮费：￥0</p>
 			</div>
+			<form method="post" action="{:U('Home/Main/buy')}" >
 			<div class="number-box">
 				<span>数量：</span>
 				<a id="sub" href="javascript:void(0)">-</a>
-				<input id="book-number" class="number-input" type="text" data-role="none" value="1" readonly>
+				<input id="book-number" class="number-input" type="text" data-role="none" value="1"  name="book-number" readonly>
 				<a id="add" href="javascript:void(0)" >+</a>
 				<span class="inventory">(库存<span id="book-total">{$book.total_count}</span>件)</span>
 			</div>
 			<div class="btn-box">
-				<a href="/Home/Main/cart"><button  class="ui-btn ui-btn-inline">立即购买</button></a>
+				<button  type="submit" class="ui-btn ui-btn-inline">立即购买</button>
 				<button  class="ui-btn ui-btn-inline" id="add-cart">加入购物车</button>
 			</div>
-			<input type="hidden" id="book-id"  value="{$book.id}" />
+			<input type="hidden" id="book-id" name="book-id"  value="{$book.id}" />
+			</form>
 
 			 <div class="tabs" id="parentHorizontalTab">
 				<ul class="resp-tabs-list hor_1">

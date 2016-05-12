@@ -55,28 +55,33 @@
 	
 		</main> <!-- // end main-->
 
-	</div>
 
-
+		
 	<script>
 
-		function add($id) {
-			var value = $("#book-number-"+$id).val();
-			var total = parseInt($("#book-total-"+$id).html());
+		function add(id) {
+			var value = $("#book-number-"+id).val();
+			var total = parseInt($("#book-total-"+id).html());
 
 			if (value < total) {
 				value ++;
-				$("#book-number-"+$id).val(value);
+				$("#book-number-"+id).val(value);
 				cal();
 			}
 		}
 
-		function sub($id) {
-			var value = $("#book-number-"+$id).val();
+		function sub(id) {
+			var value = $("#book-number-"+id).val();
 			if (value >  1) {
 				value--;
-				$("#book-number-"+$id).val(value);
-				cal();
+				$("#book-number-"+id).val(value);
+				$.post('/Home/Cookie/setNumById.html', 
+					{
+						"bookId":  id,
+						"bookNum": value
+					},  function(text, status) {
+						cal();
+					});
 			}
 		}
 
@@ -90,7 +95,7 @@
 				total += (bookPrice * bookNum);
 			});
 
-			$(".price-total").html("￥" + total);
+			$(".price-total").html("￥" + total + " RMB ");
 		}
 
 
@@ -111,5 +116,9 @@
 
 
 	</script>
+
+	</div>
+
+
 
 </body>
