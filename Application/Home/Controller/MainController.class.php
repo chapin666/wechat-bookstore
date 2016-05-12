@@ -2,11 +2,12 @@
 namespace Home\Controller;
 
 use Home\Common\Controller\BaseController;
+use Think\Controller;
 use Home\Common\Utils\CookieUtil;
 use Admin\Model\Category;
 use Admin\Model\Book;
 
-class MainController extends BaseController {
+class MainController extends Controller {
 
 
 	public function index() {
