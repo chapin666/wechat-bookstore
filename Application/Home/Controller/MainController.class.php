@@ -92,6 +92,7 @@ class MainController extends BaseController {
 		// 3. 创建一个订单，并将订单详细信息存放数据库
 		$ids = I('book-id');
 		$nums = I('book-num');
+		// $wechat->
 
 		
 
