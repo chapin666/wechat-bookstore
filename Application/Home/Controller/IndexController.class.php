@@ -15,7 +15,7 @@ class IndexController extends BaseController {
 		$type = $this->weChat->getRev()->getRevType();
 		switch($type) {
 		    case Wechat::MSGTYPE_TEXT:
-			    $this->weChat->text("hello, I'm wechat")->reply();
+			    $this->weChat->text("我只是一个傻傻的机器人")->reply();
 			    exit;
 			    break;
 		    case Wechat::MSGTYPE_EVENT:

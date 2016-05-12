@@ -18,6 +18,7 @@
 		<!--  start main  -->
 		<main data-role="main" class="ui-content">
 			<hr />
+			<form method="post" action="{:U('/Home/Main/address')}">
 			<volist id="book" name="books">
 			<div id="{$book.bookId}" class="book-info" >
 				<div class="book-cover" style="display: inline-block;">
@@ -30,7 +31,8 @@
 					<div>
 						<span>数量：</span>
 						<a id="sub-{$book.bookId}" href="javascript:void(0)" onclick="sub({$book.bookId})">-</a>
-						<input id="book-number-{$book.bookId}" class="number-input" type="text" data-role="none" value="{$book.bookNum}" >
+						<input type="hidden" name="book-id[]" value="{$book.bookId}" >
+						<input id="book-number-{$book.bookId}" name="book-num[]" class="number-input" type="text" data-role="none" value="{$book.bookNum}" >
 						<a id="add-{$book.bookId}" href="javascript:void(0)" onclick="add({$book.bookId})">+</a>
 					</div>
 					<div>
@@ -41,6 +43,7 @@
 			</div>
 			<hr />
 			</volist>
+
 			
 			<div class="book-total">
 				<span>商品总数：<span class="color-red">{:count($books)}</span></span>
@@ -48,10 +51,11 @@
 			</div>
 			<div class="book-operation">
 				<div class="btn-box">
-					<a href="/Home/Main/index.html"  class="ui-btn ui-btn-inline">继续购物</a>
-					<a href="/Home/Main/address.html" class="ui-btn ui-btn-inline">下单结算</a>
+					<a href="/Home/Main/index.html" class="ui-btn ui-btn-inline">继续购物</a>
+					<button type="submit" class="ui-btn ui-btn-inline">下单结算</button>
 				</div>
 			</div>
+			</form>
 	
 		</main> <!-- // end main-->
 
@@ -66,7 +70,13 @@
 			if (value < total) {
 				value ++;
 				$("#book-number-"+id).val(value);
-				cal();
+				$.post('/Home/Cookie/setNumById.html', 
+					{
+						"bookId":  id,
+						"bookNum": value
+					},  function(text, status) {
+						cal();
+					});
 			}
 		}
 

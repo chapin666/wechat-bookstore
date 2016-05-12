@@ -1,12 +1,12 @@
 <?php
 namespace Home\Controller;
 
-use Think\Controller;
+use Home\Common\Controller\BaseController;
+use Home\Common\Utils\CookieUtil;
 use Admin\Model\Category;
 use Admin\Model\Book;
-use Home\Common\Utils\CookieUtil;
 
-class MainController extends Controller {
+class MainController extends BaseController {
 
 
 	public function index() {
@@ -17,6 +17,7 @@ class MainController extends Controller {
 		$this->assign('categorys', $categorys);
 		$this->display();
 	}
+
 
 	public function bookList() {
 		$id = I('id');
@@ -29,6 +30,7 @@ class MainController extends Controller {
 	}
 
 	
+
 	public function book() {
 		$id = I('id');
 
@@ -38,6 +40,8 @@ class MainController extends Controller {
 		$this->assign("book", $book);
 		$this->display();
 	}
+
+
 
 
 	public function category() {
@@ -82,16 +86,31 @@ class MainController extends Controller {
 
 
 	public function address() {
+
+		// 1. 获取用户提交的书籍编号和数量
+		// 2. 获取用户名
+		// 3. 创建一个订单，并将订单详细信息存放数据库
+		$ids = I('book-id');
+		$nums = I('book-num');
+
+		
+
 		$this->display();
 	}
+
+
 
 	public function orderList() {
 		$this->display();
 	}
 
+
+
 	public function order() {
 		$this->display();
 	}
+
+
 
 	// Add cookie 
 	public function addCart() {
