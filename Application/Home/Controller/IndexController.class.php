@@ -18,10 +18,14 @@ class IndexController extends BaseController {
 			    $this->weChat->text("我只是一个傻傻的机器人")->reply();
 			    exit;
 			    break;
+
+
 		    case Wechat::MSGTYPE_EVENT:
 			    $this->handleEvent();
 			    exit;
 			    break;
+
+
 		    case Wechat::MSGTYPE_IMAGE:
 			   
 			    break;
@@ -42,10 +46,14 @@ class IndexController extends BaseController {
 		
 		switch ($event) {
 			case Wechat::EVENT_SUBSCRIBE:
-			$this->weChat->text("欢迎关注【微书店】，祝您购物愉快。")->reply();
+			$authObject = $this->wechat->getOauthAccessToken();  // 2423 (array {access_token,expires_in,refresh_token,openid,scope})
+			$this->weChat->text("欢迎关注【微书店】，祝您购物愉快。您的ID为" . $authObject->openid)->reply();
+
 			break;
 			case Wechat::EVENT_UNSUBSCRIBE:
 			$this->weChat->text("欢迎再次关注【微书店】，祝您生活愉快。")->reply();
+
+
 			break;
 			case Wechat::EVENT_MENU_CLICK:
 			$this->menuEvent($key);			

@@ -42,6 +42,8 @@ namespace Vendor\Wechat;
  *  		);
  *   $result = $weObj->createMenu($newmenu);
  */
+
+
 class Wechat
 {
 	const MSGTYPE_TEXT = 'text';
