@@ -2,6 +2,7 @@
 namespace Home\Controller;
 
 use Think\Controller;
+use Home\Common\Controller\BaseController;
 use Home\Common\Utils\CookieUtil;
 use Admin\Model\Category;
 use Admin\Model\Book;
@@ -11,7 +12,7 @@ class MainController extends Controller {
 	private $wechatController = null;
 
 	public function _initialize() {
-		$this->wechatController = new Home\Common\Controller\BaseController();
+		$this->wechatController = new BaseController();
 	}
 
 
