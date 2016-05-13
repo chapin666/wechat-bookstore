@@ -17,7 +17,7 @@ class BaseController extends Controller {
 				    0 => array (
 				      'type' => 'view',
 				      'name' => '最新上架',
-				      'url' =>  "http://bookstore.coding.io/Home/Main/index", //Constant::MENU_0_0,
+				      'url' =>  "http://bookme.coding.io/Home/Main/index", //Constant::MENU_0_0,
 				    ),
 				    1 => array (
 				      'type' => 'click',
@@ -27,7 +27,7 @@ class BaseController extends Controller {
 				    2 => array (
 				      'type' => 'view',
 				      'name' => '分类浏览',
-				      'url' =>  "http://bookstore.coding.io/Home/Main/index",
+				      'url' =>  "http://bookme.coding.io/Home/Main/index",
 				    ),
 				 ),
 				),
