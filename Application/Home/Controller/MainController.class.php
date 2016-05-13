@@ -10,7 +10,7 @@ class MainController extends Controller {
 
 	private $wechatController = null;
 
-	public _initialize() {
+	public function _initialize() {
 		$this->wechatController = new Home\Common\Controller\BaseController();
 	}
 
