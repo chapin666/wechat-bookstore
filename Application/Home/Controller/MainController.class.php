@@ -8,6 +8,12 @@ use Admin\Model\Book;
 
 class MainController extends Controller {
 
+	$wechatController = null;
+
+	public _initialize() {
+		$this->wechatController = new Home\Common\Controller\BaseController();
+	}
+
 
 	public function index() {
 
