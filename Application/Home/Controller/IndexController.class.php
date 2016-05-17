@@ -1,90 +1,16 @@
 <?php
 namespace Home\Controller;
 
-use Think\Controller;
-use Vendor\Wechat\TPWechat;
 use Home\Common\Constants\Constant;
+use Home\Common\Controller\BaseController;
+use Home\Common\Utils\CookieUtil;
 use Vendor\Wechat\Wechat;
-
 use Admin\Model\ShopCart;
 use Admin\Model\User;
 
-class IndexController extends Controller {
+class IndexController extends BaseController {
 
 
-	private $options = array('token'=>'bookstore',
-				 'encodingaeskey'=>'tk3s8FIGe0MjpQyjT7eiMpwhsXHjzFZ5LrSEuoftIfn',
-				 'appid'=>'wx9266bc9da8a1f391',
-				 'appsecret'=>'e5394eff409fbe82a7828ba0e8ce3aac');
-
-	private $menu = array ('button' => array (
-				0 => array ('name' => "购买书籍", 'sub_button' =>  array (
-				    0 => array (
-				      'type' => 'view',
-				      'name' => '最新上架',
-				      'url' =>  "http://bashrc.ngrok.cc/Home/Main/index", //Constant::MENU_0_0,
-				    ),
-				    1 => array (
-				      'type' => 'click',
-				      'name' => '热销书籍',
-				      'key' =>  Constant::MENU_0_1,
-				    ),
-				    2 => array (
-				      'type' => 'view',
-				      'name' => '分类浏览',
-				      'url' =>  "http://bashrc.ngrok.cc/Home/Main/index",
-				    ),
-				 ),
-				),
-
-				1 => array ('name' => '我的订单', 'sub_button' => array (
-				    0 => array (
-				      'type' => 'click',
-				      'name' => '购物车',
-				      'key' =>  Constant::MENU_1_0,
-				    ),
-				    1 => array (
-				      'type' => 'click',
-				      'name' => '待付款',
-				      'key' =>  Constant::MENU_1_1,
-				    ),
-				    2 => array (
-				      'type' => 'click',
-				      'name' => '历史订单',
-				      'key' => Constant::MENU_1_2,
-				    ),
-				),
-				),
-
-				2 => array ('name' => '个人中心', 'sub_button' => array (
-				    0 => array (
-				      'type' => 'click',
-				      'name' => '帐号绑定',
-				      'key' => Constant::MENU_2_0,
-				    ),
-				    1 => array (
-				      'type' => 'click',
-				      'name' => '个人信息',
-				      'key' => Constant::MENU_2_1,
-				    ),
-				    2 => array (
-				      'type' => 'click',
-				      'name' => '解除绑定',
-				      'key' => Constant::MENU_2_2,
-				    ),
-				),
-				),
-			    ),
-			);
-
-
-	private $weChat = null;
-	
-	public function ___construct() {
-		$this->weChat = new TPWechat($this->options);
-		$this->weChat->valid();
-		$this->weChat->createMenu($this->menu);	
-	}
 
 
 	/*
@@ -186,41 +112,48 @@ class IndexController extends Controller {
 	}
 
 
-	public function auth() {
-		$url = $this->weChat->getOauthRedirect('http://bashrc.ngrok.cc/Home/Index/address.html', '123',  'snsapi_base');
-		$this->redirect ($url);
+
+
+	public function check() {
+		$url = $this->weChat->getOauthRedirect('http://bashrc.ngrok.cc/Home/Index/address.html/', 1, 'snsapi_base');
+		header("location:" . $url);
+		exit(0);
 	}
 	
 
 	public function address() {
 
-		// auth
-		$accessToken = $this->getOauthAccessToken();
 
-		echo $accessToken;
+		// auth
+		$accessToken = $this->weChat->getOauthAccessToken();
+
+		$cookieUtil = new CookieUtil();
+		$userModel = new User();
+
+		echo print_r($accessToken);
+		exit(0);
+
 
 		// 1 Get all order
-		// $cookieUtil = new CookieUtil();
-		// $shopCart = new ShopCar();
-		// $cookies = $cookieUtil->getAll();
+		 $shopCartModel = new ShopCart();
+		 $cookies = $cookieUtil->getAll();
+		 $userId = $userModel->findUserByOpenId($accessToken['openid']);
 
-		// $openId = $this->weChat->getRevFrom();
-
-		// foreach ($cookies as $key => $value) {
-		// 	if ($key != "" && $value != "") {
-		// 		$bookNum = $value;
-		// 		$bookId = $key;
-		// 		$cart = array("book_id" => $bookId, "user_id"=>$openId, "amount" => $bookNum);
-		// 		$shopCart->add($cart);
-		// 	}
-		// }
+		 foreach ($cookies as $key => $value) {
+		 	if ($key != "" && $value != "") {
+		 		$bookNum = $value;
+		 		$bookId = $key;
+		 		$cart = array("book_id" => $bookId, "user_id"=>$userId, "amount" => $bookNum);
+		 		$shopCartModel->add($cart);
+		 	}
+		 }
 
 		// // 2 create a order
 
 		// // 3 save book info to db
 
 
-		// $this->display();
+		 $this->display();
 	}
 
 

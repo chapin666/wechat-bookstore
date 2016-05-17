@@ -4,7 +4,7 @@ namespace Admin\Model;
 class ShopCart {
 
 	// add
-	public funtion add($data) {
+	public function add($data) {
 		$s = M('shop_cart');
 		$s->add($data);
 	}

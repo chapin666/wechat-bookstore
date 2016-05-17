@@ -6,17 +6,12 @@ use Home\Common\Utils\CookieUtil;
 use Admin\Model\Category;
 use Admin\Model\Book;
 use Admin\Model\ShopCart;
-use Vendor\Wechat\TPWechat;
 
 class MainController extends Controller {
 
-	private $wechatController = null;
-
-	public function _initialize() {
-		$this->wechatController = new BaseController();
+	public function oa() {
+			$this->display();
 	}
-
-
 
 	public function index() {
 

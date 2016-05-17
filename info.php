@@ -1,3 +1,3 @@
 <?php
 
-    phpinfo();
+	header("location: http://www.baidu.com");
