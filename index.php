@@ -24,6 +24,10 @@ define('APP_PATH','./Application/');
 // TOKEN
 define("TOKEN", "bookstore");
 
+
+define('DB_FIELD_CACHE', false);
+define('HTML_CACHE_ON', false);
+
 //define('BIND_MODULE','Admin');
 
 

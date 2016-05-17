@@ -4,15 +4,21 @@ namespace Home\Controller;
 use Think\Controller;
 use Admin\Model\Category;
 use Admin\Model\Book;
+use Admin\Model\ShopCart;
 use Home\Common\Utils\CookieUtil;
+use Vendor\Wechat\TPWechat;
 
 class MainController extends Controller {
 
 
+
 	public function index() {
+
 
 		$category = new Category();
 		$categorys = $category->findAll();
+
+	
 
 		$this->assign('categorys', $categorys);
 		$this->display();
@@ -46,7 +52,6 @@ class MainController extends Controller {
 
 	
 	public function cart() {
-
 		$cookieUtil = new CookieUtil();
 		$bookModel = new Book();
 		$cookies = $cookieUtil->getAll();
@@ -76,14 +81,39 @@ class MainController extends Controller {
 		$this->display();
 	}
 
+
+	public function address() {
+
+		// 1 Get all order
+		$cookieUtil = new CookieUtil();
+		$shopCart = new ShopCart;
+		$cookies = $cookieUtil->getAll();
+
+		$openId = $this->weChat->getRevFrom();
+
+		foreach ($cookies as $key => $value) {
+			if ($key != "" && $value != "") {
+				$bookNum = $value;
+				$bookId = $key;
+				$cart = array("book_id" => $bookId, "user_id"=>$openId, "amount" => $bookNum);
+				$shopCart->add($cart);
+			}
+		}
+
+		// 2 create a order
+
+		// 3 save book info to db
+
+
+		$this->display();
+	}
+
+
+
 	public function user() {
 		$this->display();
 	}
 
-
-	public function address() {
-		$this->display();
-	}
 
 	public function orderList() {
 		$this->display();

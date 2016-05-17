@@ -38,13 +38,13 @@ class ReadHtmlCacheBehavior {
             // 检测静态规则
             $controllerName = strtolower(CONTROLLER_NAME);
             $actionName     = strtolower(ACTION_NAME);
-            if(isset($htmls[$controllerName.':'.$actionName])) {
+            if(array_key_exists($htmls[$controllerName.':'.$actionName])) {
                 $html   =   $htmls[$controllerName.':'.$actionName];   // 某个控制器的操作的静态规则
-            }elseif(isset($htmls[$controllerName.':'])){// 某个控制器的静态规则
+            }elseif(array_key_exists($htmls[$controllerName.':'])){// 某个控制器的静态规则
                 $html   =   $htmls[$controllerName.':'];
-            }elseif(isset($htmls[$actionName])){
+            }elseif(array_key_exists($htmls[$actionName])){
                 $html   =   $htmls[$actionName]; // 所有操作的静态规则
-            }elseif(isset($htmls['*'])){
+            }elseif(array_key_exists($htmls['*'])){
                 $html   =   $htmls['*']; // 全局静态规则
             }
             if(!empty($html)) {

@@ -3,6 +3,8 @@ namespace Admin\Controller;
 use Think\Controller;
 use Admin\Model\Category;
 use Admin\Model\Book;
+use Admin\Model\User;
+use Admin\Model\Order;
 
 
 class IndexController extends Controller {
@@ -19,12 +21,20 @@ class IndexController extends Controller {
 
         $categoryModel = new Category;
         $bookModel = new Book;
+        $userModel = new User;
+        $orderModel = new Order;
 
         $category_count = $categoryModel->count();
         $book_count = $bookModel->count();
+        $user_count = $userModel->count();
+        $order_count = $orderModel->count();
 
         $this->assign('category_count', $category_count);
         $this->assign('book_count', $book_count);
+        $this->assign('user_count', $user_count);
+        $this->assign('order_count', $order_count);
+
+
         $this->display();
     }
 
@@ -71,6 +81,10 @@ class IndexController extends Controller {
 
     // 用户管理Action
     public function user() {
+        $userModel = new User();
+        $users = $userModel->getAll();
+
+        $this->assign("users", $users);
         $this->display();
     }
 

@@ -2,7 +2,7 @@
 # description: start/restart/stop
 
 NGINX_DIR=/usr/local/server/nginx
-FCGI_DIR=/usr/bin/php-cgi
+FCGI_DIR=/usr/bin/php5-cgi
 
 export NGINX_DIR
 export FCGI_DIR

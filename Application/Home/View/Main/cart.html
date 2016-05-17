@@ -29,13 +29,10 @@
 					<div>邮费：￥0</div>
 					<div>
 						<span>数量：</span>
-						<a id="sub-{$book.bookId}" href="javascript:void(0)" onclick="sub({$book.bookId})">-</a>
-						<input id="book-number-{$book.bookId}" class="number-input" type="text" data-role="none" value="{$book.bookNum}" >
-						<a id="add-{$book.bookId}" href="javascript:void(0)" onclick="add({$book.bookId})">+</a>
+						<a id="sub-{$book.bookId}" href="javascript:void(0)" onclick="sub({$book.bookId})">-</a><input id="book-number-{$book.bookId}" class="number-input" type="text" data-role="none" value="{$book.bookNum}"  readonly ><a id="add-{$book.bookId}" href="javascript:void(0)" onclick="add({$book.bookId})">+</a>
 					</div>
 					<div>
-						<span>库存：<span id="book-total-{$book.bookId}">{$book.total_count}</span></span>
-						<span class="del"><a href="#">删除</a></span>
+						<span>库存：<span id="book-total-{$book.bookId}">{$book.total_count}</span></span><span class="del"><a href="#">删除</a></span>
 					</div>
 				</div>
 			</div>
@@ -49,7 +46,7 @@
 			<div class="book-operation">
 				<div class="btn-box">
 					<a href="/Home/Main/index.html"  class="ui-btn ui-btn-inline">继续购物</a>
-					<a href="/Home/Main/address.html" class="ui-btn ui-btn-inline">下单结算</a>
+					<a href="{:U('/Home/Index/auth')}" class="ui-btn ui-btn-inline">下单结算</a>
 				</div>
 			</div>
 	
@@ -99,20 +96,7 @@
 		}
 
 
-		function addLoadEvent(func) {
-			var oldonload = window.onload;
-			if (typeof window.onload != 'function') {
-				window.onload = func;
-			} else {
-				window.onload = function() {
-					oldonload();
-					func();
-				};
-			}
-		}
-
-
-		addLoadEvent(cal);
+		cal();
 
 
 	</script>

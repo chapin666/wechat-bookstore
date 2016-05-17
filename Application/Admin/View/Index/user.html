@@ -5,44 +5,36 @@
         <div class="mdl-cell--11-col mdl-grid" style="margin: 20px auto; ">
 
 			<div class="mdl-cell--8-col mdl-cell--8-col-phone mdl-cell" >
-				<span><b>当前位置 > </b> 用户管理 </span>
+				<span><b>当前位置 > </b> 会员中心 </span>
 			</div>
 			<div class="mdl-cell--4-col mdl-cell--4-col-phone mdl-cell" style="text-align: right;">
-				<button class="mdl-button mdl-js-button mdl-button--raised mdl-color--cyan-300 mdl-color-text--white">删除</button>
+				<!-- <button class="mdl-button mdl-js-button mdl-button--raised mdl-color--cyan-300 mdl-color-text--white">删除</button> -->
 			</div>
 		</div>
 
-        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-cell--11-col" style="margin: 0 auto;">
+        <table class="mdl-data-table  mdl-data-table--selectable mdl-cell--11-col" style="margin: 0 auto;">
 			<thead>
 			  <tr>
 				<th class="mdl-data-table__cell--non-numeric">用户编号</th>
-				<th class="mdl-data-table__cell--non-numeric">用户名称</th>
-				<th class="mdl-data-table__cell--non-numeric">用户微信号</th>
+				<th class="mdl-data-table__cell--non-numeric">openId</th>
+				<th class="mdl-data-table__cell--non-numeric">微信昵称</th>
 				<th class="mdl-data-table__cell--non-numeric">关注时间</th>
-				<th class="mdl-data-table__cell--non-numeric">操作</th>
+				<th class="mdl-data-table__cell--non-numeric">订单数</th>
 			  </tr>
 			</thead>
 			<tbody>
+			  <volist name="users" id="user">
 			  <tr>
-				<td class="mdl-data-table__cell--non-numeric">1</td>
-				<td class="mdl-data-table__cell--non-numeric">李三红</td>
-				<td class="mdl-data-table__cell--non-numeric">2015-12-12</td>
-				<td class="mdl-data-table__cell--non-numeric">blibli</td>
+				<td class="mdl-data-table__cell--non-numeric">{$user.uid}</td>
+				<td class="mdl-data-table__cell--non-numeric">{$user.openid}</td>
+				<td class="mdl-data-table__cell--non-numeric">{$user.username}</td>
+				<td class="mdl-data-table__cell--non-numeric">{$user.create_time}</td>
 				<td class="mdl-data-table__cell--non-numeric">
-				  <a href="">取消关注</a>
-				  <a href="">删除</a>
+				  <a href="">0</a>
 				</td>
 			  </tr>
-			  <tr>
-				<td class="mdl-data-table__cell--non-numeric">1</td>
-				<td class="mdl-data-table__cell--non-numeric">Bin Chan</td>
-				<td class="mdl-data-table__cell--non-numeric">2016-1-12</td>
-				<td class="mdl-data-table__cell--non-numeric">Bin Cheng</td>
-				<td class="mdl-data-table__cell--non-numeric">
-				  <a href="">取消关注</a>
-				  <a href="">删除</a>
-				</td>
-			  </tr>
+			</volist>
+			  
 
 			</tbody>
         </table>

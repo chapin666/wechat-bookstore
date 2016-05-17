@@ -7,17 +7,17 @@ use Vendor\Wechat\TPWechat;
 
 class BaseController extends Controller {
 	
-	private $options = array('token'=>'wsdbookstore',
-							 'encodingaeskey'=>'tk3s8FIGe0MjpQyjT7eiMpwhsXHjzFZ5LrSEuoftIfn',
- 							 'appid'=>'wx9266bc9da8a1f391',
-							 'appsecret'=>'e5394eff409fbe82a7828ba0e8ce3aac');
+	private $options = array('token'=>'bookstore',
+				 'encodingaeskey'=>'tk3s8FIGe0MjpQyjT7eiMpwhsXHjzFZ5LrSEuoftIfn',
+				 'appid'=>'wx9266bc9da8a1f391',
+				 'appsecret'=>'e5394eff409fbe82a7828ba0e8ce3aac');
 
 	private $menu = array ('button' => array (
 				0 => array ('name' => "购买书籍", 'sub_button' =>  array (
 				    0 => array (
 				      'type' => 'view',
 				      'name' => '最新上架',
-				      'url' =>  "http://bookstore.coding.io/Home/Main/index", //Constant::MENU_0_0,
+				      'url' =>  "http://bashrc.ngrok.cc/Home/Main/index", //Constant::MENU_0_0,
 				    ),
 				    1 => array (
 				      'type' => 'click',
@@ -27,7 +27,7 @@ class BaseController extends Controller {
 				    2 => array (
 				      'type' => 'view',
 				      'name' => '分类浏览',
-				      'url' =>  "http://bookstore.coding.io/Home/Main/index",
+				      'url' =>  "http://bashrc.ngrok.cc/Home/Main/index",
 				    ),
 				 ),
 				),
