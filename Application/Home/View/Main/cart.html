@@ -18,6 +18,7 @@
 		<!--  start main  -->
 		<main data-role="main" class="ui-content">
 			<hr />
+			<form method="post" action="{:U('/Home/Main/address')}">
 			<volist id="book" name="books">
 			<div id="{$book.bookId}" class="book-info" >
 				<div class="book-cover" style="display: inline-block;">
@@ -38,6 +39,7 @@
 			</div>
 			<hr />
 			</volist>
+
 			
 			<div class="book-total">
 				<span>商品总数：<span class="color-red">{:count($books)}</span></span>
@@ -49,6 +51,7 @@
 					<a href="{:U('/Home/Index/auth')}" class="ui-btn ui-btn-inline">下单结算</a>
 				</div>
 			</div>
+			</form>
 	
 		</main> <!-- // end main-->
 
@@ -63,7 +66,13 @@
 			if (value < total) {
 				value ++;
 				$("#book-number-"+id).val(value);
-				cal();
+				$.post('/Home/Cookie/setNumById.html', 
+					{
+						"bookId":  id,
+						"bookNum": value
+					},  function(text, status) {
+						cal();
+					});
 			}
 		}
 

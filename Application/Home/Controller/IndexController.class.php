@@ -94,13 +94,17 @@ class IndexController extends Controller {
 		$type = $this->weChat->getRev()->getRevType();
 		switch($type) {
 		    case Wechat::MSGTYPE_TEXT:
-			    $this->weChat->text("hello, I'm wechat")->reply();
+			    $this->weChat->text("我只是一个傻傻的机器人")->reply();
 			    exit;
 			    break;
+
+
 		    case Wechat::MSGTYPE_EVENT:
 			    $this->handleEvent();
 			    exit;
 			    break;
+
+
 		    case Wechat::MSGTYPE_IMAGE:
 			   
 			    break;
@@ -135,6 +139,7 @@ class IndexController extends Controller {
 			$openId = $this->weChat->getRevFrom();
 			$userModel = new User();
 			$userModel->delete($openId);
+			$this->weChat->text("欢迎关注【微书店】，祝您购物愉快。您的ID为" . $authObject->openid)->reply();
 			break;
 			case Wechat::EVENT_MENU_CLICK:
 			$this->menuEvent($key);			

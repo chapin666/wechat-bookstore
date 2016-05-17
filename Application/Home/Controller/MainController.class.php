@@ -2,13 +2,19 @@
 namespace Home\Controller;
 
 use Think\Controller;
+use Home\Common\Utils\CookieUtil;
 use Admin\Model\Category;
 use Admin\Model\Book;
 use Admin\Model\ShopCart;
-use Home\Common\Utils\CookieUtil;
 use Vendor\Wechat\TPWechat;
 
 class MainController extends Controller {
+
+	private $wechatController = null;
+
+	public function _initialize() {
+		$this->wechatController = new BaseController();
+	}
 
 
 
@@ -24,6 +30,7 @@ class MainController extends Controller {
 		$this->display();
 	}
 
+
 	public function bookList() {
 		$id = I('id');
 
@@ -35,6 +42,7 @@ class MainController extends Controller {
 	}
 
 	
+
 	public function book() {
 		$id = I('id');
 
@@ -44,6 +52,8 @@ class MainController extends Controller {
 		$this->assign("book", $book);
 		$this->display();
 	}
+
+
 
 
 	public function category() {
@@ -110,8 +120,8 @@ class MainController extends Controller {
 
 
 
+
 	public function user() {
-		$this->display();
 	}
 
 
@@ -119,9 +129,13 @@ class MainController extends Controller {
 		$this->display();
 	}
 
+
+
 	public function order() {
 		$this->display();
 	}
+
+
 
 	// Add cookie 
 	public function addCart() {
