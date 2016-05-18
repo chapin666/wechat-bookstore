@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.css">
 	<link rel="stylesheet" href="__PUBLIC__/styles/home.css">
 	<script src="__PUBLIC__/scripts/jquery.min.js"></script>
-<!-- 	<script src="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.js"></script> -->
+    <script src="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.js"></script>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
 		<!--  start main  -->
 		<main data-role="main" class="ui-content">
 			<hr />
-			<form method="post" action="{:U('/Home/Main/address')}">
+			<form method="post" action="/Home/Main/address.html">
 			<volist id="book" name="books">
 			<div id="{$book.bookId}" class="book-info" >
 				<div class="book-cover" style="display: inline-block;">
@@ -47,8 +47,10 @@
 			</div>
 			<div class="book-operation">
 				<div class="btn-box">
+					<input type="hidden" name="book_num" value="{:count($books)}">
+					<input type="hidden" name="total_price" id="book-total-price">
 					<a href="/Home/Main/index.html"  class="ui-btn ui-btn-inline">继续购物</a>
-					<a href="/Home/Index/check.html" class="ui-btn ui-btn-inline">下单结算</a>
+					<button type="submit" class="ui-btn ui-btn-inline">下单结算</button>
 				</div>
 			</div>
 			</form>
@@ -101,6 +103,7 @@
 				total += (bookPrice * bookNum);
 			});
 
+			$("#book-total-price").val(total);
 			$(".price-total").html("￥" + total + " RMB ");
 		}
 

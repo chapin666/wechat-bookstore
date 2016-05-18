@@ -117,26 +117,43 @@ class IndexController extends BaseController {
 
 
 
-	public function check() {
-		$url = $this->weChat->getOauthRedirect('http://bashrc.ngrok.cc/Home/Index/address', 1, 'snsapi_base');
-		header("Location:" . $url);
+	public function payment() {
+		// save userInfo
+		session('username', $_POST['userName']);
+		session('phoneNumber', $_POST['phoneNumber']);
+		session('address', $_POST['address']);
+
+
+		$url = $this->weChat->getOauthRedirect('http://bashrc.ngrok.cc/Home/Index/payresult', 1, 'snsapi_base');
+		header("Location:" . $url); 
 	}
 	
 
 	// order
-	public function address() {
+	public function payresult() {
+		
+		$userName = session('userName');
+		$phoneNumber = session('phoneNumber');
+		$address = session('address');
+
+		echo $userName;
+		exit(0);
+
+		// Get Code and state
 		$queyString = explode("?", $_SERVER["REQUEST_URI"])[1];
 		$parameters = explode("&", $queyString);
 		$code = explode("=", $parameters[0])[1];
 		$state = explode("=", $parameters[1])[1];
 
-		// auth
+
+		// auth, get accessToken
 		$accessToken = $this->weChat->getOauthAccessToken($code);
 
+
+		// instance
 		$cookieUtil = new CookieUtil();
 		$userModel = new User();
 		$orderModel = new Order();
-		$bookModel = new Book();
 
 		// 1 Get all order
 		 $shopCartModel = new ShopCart();
@@ -144,13 +161,17 @@ class IndexController extends BaseController {
 		 $userId = $userModel->findUserByOpenId($accessToken['openid'])['uid'];
 
 
-		 // 2 create order
+		 // 2 create order 
 		 $guidUtil  = new UUIDUtil();
 		 $guid = $guidUtil->getGuid();
-		 $order = array('order_id' => $guid,  'user_uid' => $userId,
-		 		"create_time"=>time());
+		 $order = array('name' => $username, 'address' => $address,
+		 			'phone' => $phoneNumber, 'orderSate' => 0,
+		 			'order_id' => $guid,  'user_uid' => $userId, 
+		 			"create_time"=>date("Y-m-d H:i:s"));
 		 $order_id = $orderModel->add($order);
 
+
+		 // 3 save book item info to db
 		 $books = array();
 		 foreach ($cookies as $key => $value) {
 		 	if ($key != "" && $value != "") {
@@ -160,19 +181,16 @@ class IndexController extends BaseController {
 		 			"user_id"=>$userId, 
 		 			"amount" => $bookNum,
 		 			"order_id" => $order_id,
-		 			"create_time"=>time());
+		 			"create_time"=>date("Y-m-d H:i:s"));
 		 		$shopCartModel->add($cart);
-
-		 		$book = $bookModel->findBookById($bookId);
-		 		$books[$i] = array('bookNum' => $bookNum, "bookId" => $bookId, "name" => $book['name'],
-					"location" => $book['location'], "price_now" => $book['price_now'], "total_count" => $book['total_count']);
 		 	}
 		 }
 
-		// // 3 save book info to db
 
-		 $this->assign("books", $books);
-		 $this->display();
+		 $cookieUtil->del();
+
+
+		 $this->success('新增成功', '/Home/Main/orderList');
 	}
 
 

@@ -7,12 +7,13 @@
 	<link rel="stylesheet" href="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.css">
 	<link rel="stylesheet" href="__PUBLIC__/styles/home.css">
 	<script src="__PUBLIC__/scripts/jquery.min.js"></script>
-	<script src="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.js"></script>
+	<script src="__PUBLIC__/scripts/cors.js"></script>
+ 	<script src="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.js"></script>
 </head>
 
 <body>
 
-	<div data-role="page">
+	<div data-role="page" data-dom-cache="false">
 		<include file="Common:toolbar" title="收货地址" />
 		<include file="Common:menu" />
 
@@ -24,7 +25,7 @@
 				<span class="title-right"><a href="#">使用微信收获地址</a></span>
 			</div>
 			<div class="address-box">
-				<form method="post" action="/Home/WxJsAPI/index">
+				<form name="order-form"  data-ajax="false"  method="post" action="/Home/Index/payment.html">
 				<div data-role="fieldcontain">
 					<div>
 						<label for="userName">收货人姓名:</label>
@@ -36,7 +37,7 @@
 					</div>
 					<div>
 						<label for="address">详细地址:</label>
-						<input type="text" name="adress" placeholder="请输入您的收获地址">
+						<input type="text" name="address" placeholder="请输入您的收获地址">
 					</div>
 				</div>
 				<div>
@@ -49,18 +50,18 @@
 						<volist name="books" id="book"> 
 						<li>
 						    <a href="#">
-						        <img src="{$book.location}" alt="">
+						        <img src="__ROOT__/Uploads/{$book.location}" alt="">
 						        <div class="book-item">
 						            <h4>{$book.name}</h4>
-							<div class="aside">
-							<div>数量：
-							    <b>{$book.bookNum}</b>
-							</div>
-							<div>销售价：
-							    <span class="price-now">￥ {$book.price_now}</span>
-						             </div>
-							</div>
-						         </div>
+									<div class="aside">
+										<div>数量：
+										    <b>{$book.bookNum}</b>
+										</div>
+										<div>销售价：
+										    <span class="price-now">￥ {$book.price_now}</span>
+									    </div>
+									</div>
+						   	 	</div>
 						    </a>
 						</li>
 						</volist>
@@ -69,10 +70,10 @@
 
 
 				<div class="customer-info">
-					<p>商品总数：<span class="color-red"><b>1</b></span> 本</p>	
-					<p>商品元总价：<span class="color-red"><b>88.4</b></span> 元</p>	
+					<p>商品总数：<span class="color-red"><b>{$orderInfo['book_num']}</b></span> 本</p>	
+					<p>商品元总价：<span class="color-red"><b>{$orderInfo[total_price]}</b></span> 元</p>	
 					<p>运费：<span class="color-red"><b>0</b></span> 元</p>
-					<p>您共需支付：<span class="color-red"><b>88.4</b></span> 元</p>
+					<p>您共需支付：<span class="color-red"><b>{$orderInfo[total_price]}</b></span> 元</p>
 					<input class="submit-btn" type="submit" value="确认，提交订单" data-inline="true">
 				</div>
 
@@ -82,6 +83,5 @@
 		</div>
 		</main><!-- // end main -->
 	</div>
-
 </body>
 </html>

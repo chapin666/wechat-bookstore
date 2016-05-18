@@ -49,7 +49,7 @@ class CookieUtil {
 
 
 	public function del() {
-		
+		cookie($this->cookieName, null);
 	}
 
 }
