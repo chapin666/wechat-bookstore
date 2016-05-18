@@ -4,9 +4,12 @@ namespace Home\Controller;
 use Home\Common\Constants\Constant;
 use Home\Common\Controller\BaseController;
 use Home\Common\Utils\CookieUtil;
+use Home\Common\Utils\UUIDUtil;
 use Vendor\Wechat\Wechat;
 use Admin\Model\ShopCart;
 use Admin\Model\User;
+use Admin\Model\Order;
+use Admin\Model\Book;
 
 class IndexController extends BaseController {
 
@@ -115,44 +118,60 @@ class IndexController extends BaseController {
 
 
 	public function check() {
-		$url = $this->weChat->getOauthRedirect('http://bashrc.ngrok.cc/Home/Index/address.html/', 1, 'snsapi_base');
-		header("location:" . $url);
-		exit(0);
+		$url = $this->weChat->getOauthRedirect('http://bashrc.ngrok.cc/Home/Index/address', 1, 'snsapi_base');
+		header("Location:" . $url);
 	}
 	
 
+	// order
 	public function address() {
-
+		$queyString = explode("?", $_SERVER["REQUEST_URI"])[1];
+		$parameters = explode("&", $queyString);
+		$code = explode("=", $parameters[0])[1];
+		$state = explode("=", $parameters[1])[1];
 
 		// auth
-		$accessToken = $this->weChat->getOauthAccessToken();
+		$accessToken = $this->weChat->getOauthAccessToken($code);
 
 		$cookieUtil = new CookieUtil();
 		$userModel = new User();
-
-		echo print_r($accessToken);
-		exit(0);
-
+		$orderModel = new Order();
+		$bookModel = new Book();
 
 		// 1 Get all order
 		 $shopCartModel = new ShopCart();
 		 $cookies = $cookieUtil->getAll();
-		 $userId = $userModel->findUserByOpenId($accessToken['openid']);
+		 $userId = $userModel->findUserByOpenId($accessToken['openid'])['uid'];
 
+
+		 // 2 create order
+		 $guidUtil  = new UUIDUtil();
+		 $guid = $guidUtil->getGuid();
+		 $order = array('order_id' => $guid,  'user_uid' => $userId,
+		 		"create_time"=>time());
+		 $order_id = $orderModel->add($order);
+
+		 $books = array();
 		 foreach ($cookies as $key => $value) {
 		 	if ($key != "" && $value != "") {
 		 		$bookNum = $value;
 		 		$bookId = $key;
-		 		$cart = array("book_id" => $bookId, "user_id"=>$userId, "amount" => $bookNum);
+		 		$cart = array("book_id" => $bookId, 
+		 			"user_id"=>$userId, 
+		 			"amount" => $bookNum,
+		 			"order_id" => $order_id,
+		 			"create_time"=>time());
 		 		$shopCartModel->add($cart);
+
+		 		$book = $bookModel->findBookById($bookId);
+		 		$books[$i] = array('bookNum' => $bookNum, "bookId" => $bookId, "name" => $book['name'],
+					"location" => $book['location'], "price_now" => $book['price_now'], "total_count" => $book['total_count']);
 		 	}
 		 }
 
-		// // 2 create a order
-
 		// // 3 save book info to db
 
-
+		 $this->assign("books", $books);
 		 $this->display();
 	}
 

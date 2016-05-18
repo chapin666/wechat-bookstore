@@ -2420,8 +2420,11 @@ class Wechat
 	 * 通过code获取Access Token
 	 * @return array {access_token,expires_in,refresh_token,openid,scope}
 	 */
-	public function getOauthAccessToken(){
-		$code = isset($_GET['code'])?$_GET['code']:'';
+	public function getOauthAccessToken($codeParams){
+
+		//$code = isset($_GET['code'])?$_GET['code']:'';
+
+		$code = empty($codeParams) ? '' : $codeParams;
 		if (!$code) return false;
 		$result = $this->http_get(self::API_BASE_URL_PREFIX.self::OAUTH_TOKEN_URL.'appid='.$this->appid.'&secret='.$this->appsecret.'&code='.$code.'&grant_type=authorization_code');
 		if ($result)

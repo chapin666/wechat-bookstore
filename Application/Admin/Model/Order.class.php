@@ -7,7 +7,7 @@ class Order {
 	// add 
 	public function add($data) {
 		$o = M('bookstore.order');
-		$o->add($data);
+		return $o->add($data);
 	}
 
 	// count

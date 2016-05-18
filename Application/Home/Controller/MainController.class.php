@@ -10,7 +10,7 @@ use Admin\Model\ShopCart;
 class MainController extends Controller {
 
 	public function oa() {
-			$this->display();
+		$this->display();
 	}
 
 	public function index() {
@@ -82,33 +82,6 @@ class MainController extends Controller {
 
 
 		$this->assign("books", $books);
-
-		$this->display();
-	}
-
-
-	public function address() {
-
-		// 1 Get all order
-		$cookieUtil = new CookieUtil();
-		$shopCart = new ShopCart;
-		$cookies = $cookieUtil->getAll();
-
-		$openId = $this->weChat->getRevFrom();
-
-		foreach ($cookies as $key => $value) {
-			if ($key != "" && $value != "") {
-				$bookNum = $value;
-				$bookId = $key;
-				$cart = array("book_id" => $bookId, "user_id"=>$openId, "amount" => $bookNum);
-				$shopCart->add($cart);
-			}
-		}
-
-		// 2 create a order
-
-		// 3 save book info to db
-
 
 		$this->display();
 	}

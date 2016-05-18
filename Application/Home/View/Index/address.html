@@ -46,30 +46,24 @@
 				<div>
 					<p class="book-list-title">商品清单</p>
 					<ul data-role="listview" class="listview book-list" style="margin: 0;">
+						<volist name="books" id="book"> 
 						<li>
-							<a href="#">
-								<img src="__PUBLIC__/images/child-cover.jpg" alt="">
-								<div class="book-item">
-									<h4>笑猫日记-小白的选择</h4>
-									<div class="aside">
-										<div>数量：<b>2</b></div>
-										<div>销售价：<span class="price-now">￥49.5</span></div>
-									</div>
-								</div>
-							</a>
+						    <a href="#">
+						        <img src="{$book.location}" alt="">
+						        <div class="book-item">
+						            <h4>{$book.name}</h4>
+							<div class="aside">
+							<div>数量：
+							    <b>{$book.bookNum}</b>
+							</div>
+							<div>销售价：
+							    <span class="price-now">￥ {$book.price_now}</span>
+						             </div>
+							</div>
+						         </div>
+						    </a>
 						</li>
-						<li>
-							<a href="#">
-								<img src="__PUBLIC__/images/child-cover.jpg" alt="">
-								<div class="book-item">
-									<h4>笑猫日记-小白的选择</h4>
-									<div class="aside">
-										<div>数量：<b>2</b></div>
-										<div>销售价：<span class="price-now">￥49.5</span></div>
-									</div>
-								</div>
-							</a>
-						</li>
+						</volist>
 					</ul>
 				</div>
 
