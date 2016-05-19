@@ -25,8 +25,8 @@
 				<div class="ui-body ui-body-a ui-corner-all order-item" onclick="">
 					<p>订单号码：{$order.order_id}</p>
 					<p>订单状态：{$order.orderstate}</p>
-					<p>订单总额：{$order.paymentway}</p>
-					<p>支付方式：￥{$order.total_price}</p>
+					<p>订单总额：￥{$order.total_price}</p>
+					<p>支付方式：{$order.paymentway}</p>
 					<span class="order-time">{$order.create_time}</span>
 					<a class="pay-now" style="color:#eeffee;" href="##">{$order.orderstate}</a>
 					<a href="{:U('/Home/Main/order', array('id'=>$order['id']))}" class="ui-btn ui-btn-inline ui-icon-arrow-r ui-btn-icon-notext ui-corner-all item-info"></a>

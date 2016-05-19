@@ -7,13 +7,13 @@
 	<link rel="stylesheet" href="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.css">
 	<link rel="stylesheet" href="__PUBLIC__/styles/home.css">
 	<script src="__PUBLIC__/scripts/jquery.min.js"></script>
-	<script src="__PUBLIC__/scripts/cors.js"></script>
  	<script src="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.js"></script>
 </head>
 
 <body>
 
 	<div data-role="page" data-dom-cache="false">
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
 		<include file="Common:toolbar" title="收货地址" />
 		<include file="Common:menu" />
 
@@ -22,7 +22,7 @@
 		<div class="margin-5">
 			<div class="title-box clearfix">
 				<span class="title-left">收获地址信息</span>
-				<span class="title-right"><a href="#">使用微信收获地址</a></span>
+				<span class="title-right"><a href="/Home/Index/selectAddress.html" id="">使用微信收获地址</a></span>
 			</div>
 			<div class="address-box">
 				<form name="order-form"  data-ajax="false"  method="post" action="/Home/Index/payment.html">
@@ -84,5 +84,6 @@
 		</div>
 		</main><!-- // end main -->
 	</div>
+
 </body>
 </html>

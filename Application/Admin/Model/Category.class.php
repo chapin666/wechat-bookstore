@@ -3,6 +3,15 @@ namespace Admin\Model;
 
 class Category {
 
+	// 获取所有图书分类
+	public function findAll() {
+		$c = M("book_category")
+			->join('attachment ON attachment.id = book_category.attachment_id' )
+			->field('book_category.id, name, create_time, description, attachment_id, location');
+		return $c->select();
+	}
+
+	// 分页查询
 	public function findLimit($firstRow, $listRows) {
 		$c = M("book_category")
 			->join('attachment ON attachment.id = book_category.attachment_id' )

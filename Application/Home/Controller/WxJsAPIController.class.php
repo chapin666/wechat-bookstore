@@ -16,7 +16,7 @@ class WxJsAPIController extends Controller {
 	        $openId = 'oql2ZwUwTvQsD73jTZuzRc2KFYEA';
 	        $Out_trade_no=date('YHis').rand(100,1000);
 	        $Total_fee='测试';
-	        $Body='啥也不说';
+	        $Body='买了什么书籍';
 	        $Total_fee=1;
 	        $input = new \WxPayUnifiedOrder();
 	        $input->SetBody($Body);

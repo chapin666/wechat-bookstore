@@ -4,7 +4,8 @@ namespace Home\Controller;
 use Home\Common\Constants\Constant;
 use Home\Common\Controller\BaseController;
 use Home\Common\Utils\CookieUtil;
-use Home\Common\Utils\UUIDUtil;
+use Home\Common\Utils\OrderUtil;
+use Home\Common\Utils\Jssdk;
 use Vendor\Wechat\Wechat;
 use Admin\Model\ShopCart;
 use Admin\Model\User;
@@ -12,9 +13,6 @@ use Admin\Model\Order;
 use Admin\Model\Book;
 
 class IndexController extends BaseController {
-
-
-
 
 	/*
 	 *  获取事件类型
@@ -115,8 +113,7 @@ class IndexController extends BaseController {
 	}
 
 
-
-
+	// 支付页面授权
 	public function payment() {
 		// save userInfo
 		session('userName', $_POST['userName']);
@@ -130,7 +127,7 @@ class IndexController extends BaseController {
 	}
 	
 
-	// order
+	// 支付页面授权回调
 	public function payresult() {
 		
 		$userName = session('userName');
@@ -159,12 +156,14 @@ class IndexController extends BaseController {
 
 
 		 // 2 create order 
-		 $guidUtil  = new UUIDUtil();
-		 $guid = $guidUtil->getGuid();
+		 $orderUtil  = new OrderUtil();
+		 $orderId = $orderUtil->getOrderId();
+
+
 		 $order = array('name' => $userName, 'adress' => $address,
 		 			'phone' => $phoneNumber, 'orderState' => 0,
-		 			'order_id' => $guid,  'user_uid' => $userId, 
-		 			"create_time"=>date("Y-m-d H:i:s"), 
+		 			'order_id' => $orderId,  'user_uid' => $userId, 
+		 			"create_time"=>date("Y-m-d H:i:s"), 'paymentWay'=>'微信支付',
 		 			'total_price'=>$book_price_total);
 		 $order_id = $orderModel->add($order);
 
@@ -184,20 +183,22 @@ class IndexController extends BaseController {
 		 	}
 		 }
 
+		// delete cookie
+		$cookieUtil->del();
 
-		 $cookieUtil->del();
 
-
-		 $this->success('新增成功', '/Home/Index/orderListAuth.html');
+		$this->success('新增成功', '/Home/Index/orderListAuth.html');
 	}
 
 
+	// 订单列表页面授权获openid
 	public function orderListAuth() {
 		$url = $this->weChat->getOauthRedirect('http://bashrc.ngrok.cc/Home/Index/orderList', 1, 'snsapi_base');
 		header("Location:" . $url); 
 	}
 
 
+	// 订单页面回调列表
 	public function orderList() {
 
 		$userModel = new User();
@@ -208,12 +209,25 @@ class IndexController extends BaseController {
 		$parameters = explode("&", $queyString);
 		$code = explode("=", $parameters[0])[1];
 		$state = explode("=", $parameters[1])[1];
+
 		// auth, get accessToken
 		$accessToken = $this->weChat->getOauthAccessToken($code);
 		$userId = $userModel->findUserByOpenId($accessToken['openid'])['uid'];
 		$orders = $orderModel->findOrderByUserId($userId);
 		$this->assign("orders", $orders);
 		$this->display();
+	}
+
+
+
+	public function selectAddress() {
+
+		$jssdk = new Jssdk($this->options['appid'], $this->options['appsecret']);
+		$datas = $jssdk->getSignPackage();
+
+
+		 $this->assign("datas", $datas);
+		 $this->display();
 	}
 
 

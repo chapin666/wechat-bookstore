@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>订单列表</title>
+	<link rel="stylesheet" href="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/styles/home.css">
+	<script src="__PUBLIC__/scripts/jquery.min.js"></script>
+	<script src="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+
+
+	<div data-role="page">
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+		<script>
+
+			wx.config({
+	            debug: false,
+	            appId : "{$datas['appId']}",
+	          	timeStamp: "{$datas['timestamp']}",
+	            nonceStr: "{$datas['nonceStr']}",
+	            signature: "{$datas['signature']}",
+	            jsApiList: [
+	              // 所有要调用的 API 都要加到这个列表中
+	                'checkJsApi',
+	                'openAddress',
+	            ]
+          	});
+
+
+			function selectFun() {
+	          	wx.ready(function() {
+
+	          		 wx.checkJsApi({
+		                jsApiList: [
+		                    'openAddress',
+		                ],
+	                	success: function (res) {}
+	            	});
+
+	          		 wx.openAddress({
+		              trigger: function (res) {
+		                alert('用户开始拉出地址');
+		              },
+		              success: function (res) {
+		                alert('用户成功拉出地址');
+		              },
+		              cancel: function (res) {
+		                alert('用户取消拉出地址');
+		              },
+		              fail: function (res) {
+		                alert(JSON.stringify(res));
+		              }
+		            });
+
+				});
+	          }
+				
+					
+			
+
+		</script>
+		<include file="Common:toolbar" title="订单列表"/>
+		<include file="Common:menu" />
+
+		<a href="javascript:void(0)" onclick="selectFun()">选择一个地址</a>
+	</div>
+
+
+</body>
+</html>
