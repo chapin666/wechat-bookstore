@@ -4,9 +4,9 @@ namespace Admin\Model;
 class User {
 
 	// all
-	public function getAll() {
+	public function findLimit($firstRow, $listRows) {
 		$u = M("user");
-		return $u->select();
+		return $u->limit($firstRow, $listRows)->select();
 	}
 
 

@@ -6,20 +6,15 @@ use Home\Common\Utils\CookieUtil;
 use Admin\Model\Category;
 use Admin\Model\Book;
 use Admin\Model\ShopCart;
+use Admin\Model\Order;
 
 class MainController extends Controller {
-
-	public function oa() {
-		$this->display();
-	}
 
 	public function index() {
 
 
 		$category = new Category();
 		$categorys = $category->findAll();
-
-	
 
 		$this->assign('categorys', $categorys);
 		$this->display();
@@ -31,7 +26,6 @@ class MainController extends Controller {
 
 		$bookModel = new Book();
 		$books = $bookModel->findBookByCategoryId($id);
-
 		$this->assign("books",  $books);
 		$this->display();
 	}
@@ -93,13 +87,15 @@ class MainController extends Controller {
 	}
 
 
-	public function orderList() {
-		$this->display();
-	}
-
-
-
 	public function order() {
+		$id = I('id');
+		$shopCartModel = new ShopCart();
+		$orderModel = new Order();
+
+		$carts = $shopCartModel->findCarByOrderId($id);
+		$order = $orderModel->findOrderById($id);
+		$this->assign("carts", $carts);
+		$this->assign("order", $order);
 		$this->display();
 	}
 

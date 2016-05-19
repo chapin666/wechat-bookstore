@@ -16,10 +16,11 @@ class Book {
 	}
 
 	// Get books fron DB
-	public function findAll() {
+	public function findLimit($firstRow, $listRows) {
 		$result = M("book")
 			->join("LEFT JOIN book_category as c  ON c.id = book.book_category_id")
 			->field("book.*,  c.name as book_category_name")
+			->limit($firstRow, $listRows)
 			->select();
 		return $result;
 	}

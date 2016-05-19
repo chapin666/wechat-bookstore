@@ -17,7 +17,7 @@ class CookieUtil {
 			// contains  bookId
 			if (isset($datas[$bookId])) {
 				$value = $datas[$bookId];
-				$datas[$bookId] = $value + 1;
+				$datas[$bookId] = $value + $num;
 			} else {  // bookId not found
 				$datas[$bookId] = $num;
 			}

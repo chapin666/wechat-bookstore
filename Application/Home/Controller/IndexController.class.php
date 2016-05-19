@@ -119,9 +119,10 @@ class IndexController extends BaseController {
 
 	public function payment() {
 		// save userInfo
-		session('username', $_POST['userName']);
+		session('userName', $_POST['userName']);
 		session('phoneNumber', $_POST['phoneNumber']);
 		session('address', $_POST['address']);
+		session('book_price_total', $_POST['book_price_total']);
 
 
 		$url = $this->weChat->getOauthRedirect('http://bashrc.ngrok.cc/Home/Index/payresult', 1, 'snsapi_base');
@@ -135,17 +136,13 @@ class IndexController extends BaseController {
 		$userName = session('userName');
 		$phoneNumber = session('phoneNumber');
 		$address = session('address');
-
-		echo $userName;
-		exit(0);
+		$book_price_total = session('book_price_total');
 
 		// Get Code and state
 		$queyString = explode("?", $_SERVER["REQUEST_URI"])[1];
 		$parameters = explode("&", $queyString);
 		$code = explode("=", $parameters[0])[1];
 		$state = explode("=", $parameters[1])[1];
-
-
 		// auth, get accessToken
 		$accessToken = $this->weChat->getOauthAccessToken($code);
 
@@ -164,10 +161,11 @@ class IndexController extends BaseController {
 		 // 2 create order 
 		 $guidUtil  = new UUIDUtil();
 		 $guid = $guidUtil->getGuid();
-		 $order = array('name' => $username, 'address' => $address,
-		 			'phone' => $phoneNumber, 'orderSate' => 0,
+		 $order = array('name' => $userName, 'adress' => $address,
+		 			'phone' => $phoneNumber, 'orderState' => 0,
 		 			'order_id' => $guid,  'user_uid' => $userId, 
-		 			"create_time"=>date("Y-m-d H:i:s"));
+		 			"create_time"=>date("Y-m-d H:i:s"), 
+		 			'total_price'=>$book_price_total);
 		 $order_id = $orderModel->add($order);
 
 
@@ -190,8 +188,35 @@ class IndexController extends BaseController {
 		 $cookieUtil->del();
 
 
-		 $this->success('新增成功', '/Home/Main/orderList');
+		 $this->success('新增成功', '/Home/Index/orderListAuth.html');
 	}
+
+
+	public function orderListAuth() {
+		$url = $this->weChat->getOauthRedirect('http://bashrc.ngrok.cc/Home/Index/orderList', 1, 'snsapi_base');
+		header("Location:" . $url); 
+	}
+
+
+	public function orderList() {
+
+		$userModel = new User();
+		$orderModel = new Order();
+
+		// Get Code and state
+		$queyString = explode("?", $_SERVER["REQUEST_URI"])[1];
+		$parameters = explode("&", $queyString);
+		$code = explode("=", $parameters[0])[1];
+		$state = explode("=", $parameters[1])[1];
+		// auth, get accessToken
+		$accessToken = $this->weChat->getOauthAccessToken($code);
+		$userId = $userModel->findUserByOpenId($accessToken['openid'])['uid'];
+		$orders = $orderModel->findOrderByUserId($userId);
+		$this->assign("orders", $orders);
+		$this->display();
+	}
+
+
 
 
 }

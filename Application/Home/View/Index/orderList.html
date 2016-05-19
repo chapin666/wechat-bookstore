@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>订单列表</title>
+	<link rel="stylesheet" href="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/styles/home.css">
+	<script src="__PUBLIC__/scripts/jquery.min.js"></script>
+	<script src="__PUBLIC__/mobile/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+
+
+	<div data-role="page">
+		<include file="Common:toolbar" title="订单列表"/>
+		<include file="Common:menu" />
+
+		<!-- begin main-->
+		<main data-role="main" class="ui-content">
+
+			<div class="order-list-box margin-3">
+				<volist name="orders" id="order">
+				<div class="ui-body ui-body-a ui-corner-all order-item" onclick="">
+					<p>订单号码：{$order.order_id}</p>
+					<p>订单状态：{$order.orderstate}</p>
+					<p>订单总额：{$order.paymentway}</p>
+					<p>支付方式：￥{$order.total_price}</p>
+					<span class="order-time">{$order.create_time}</span>
+					<a class="pay-now" style="color:#eeffee;" href="##">{$order.orderstate}</a>
+					<a href="{:U('/Home/Main/order', array('id'=>$order['id']))}" class="ui-btn ui-btn-inline ui-icon-arrow-r ui-btn-icon-notext ui-corner-all item-info"></a>
+				</div>
+				</volist>
+			</div>
+
+		</main><!-- // end main -->
+	</div>
+
+</body>
+</html>

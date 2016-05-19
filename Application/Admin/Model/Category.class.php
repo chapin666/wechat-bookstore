@@ -3,11 +3,11 @@ namespace Admin\Model;
 
 class Category {
 
-	public function findAll() {
+	public function findLimit($firstRow, $listRows) {
 		$c = M("book_category")
 			->join('attachment ON attachment.id = book_category.attachment_id' )
 			->field('book_category.id, name, create_time, description, attachment_id, location');
-		return $c->select();
+		return $c->limit($firstRow, $listRows)->select();
 	}
 
 

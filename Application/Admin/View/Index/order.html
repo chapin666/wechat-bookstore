@@ -24,36 +24,27 @@
 			  </tr>
 			</thead>
 			<tbody>
+			<volist name="orders" id="order">
 			  <tr>
-				<td class="mdl-data-table__cell--non-numeric">20151214009383</td>
-				<td class="mdl-data-table__cell--non-numeric">王凯峰</td>
-				<td class="mdl-data-table__cell--non-numeric">2015-12-14</td>
-				<td class="mdl-data-table__cell--non-numeric">120.5</td>
-				<td class="mdl-data-table__cell--non-numeric">159828484757</td>
-				<td class="mdl-data-table__cell--non-numeric">已付款</td>
+				<td class="mdl-data-table__cell--non-numeric">{$order.order_id}</td>
+				<td class="mdl-data-table__cell--non-numeric">{$order.name}</td>
+				<td class="mdl-data-table__cell--non-numeric">{$order.create_time}</td>
+				<td class="mdl-data-table__cell--non-numeric">{$order.total_price}</td>
+				<td class="mdl-data-table__cell--non-numeric">{$order.phone}</td>
+				<td class="mdl-data-table__cell--non-numeric">
+					{$order['orderstate']}
+				</td>
 				<td class="mdl-data-table__cell--non-numeric">
 				  <a href="">设置发货</a>
 				  <a href="">取消订单</a>
 				  <a href="">查看详情</a>
 				</td>
 			  </tr>
-        <tr>
-        <td class="mdl-data-table__cell--non-numeric">20151214009382</td>
-        <td class="mdl-data-table__cell--non-numeric">章丘市</td>
-        <td class="mdl-data-table__cell--non-numeric">2015-12-14</td>
-        <td class="mdl-data-table__cell--non-numeric">100.5</td>
-        <td class="mdl-data-table__cell--non-numeric">151828483435</td>
-        <td class="mdl-data-table__cell--non-numeric">已付款</td>
-        <td class="mdl-data-table__cell--non-numeric">
-          <a href="">设置发货</a>
-          <a href="">取消订单</a>
-          <a href="">查看详情</a>
-        </td>
-        </tr>
-			</tbody>
-        </table>
+			</volist>
+		 	</tbody>
+        		</table>
 
-		<div class="mdl-cell--11-col" style="margin: 30px auto 30px auto; text-align: center;">
-			<button class="mdl-button mdl-js-button mdl-button--icon">1</button>
+		<div class="mdl-cell--11-col pages" style="margin: 30px auto 30px auto; text-align: center;">
+			 {$page}
 		</div>
 </main>

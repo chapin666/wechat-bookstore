@@ -41,10 +41,14 @@ class IndexController extends Controller {
 
     // 查询所有书籍分类Action
     public function category() {
-        $categoryModel = new Category();
-        $categorys = $categoryModel->findAll();
 
-        $this->assign('categorys', $categorys);
+        $categoryModel = new Category();
+        $count = $categoryModel->count();
+        $p = getpage($count);
+        $list = $categoryModel->findLimit($p->firstRow, $p->listRows);
+
+        $this->assign('categorys', $list); // 赋值数据集
+        $this->assign('page', $p->show()); // 赋值分页输出
         $this->display();
     }
 
@@ -54,10 +58,12 @@ class IndexController extends Controller {
     public function book() {
 
         $bookModel = new Book();
-        $books = $bookModel->findAll();   
+        $count = $bookModel->count();
+        $p = getpage($count);
+        $books = $bookModel->findLimit($p->firstRow, $p->listRows);   
 
         $this->assign('books',  $books);
-
+        $this->assign('page', $p->show()); // 赋值分页输出
         $this->display();
 
     }
@@ -75,6 +81,14 @@ class IndexController extends Controller {
 
      // 订单列表Action
     public function order() {
+        $orderModel = new Order();
+        $count = $orderModel->count();
+        $p = getpage($count);
+        $orders = $orderModel->findLimit($p->firstRow, $p->listRows);
+
+
+        $this->assign("orders", $orders);
+        $this->assign('page', $p->show()); // 赋值分页输出
         $this->display();
     }
 
@@ -82,10 +96,14 @@ class IndexController extends Controller {
     // 用户管理Action
     public function user() {
         $userModel = new User();
-        $users = $userModel->getAll();
+        $count = $userModel->count();
+        $p = getpage($count);
+        $users = $userModel->findLimit($p->firstRow, $p->listRows);
 
         $this->assign("users", $users);
+        $this->assign('page', $p->show()); // 赋值分页输出
         $this->display();
     }
+    
 
 }
