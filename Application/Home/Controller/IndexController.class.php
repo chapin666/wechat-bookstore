@@ -98,13 +98,13 @@ class IndexController extends BaseController {
 
 				break;
 			case Constant::MENU_2_0:
-				$this->weChat->text('ok')->reply();
+				
 				break;
 			case Constant::MENU_2_1:
 				$this->weChat->text("您的个人信息")->reply();
 				break;
 			case Constant::MENU_2_2:
-				$this->weChat->text("解绑帐号成功")->reply();
+	
 				break;
 			default: 
 			  	$this->weChat->text("发送指令：" . $key . "错误")->reply();
@@ -200,11 +200,10 @@ class IndexController extends BaseController {
 		$url = $this->weChat->getOauthRedirect('http://bashrc.ngrok.cc/Home/Index/orderList', 1, 'snsapi_base');
 		header("Location:" . $url); 
 	}
-
-
 	// 订单页面回调列表
 	public function orderList() {
 
+		$orderUtil = new OrderUtil();
 		$userModel = new User();
 		$orderModel = new Order();
 
@@ -218,6 +217,36 @@ class IndexController extends BaseController {
 		$accessToken = $this->weChat->getOauthAccessToken($code);
 		$userId = $userModel->findUserByOpenId($accessToken['openid'])['uid'];
 		$orders = $orderModel->findOrderByUserId($userId);
+
+
+		$this->assign("orders", $orders);
+		$this->display();
+	}
+
+
+	// 等待付款授权
+	public function orderWaitListAuth() {
+		$url = $this->weChat->getOauthRedirect('http://bashrc.ngrok.cc/Home/Index/orderListWait', 1, 'snsapi_base');
+		header("Location:" . $url); 
+	}
+	// 等待付款回调
+	public function orderListWait() {
+		$orderUtil = new OrderUtil();
+		$userModel = new User();
+		$orderModel = new Order();
+
+		// Get Code and state
+		$queyString = explode("?", $_SERVER["REQUEST_URI"])[1];
+		$parameters = explode("&", $queyString);
+		$code = explode("=", $parameters[0])[1];
+		$state = explode("=", $parameters[1])[1];
+
+		// auth, get accessToken
+		$accessToken = $this->weChat->getOauthAccessToken($code);
+		$userId = $userModel->findUserByOpenId($accessToken['openid'])['uid'];
+		$orders = $orderModel->findWaitOrderByUserId($userId);
+
+
 		$this->assign("orders", $orders);
 		$this->display();
 	}
@@ -238,6 +267,7 @@ class IndexController extends BaseController {
 		$books = array();
 
 
+		$total = 0;
 		foreach ($cookies as $key => $value) {
 
 			if ($key != "" && $value != "") {
@@ -245,6 +275,7 @@ class IndexController extends BaseController {
 				$bookNum = $value;
 				$bookId = $key;
 				$book = $bookModel->findBookById($bookId);
+				$total += $value;
 
 				$books[$i] = array('bookNum' => $bookNum, "bookId" => $bookId, "name" => $book['name'],
 					"location" => $book['location'], "price_now" => $book['price_now'], 
@@ -260,7 +291,8 @@ class IndexController extends BaseController {
 
 		$jssdk = new Jssdk($this->options['appid'], $this->options['appsecret']);
 		$datas = $jssdk->getSignPackage();
-		 $this->assign("datas", $datas);
+		$this->assign("datas", $datas);
+		$this->assign("total", $total);
 
 		$this->display();
 	}

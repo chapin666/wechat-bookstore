@@ -25,19 +25,33 @@
 			              // 所有要调用的 API 都要加到这个列表中
 			                'checkJsApi',
 			                'openAddress',
+			                'chooseWXPay',
 			            ]
           			});
 
 
-			function getAddr() {
+			 // wx.chooseWXPay({
+		  //     timestamp: 1414723227,
+		  //     nonceStr: 'noncestr',
+		  //     package: 'addition=action_id%3dgaby1234%26limit_pay%3d&bank_type=WX&body=innertest&fee_type=1&input_charset=GBK&notify_url=http%3A%2F%2F120.204.206.246%2Fcgi-bin%2Fmmsupport-bin%2Fnotifypay&out_trade_no=1414723227818375338&partner=1900000109&spbill_create_ip=127.0.0.1&total_fee=1&sign=432B647FE95C7BF73BCD177CEECBEF8D',
+		  //     paySign: 'bd5b1933cda6e9548862944836a9b52e8c9a2b69'
+		  //   });
+
+
+			//function getAddr() {
 	          			wx.ready(function() {
+
+	          				 document.querySelector('#addressbtn').onclick = function() {
+	          				 	alert("ok");
+
+	          				 }
 
 			          		wx.checkJsApi({
 				              	jsApiList: [
 				             		'openAddress',
 				                	],
 			                		success: function (result) {
-			                			//alert(JSON.stringify(res));
+			                			alert(JSON.stringify(res));
 			                		}
 			            		});
 
@@ -64,7 +78,31 @@
 					                //alert(JSON.stringify(result));
 					              }
 				            	});
-				});
+							});
+	          		//}
+
+	          		function check() {
+	          			var username = $("#userName").val();
+	          			var phone = $("#telNumber").val();
+	          			var address = $("#address").val();
+
+	          			if (username == "") {
+	          				alert("请完善收货人姓名");
+	          				return false;
+	          			}
+
+	          			if (phone == "") {
+	          				alert("请完善收货人电话");
+	          				return false;
+	          			}
+
+	          			if (address == "") {
+	          				alert("请完善收货人地址");
+	          				return false;
+	          			} 
+
+
+	          			return true;
 	          		}
 		</script>
 		<include file="Common:toolbar" title="收货地址" />
@@ -75,7 +113,7 @@
 		<div class="margin-5">
 			<div class="title-box clearfix">
 				<span class="title-left">收获地址信息</span>
-				<span class="title-right"><a href="javascript:void(0)"data-ajax="false" onclick="getAddr()">使用微信收获地址</a></span>
+				<span class="title-right"><a href="javascript:void(0)" data-ajax="false" id="addressbtn" >使用微信收获地址</a></span>
 			</div>
 			<div class="address-box">
 				<form name="order-form"  data-ajax="false"  method="post" action="/Home/Index/payment.html">
@@ -86,11 +124,11 @@
 					</div>
 					<div>
 						<label for="phoneNumber">手机号码:</label>
-						<input type="text" id="telNumber" name="phoneNumber" placeholder="请输入您的收获电话">
+						<input type="text" id="telNumber" name="phoneNumber" placeholder="请输入您的收货电话">
 					</div>
 					<div>
 						<label for="address">详细地址:</label>
-						<input type="text" id="address" name="address" placeholder="请输入您的收获地址">
+						<input type="text" id="address" name="address" placeholder="请输入您的收货地址">
 					</div>
 				</div>
 				<div>
@@ -124,11 +162,11 @@
 
 				<div class="customer-info">
 					<input type="hidden" name="book_price_total" value="{$orderInfo[total_price]}">
-					<p>商品总数：<span class="color-red"><b>{$orderInfo['book_num']}</b></span> 本</p>	
+					<p>商品总数：<span class="color-red"><b>{$total}</b></span> 本</p>	
 					<p>商品元总价：<span class="color-red"><b>{$orderInfo[total_price]}</b></span> 元</p>	
 					<p>运费：<span class="color-red"><b>0</b></span> 元</p>
 					<p>您共需支付：<span class="color-red"><b>{$orderInfo[total_price]}</b></span> 元</p>
-					<input class="submit-btn" type="submit" value="确认，提交订单" data-inline="true">
+					<input class="submit-btn" type="submit" onclick="return check()" value="确认，提交订单" data-inline="true">
 				</div>
 
 

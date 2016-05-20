@@ -104,6 +104,5 @@ class IndexController extends Controller {
         $this->assign('page', $p->show()); // 赋值分页输出
         $this->display();
     }
-    
 
 }

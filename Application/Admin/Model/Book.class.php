@@ -73,4 +73,21 @@ class Book {
 		$c->where("id='" . $bookId . "'")->setField("total_count", $total_count);
 	}
 
+
+	// 查询最新的$limit本书籍
+	public function findBookByNews($limit) {
+		$c = M("book");	
+		return $c->order("create_time desc")
+				 ->limit(7)
+				 ->select($limit);	
+	}
+
+	// 查询最火的$limit本书籍
+	public function findBookByHots($limit) {
+		$c = M("book");	
+		return $c->order("sell_count desc")
+				 ->limit($limit)
+				 ->select();	
+	}
+
 }

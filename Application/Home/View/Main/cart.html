@@ -17,12 +17,19 @@
 
 		<!--  start main  -->
 		<main data-role="main" class="ui-content">
-			<empty name="books">
+			<div id="empty-box" style="display: none;">
 				<img src="__PUBLIC__/images/shopping41.png" style="width:100%; max-width:100%" alt="">
 				<h4 align="center">您还没有<a href="/Home/Main/index">选择书籍</a>哦</h4>
+			</div>
+			<empty name="books">
+				<div>
+					<img src="__PUBLIC__/images/shopping41.png" style="width:100%; max-width:100%" alt="">
+					<h4 align="center">您还没有<a href="/Home/Main/index">选择书籍</a>哦</h4>
+				</div>
 			<else />
 			<hr />
-			<form method="post" action="/Home/Index/address.html" data-ajax="false">
+			<form  method="post" action="/Home/Index/address.html" data-ajax="false">
+			<div id="book-form">
 			<volist id="book" name="books">
 			<div id="{$book.bookId}" class="book-info" >
 				<div class="book-cover" style="display: inline-block;">
@@ -40,13 +47,14 @@
 						<span>库存：<span id="book-total-{$book.bookId}">{$book.total_count}</span></span><span class="del"><a href="javascript:void(0)"  onclick="del({$book.bookId})">删除</a></span>
 					</div>
 				</div>
+				<hr />
 			</div>
-			<hr />
 			</volist>
+			</div>
 
 			
 			<div class="book-total">
-				<span>商品总数：<span class="color-red">{:count($books)}</span></span>
+				<span>商品总数：<span class="color-red">{$total}</span></span>
 				<span>商品总额：<span class="color-red price-total">￥</span></span>
 			</div>
 			<div class="book-operation">
@@ -116,13 +124,21 @@
 
 
 		function del(id) {
+		
 			$.ajax({
 				url: '/Home/Main/delBookById', 
 				type: 'post',
 				data: {'id': id},
 				dataType: "json",
 				success: function(res) {
-					alert(res);
+					$("#"+id).remove();
+					var len = $("#book-form").children().length;
+					if (len === 0) {
+							$("#book-form").hide();
+							$("#empty-box").show();
+					} else {
+						cal();
+					}
 				}
 			});
 		}

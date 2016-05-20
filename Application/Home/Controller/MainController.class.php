@@ -10,9 +10,8 @@ use Admin\Model\Order;
 
 class MainController extends Controller {
 
+	// 分类
 	public function index() {
-
-
 		$category = new Category();
 		$categorys = $category->findAll();
 
@@ -20,7 +19,24 @@ class MainController extends Controller {
 		$this->display();
 	}
 
+	// 查询最新的图书
+	public function news() {
+		$bookModel = new Book();
+		$books = $bookModel->findBookByNews(7);
+		$this->assign("books",  $books);
+		$this->display('bookList');
+	}
 
+	// 查找最热的
+	public function hots() {
+		$bookModel = new Book();
+		$books = $bookModel->findBookByHots(7);
+		$this->assign("books",  $books);
+		$this->display('bookList');
+	}
+
+
+	// 获取某类型的所有图书
 	public function bookList() {
 		$id = I('id');
 
@@ -58,7 +74,7 @@ class MainController extends Controller {
 		$i = 0;
 		$books = array();
 
-
+		$total = 0;
 		foreach ($cookies as $key => $value) {
 
 			if ($key != "" && $value != "") {
@@ -69,6 +85,7 @@ class MainController extends Controller {
 
 				$books[$i] = array('bookNum' => $bookNum, "bookId" => $bookId, "name" => $book['name'],
 					"location" => $book['location'], "price_now" => $book['price_now'], "total_count" => $book['total_count']);
+				$total += $value;
 				$i++;
 			}
 		}
@@ -76,6 +93,7 @@ class MainController extends Controller {
 
 
 		$this->assign("books", $books);
+		$this->assign("total", $total);
 
 		$this->display();
 	}
@@ -128,7 +146,29 @@ class MainController extends Controller {
 
 	public function delBookById() {
 		$id = I("id");
-		$this->ajaxReturn($id);
+		$cookieUtil = new CookieUtil();
+		$cookieUtil->delByBookId($id);		
+		$this->ajaxReturn(true);
+	}
+
+
+	public function cancalOrder() {
+		$id = I("id");
+
+		$orderModel = new Order();
+		$orderModel->changeOrderState($id, 2);
+
+		$this->redirect("/Home/Main/order", array('id' => $id));
+	}
+
+
+	public function finishOrder() {
+		$id = I("id");
+
+		$orderModel = new Order();
+		$orderModel->changeOrderState($id, 5);
+
+		$this->redirect("/Home/Main/order", array('id' => $id));
 	}
 
 

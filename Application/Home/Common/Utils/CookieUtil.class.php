@@ -65,4 +65,19 @@ class CookieUtil {
 		cookie($this->cookieName, null);
 	}
 
+
+	public function getBookCount() {
+		$total = 0;
+		$cookies = cookie($this->cookieName);
+
+		foreach ($cookies as $key => $value) {
+			if ($key != "" && $value != "") {
+					$total += value;
+			}
+		}
+		return $total;
+	}
+
+	
+
 }

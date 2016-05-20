@@ -7,7 +7,7 @@
 				<span><b>当前位置 > </b> 订单管理 </span>
 			</div>
 			<div class="mdl-cell--4-col mdl-cell--4-col-phone mdl-cell" style="text-align: right;">
-				<button class="mdl-button mdl-js-button mdl-button--raised mdl-color--cyan-300 mdl-color-text--white">删除</button>
+				<!-- <button class="mdl-button mdl-js-button mdl-button--raised mdl-color--cyan-300 mdl-color-text--white">删除</button> -->
 			</div>
 		</div>
 
@@ -32,12 +32,16 @@
 				<td class="mdl-data-table__cell--non-numeric">{$order.total_price}</td>
 				<td class="mdl-data-table__cell--non-numeric">{$order.phone}</td>
 				<td class="mdl-data-table__cell--non-numeric">
-					{$order['orderstate']}
+					{$order['orderstring']}
 				</td>
 				<td class="mdl-data-table__cell--non-numeric">
-				  <a href="">设置发货</a>
-				  <a href="">取消订单</a>
-				  <a href="">查看详情</a>
+				  <eq name="order.orderstate" value="1">
+				    <a href="{:U('/Admin/Order/sendOrder', array('id'=>$order['id']))}">设置发货</a>
+				  </eq>
+				  <eq name="order.orderstate" value="3">
+				  	<a href="{:U('/Admin/Index/cancalOrder', array('id'=>$order['id']))}">确认取消订单</a>
+				  </eq>
+				  <a href="###">查看详情</a>
 				</td>
 			  </tr>
 			</volist>

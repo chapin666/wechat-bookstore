@@ -23,7 +23,7 @@
 			<volist name="carts" id="cart">
 			<div class="order-base clearfix">
 				<div class="order-cover">
-					<img src="__ROOR__/Uploads/{$cart.location}" alt="">
+					<img src="__ROOT__/Uploads/{$cart.location}" alt="">
 				</div>
 				<div class="order-aside">
 					<h4>{$cart.name}</h4>
@@ -36,13 +36,23 @@
 			</volist>
 
 			<div class="order-status">
-				<p>订单状态：{$order.orderstate}</p>
+				<p>订单状态：{$order.orderstring}</p>
 				<p>订单编号：{$order.order_id}</p>
 				<p>下单时间：{$order.create_time}</p>
 				<p>订单金额：{$order.total_price}</p>
 			</div>
 
-			<button>取消订单</button>
+			<eq name="order.orderstate" value="0">
+			<a style="text-decoration: none;" data-ajax="false" href="###"><button>支付订单</button></a>
+			</eq>
+
+			<if condition="($order.orderstate eq 2)">
+			<a style="text-decoration: none;" data-ajax="false" href="{:U('/Home/Main/finishOrder', array('id'=>$order[id]))}"><button>确认收货</button></a>
+			</if>
+
+			<if condition="($order.orderstate gt 0) AND ($order.orderstate lt 3)">
+			<a style="text-decoration: none;" data-ajax="false" href="{:U('/Home/Main/cancalOrder', array('id'=>$order[id]))}"><button>取消订单</button></a>
+			</if>
 
 			<div order-address>
 				<h4>收货人信息</h4>

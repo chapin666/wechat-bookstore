@@ -17,56 +17,56 @@ class BaseController extends Controller {
 				    0 => array (
 				      'type' => 'view',
 				      'name' => '最新上架',
-				      'url' =>  'http://bashrc.ngrok.cc/Home/Main/index' //Constant::MENU_0_0,
+				      'url' =>  'http://bashrc.ngrok.cc/Home/Main/news.html' //Constant::MENU_0_0,
 				    ),
 				    1 => array (
-				      'type' => 'click',
+				      'type' => 'view',
 				      'name' => '热销书籍',
-				      'key' =>  Constant::MENU_0_1,
+				       'url' =>  'http://bashrc.ngrok.cc/Home/Main/hots.html'
 				    ),
 				    2 => array (
 				      'type' => 'view',
 				      'name' => '分类浏览',
-				      'url' =>  'http://bashrc.ngrok.cc/Home/Main/index'
+				      'url' =>  'http://bashrc.ngrok.cc/Home/Main/index.html'
 				    ),
 				 ),
 				),
 
 				1 => array ('name' => '我的订单', 'sub_button' => array (
-				    0 => array (
+					0 => array(
+					  'type' => 'view',
+				      'name' => '等待付款',
+				      'url' => 'http://bashrc.ngrok.cc/Home/Index/orderWaitListAuth.html'
+					),
+				    1 => array (
 				      'type' => 'view',
 				      'name' => '购物车',
 				      'url' => 'http://bashrc.ngrok.cc/Home/Main/cart.html'
 				    ),
-				    1 => array (
-				      'type' => 'click',
-				      'name' => '待付款',
-				      'key' =>  Constant::MENU_1_1,
-				    ),
 				    2 => array (
 				      'type' => 'view',
-				      'name' => '历史订单',
-				      'url' => 'http://bashrc.ngrok.cc/Home/Main/orderList.html'
+				      'name' => '所有订单',
+				       'url' => 'http://bashrc.ngrok.cc/Home/Index/orderListAuth.html'
 				    ),
 				),
 				),
 
 				2 => array ('name' => '个人中心', 'sub_button' => array (
-				    0 => array (
+				    /*0 => array (
 				      'type' => 'click',
 				      'name' => '帐号绑定',
 				      'key' => Constant::MENU_2_0,
-				    ),
-				    1 => array (
+				    ),*/
+				    0 => array (
 				      'type' => 'click',
 				      'name' => '个人信息',
 				      'key' => Constant::MENU_2_1,
 				    ),
-				    2 => array (
+				    /*2 => array (
 				      'type' => 'click',
 				      'name' => '解除绑定',
 				      'key' => Constant::MENU_2_2,
-				    ),
+				    ),*/
 				),
 				),
 			    ),
