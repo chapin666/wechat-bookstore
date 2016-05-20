@@ -194,7 +194,7 @@ CREATE TABLE IF NOT EXISTS `bookstore`.`manager` (
   `remark` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
-
+INSERT INTO `bookstore`.`manager`(account, password) VALUES('admin', 'admin');
 
 -- -----------------------------------------------------
 -- Table `bookstore`.`log`

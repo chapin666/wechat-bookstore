@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="在线图书销售系统">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{title}——图书销售管理系统</title>
+    <title>{$title}——图书销售管理系统</title>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -73,13 +73,13 @@
               <span class="visuallyhidden">Accounts</span>
             </button>
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-              <li class="mdl-menu__item">个人信息</li>
-              <li class="mdl-menu__item">注销账户</li>
+              <li class="mdl-menu__item"><a href="#">个人信息</a></li>
+              <li class="mdl-menu__item"><a href="/Admin/Login/logout.html">注销账户</a></li>
             </ul>
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--cyan-300 mdl-color-text--white">
-          <a class="mdl-navigation__link" href="{:U('Admin/Index/index')}"><i class="mdl-color-text--white material-icons" role="presentation">home</i>主页</a>
+          <a class="mdl-navigation__link" href="{:U('Admin/Index/main')}"><i class="mdl-color-text--white material-icons" role="presentation">home</i>主页</a>
           <a class="mdl-navigation__link" href="{:U('Admin/Category/findAll')}"><i class="mdl-color-text--white material-icons" role="presentation">more</i>图书分类</a>
 		  <a class="mdl-navigation__link" href="{:U('Admin/Index/book')}"><i class="mdl-color-text--white material-icons" role="presentation">local_library</i>图书管理</a>
 		  <a class="mdl-navigation__link" href="{:U('Admin/Index/user')}"><i class="mdl-color-text--white material-icons" role="presentation">people</i>会员中心</a>

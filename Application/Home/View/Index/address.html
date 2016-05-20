@@ -15,6 +15,8 @@
 	<div data-role="page" data-dom-cache="false">
 		<script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
 		<script>
+
+
 			wx.config({
 			            debug: false,
 			            appId : "{$datas['appId']}",
@@ -29,29 +31,16 @@
 			            ]
           			});
 
+	          		wx.ready(function() {
 
-			 // wx.chooseWXPay({
-		  //     timestamp: 1414723227,
-		  //     nonceStr: 'noncestr',
-		  //     package: 'addition=action_id%3dgaby1234%26limit_pay%3d&bank_type=WX&body=innertest&fee_type=1&input_charset=GBK&notify_url=http%3A%2F%2F120.204.206.246%2Fcgi-bin%2Fmmsupport-bin%2Fnotifypay&out_trade_no=1414723227818375338&partner=1900000109&spbill_create_ip=127.0.0.1&total_fee=1&sign=432B647FE95C7BF73BCD177CEECBEF8D',
-		  //     paySign: 'bd5b1933cda6e9548862944836a9b52e8c9a2b69'
-		  //   });
-
-
-			//function getAddr() {
-	          			wx.ready(function() {
-
-	          				 document.querySelector('#addressbtn').onclick = function() {
-	          				 	alert("ok");
-
-	          				 }
-
+	          			document.querySelector('#addressbtn').onclick = function()  {
+	          				
 			          		wx.checkJsApi({
 				              	jsApiList: [
 				             		'openAddress',
 				                	],
 			                		success: function (result) {
-			                			alert(JSON.stringify(res));
+			                			//alert(JSON.stringify(res));
 			                		}
 			            		});
 
@@ -78,8 +67,24 @@
 					                //alert(JSON.stringify(result));
 					              }
 				            	});
-							});
-	          		//}
+			          	}
+
+
+			          	document.querySelector('#pay-now').onclick = function() {
+
+			          		wx.chooseWXPay({
+					  timestamp: 1414723227, 
+					  nonceStr: 'noncestr', 
+					  package: 'addition=action_id%3dgaby1234%26limit_pay%3d&bank_type=WX&body=innertest&fee_type=1&input_charset=GBK&notify_url=http%3A%2F%2F120.204.206.246%2Fcgi-bin%2Fmmsupport-bin%2Fnotifypay&out_trade_no=1414723227818375338&partner=1900000109&spbill_create_ip=127.0.0.1&total_fee=1&sign=432B647FE95C7BF73BCD177CEECBEF8D', 
+					  signType: 'MD5', 
+					  paySign: 'bd5b1933cda6e9548862944836a9b52e8c9a2b69', 
+					});
+
+			          	}
+
+
+			          	
+			});
 
 	          		function check() {
 	          			var username = $("#userName").val();
@@ -167,10 +172,13 @@
 					<p>运费：<span class="color-red"><b>0</b></span> 元</p>
 					<p>您共需支付：<span class="color-red"><b>{$orderInfo[total_price]}</b></span> 元</p>
 					<input class="submit-btn" type="submit" onclick="return check()" value="确认，提交订单" data-inline="true">
+
+					
 				</div>
 
 
 				</form>
+				<button id="pay-now">pay</button>
 			</div>
 		</div>
 		</main><!-- // end main -->

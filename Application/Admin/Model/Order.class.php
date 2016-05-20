@@ -69,5 +69,34 @@ class Order {
 	}
 
 
+	public function getFinishCount() {
+		$o = M("bookstore.order");
+		return $o->where('orderState = 5')->count();
+	}
+
+
+	public function getWaitCount() {
+		$o = M("bookstore.order");
+		return $o->where('orderState = 2')->count();
+	}
+
+	public function getWaitSendCount() {
+		$o = M("bookstore.order");
+		return $o->where('orderState = 1')->count();
+	}
+
+	public function getWaitPayCount() {
+		$o = M("bookstore.order");
+		return $o->where('orderState = 0')->count();
+	}
+
+
+
+	public function getMostOrderUser() {
+		$o = M("bookstore.order");
+		return $o->query('select name,count(*) as c from bookstore.order group by name order by c desc limit 1');
+	}
+
+
 
 }

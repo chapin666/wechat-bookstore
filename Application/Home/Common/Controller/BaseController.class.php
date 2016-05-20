@@ -33,11 +33,11 @@ class BaseController extends Controller {
 				),
 
 				1 => array ('name' => '我的订单', 'sub_button' => array (
-					0 => array(
-					  'type' => 'view',
+				 0 => array(
+				      'type' => 'view',
 				      'name' => '等待付款',
 				      'url' => 'http://bashrc.ngrok.cc/Home/Index/orderWaitListAuth.html'
-					),
+				    ),
 				    1 => array (
 				      'type' => 'view',
 				      'name' => '购物车',
@@ -52,21 +52,11 @@ class BaseController extends Controller {
 				),
 
 				2 => array ('name' => '个人中心', 'sub_button' => array (
-				    /*0 => array (
-				      'type' => 'click',
-				      'name' => '帐号绑定',
-				      'key' => Constant::MENU_2_0,
-				    ),*/
 				    0 => array (
 				      'type' => 'click',
 				      'name' => '个人信息',
 				      'key' => Constant::MENU_2_1,
 				    ),
-				    /*2 => array (
-				      'type' => 'click',
-				      'name' => '解除绑定',
-				      'key' => Constant::MENU_2_2,
-				    ),*/
 				),
 				),
 			    ),
