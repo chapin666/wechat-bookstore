@@ -7,44 +7,20 @@ CREATE SCHEMA IF NOT EXISTS `bookstore` DEFAULT CHARACTER SET utf8 COLLATE utf8_
 USE `bookstore` ;
 
 -- -----------------------------------------------------
--- Table `bookstore`.`user_address`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `bookstore`.`user_address` ;
-
-CREATE TABLE IF NOT EXISTS `bookstore`.`user_address` (
-  `address_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `country` VARCHAR(45) NOT NULL,
-  `province` VARCHAR(45) NULL,
-  `city` VARCHAR(45) NULL,
-  `street` VARCHAR(45) NULL,
-  `zipcode` VARCHAR(45) NULL,
-  `remark` VARCHAR(45) NULL,
-  PRIMARY KEY (`address_id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `bookstore`.`user`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `bookstore`.`user` ;
 
 CREATE TABLE IF NOT EXISTS `bookstore`.`user` (
   `uid` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(16) NOT NULL,
-  `password` VARCHAR(32) NOT NULL,
+  `openid` VARCHAR(64) NOT NULL,
+  `username` VARCHAR(32) NOT NULL,
   `email` VARCHAR(255) NULL,
   `gender` BIT NULL,
   `age` TINYINT NULL,
   `phone` VARCHAR(45) NULL,
   `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  `user_address_address_id` INT UNSIGNED NOT NULL,
-  PRIMARY KEY (`uid`),
-  INDEX `fk_user_user_address1_idx` (`user_address_address_id` ASC),
-  CONSTRAINT `fk_user_user_address1`
-    FOREIGN KEY (`user_address_address_id`)
-    REFERENCES `bookstore`.`user_address` (`address_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`uid`))
 ENGINE = InnoDB
 COMMENT = 'user';
 
@@ -80,6 +56,30 @@ CREATE TABLE IF NOT EXISTS `bookstore`.`book_category` (
     REFERENCES `bookstore`.`attachment` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+
+
+-- -----------------------------------------------------
+-- Table `bookstore`.`user_address`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `bookstore`.`user_address` ;
+
+CREATE TABLE IF NOT EXISTS `bookstore`.`user_address` (
+  `address_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `country` VARCHAR(45) NOT NULL,
+  `province` VARCHAR(45) NULL,
+  `city` VARCHAR(45) NULL,
+  `street` VARCHAR(45) NULL,
+  `zipcode` VARCHAR(45) NULL,
+  `remark` VARCHAR(45) NULL,
+  `user_uid` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`address_id`),
+  INDEX `fk_user_address_user1_idx` (`user_uid` ASC),
+  CONSTRAINT `fk_user_address_user1`
+    FOREIGN KEY (`user_uid`)
+    REFERENCES `bookstore`.`user` (`uid`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -194,7 +194,7 @@ CREATE TABLE IF NOT EXISTS `bookstore`.`manager` (
   `remark` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
-
+INSERT INTO `bookstore`.`manager`(account, password) VALUES('admin', 'admin');
 
 -- -----------------------------------------------------
 -- Table `bookstore`.`log`
