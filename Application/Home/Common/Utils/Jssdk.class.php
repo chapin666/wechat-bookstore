@@ -2,7 +2,7 @@
 namespace Home\Common\Utils;
 
 
-class JSSDK {
+class Jssdk {
   private $appId;
   private $appSecret;
 
@@ -23,7 +23,6 @@ class JSSDK {
 
     // 这里参数的顺序要按照 key 值 ASCII 码升序排序
     $string = "jsapi_ticket=$jsapiTicket&noncestr=$nonceStr&timestamp=$timestamp&url=$url";
-
     $signature = sha1($string);
 
     $signPackage = array(

@@ -2,7 +2,8 @@
 namespace Home\Common\Constants;
 
 class Constant {
-	
+
+	const HOST = "http://bashrc.ngrok.cc/";
 	const KEY = 'key';
 	const VALUE = 'value';
 

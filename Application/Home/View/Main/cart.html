@@ -17,8 +17,12 @@
 
 		<!--  start main  -->
 		<main data-role="main" class="ui-content">
+			<empty name="books">
+				<img src="__PUBLIC__/images/shopping41.png" style="width:100%; max-width:100%" alt="">
+				<h4 align="center">您还没有<a href="/Home/Main/index">选择书籍</a>哦</h4>
+			<else />
 			<hr />
-			<form method="post" action="/Home/Main/address.html">
+			<form method="post" action="/Home/Index/address.html" data-ajax="false">
 			<volist id="book" name="books">
 			<div id="{$book.bookId}" class="book-info" >
 				<div class="book-cover" style="display: inline-block;">
@@ -33,7 +37,7 @@
 						<a id="sub-{$book.bookId}" href="javascript:void(0)" onclick="sub({$book.bookId})">-</a><input id="book-number-{$book.bookId}" class="number-input" type="text" data-role="none" value="{$book.bookNum}"  readonly ><a id="add-{$book.bookId}" href="javascript:void(0)" onclick="add({$book.bookId})">+</a>
 					</div>
 					<div>
-						<span>库存：<span id="book-total-{$book.bookId}">{$book.total_count}</span></span><span class="del"><a href="#">删除</a></span>
+						<span>库存：<span id="book-total-{$book.bookId}">{$book.total_count}</span></span><span class="del"><a href="javascript:void(0)"  onclick="del({$book.bookId})">删除</a></span>
 					</div>
 				</div>
 			</div>
@@ -54,7 +58,7 @@
 				</div>
 			</div>
 			</form>
-	
+			</empty>
 		</main> <!-- // end main-->
 
 
@@ -109,6 +113,19 @@
 
 
 		cal();
+
+
+		function del(id) {
+			$.ajax({
+				url: '/Home/Main/delBookById', 
+				type: 'post',
+				data: {'id': id},
+				dataType: "json",
+				success: function(res) {
+					alert(res);
+				}
+			});
+		}
 
 
 	</script>

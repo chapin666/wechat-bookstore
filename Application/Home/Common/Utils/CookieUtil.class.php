@@ -47,6 +47,19 @@ class CookieUtil {
 		cookie($this->cookieName,  $datas,  $this->expires);
 	}
 
+	public function delByBookId($id) {
+		$datas = array();
+		$cookies = cookie($this->cookieName);
+
+		foreach ($cookies as $key => $value) {
+			if ($key != "" && $value != "" && $key != $id) {
+					$datas[$id]  = $value;
+			}
+		}
+
+		cookie($this->cookieName,  $datas,  $this->expires);
+	}
+
 
 	public function del() {
 		cookie($this->cookieName, null);

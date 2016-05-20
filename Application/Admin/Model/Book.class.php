@@ -63,4 +63,14 @@ class Book {
 		return $c->count();
 	}
 
+
+	public function subBookTotal($bookId, $num) {
+		$c = M("book");
+		$book = $c->where("id='" . $bookId . "'")->find();
+		$sell_count = $book['sell_count'] + $num;
+		$total_count = $book['total_count'] - $num;
+		$c->where("id='" . $bookId . "'")->setField("sell_count", $sell_count);
+		$c->where("id='" . $bookId . "'")->setField("total_count", $total_count);
+	}
+
 }

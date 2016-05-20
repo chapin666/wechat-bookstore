@@ -126,41 +126,9 @@ class MainController extends Controller {
 	}
 
 
-
-	// 完善订单信息
-	public function address() {
-		$total_price = $_POST["total_price"];
-		$book_num = $_POST["book_num"];
-		$orderInfo = array('total_price' => $total_price, 'book_num' => $book_num);
-
-		$cookieUtil = new CookieUtil();
-		$bookModel = new Book();
-		$cookies = $cookieUtil->getAll();
-
-		$i = 0;
-		$books = array();
-
-
-		foreach ($cookies as $key => $value) {
-
-			if ($key != "" && $value != "") {
-
-				$bookNum = $value;
-				$bookId = $key;
-				$book = $bookModel->findBookById($bookId);
-
-				$books[$i] = array('bookNum' => $bookNum, "bookId" => $bookId, "name" => $book['name'],
-					"location" => $book['location'], "price_now" => $book['price_now'], 
-					"total_count" => $book['total_count']);
-				$i++;
-			}
-		}
-
-
-
-		$this->assign("books", $books);
-		$this->assign("orderInfo", $orderInfo);
-		$this->display();
+	public function delBookById() {
+		$id = I("id");
+		$this->ajaxReturn($id);
 	}
 
 

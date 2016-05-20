@@ -17,7 +17,7 @@ class BaseController extends Controller {
 				    0 => array (
 				      'type' => 'view',
 				      'name' => '最新上架',
-				      'url' =>  "http://bashrc.ngrok.cc/Home/Main/index", //Constant::MENU_0_0,
+				      'url' =>  'http://bashrc.ngrok.cc/Home/Main/index' //Constant::MENU_0_0,
 				    ),
 				    1 => array (
 				      'type' => 'click',
@@ -27,16 +27,16 @@ class BaseController extends Controller {
 				    2 => array (
 				      'type' => 'view',
 				      'name' => '分类浏览',
-				      'url' =>  "http://bashrc.ngrok.cc/Home/Main/index",
+				      'url' =>  'http://bashrc.ngrok.cc/Home/Main/index'
 				    ),
 				 ),
 				),
 
 				1 => array ('name' => '我的订单', 'sub_button' => array (
 				    0 => array (
-				      'type' => 'click',
+				      'type' => 'view',
 				      'name' => '购物车',
-				      'key' =>  Constant::MENU_1_0,
+				      'url' => 'http://bashrc.ngrok.cc/Home/Main/cart.html'
 				    ),
 				    1 => array (
 				      'type' => 'click',
@@ -44,9 +44,9 @@ class BaseController extends Controller {
 				      'key' =>  Constant::MENU_1_1,
 				    ),
 				    2 => array (
-				      'type' => 'click',
+				      'type' => 'view',
 				      'name' => '历史订单',
-				      'key' => Constant::MENU_1_2,
+				      'url' => 'http://bashrc.ngrok.cc/Home/Main/orderList.html'
 				    ),
 				),
 				),

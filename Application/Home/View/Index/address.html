@@ -14,6 +14,59 @@
 
 	<div data-role="page" data-dom-cache="false">
 		<script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+		<script>
+			wx.config({
+			            debug: false,
+			            appId : "{$datas['appId']}",
+			          	timestamp: "{$datas['timestamp']}",
+			            nonceStr: "{$datas['nonceStr']}",
+			            signature: "{$datas['signature']}",
+			            jsApiList: [
+			              // 所有要调用的 API 都要加到这个列表中
+			                'checkJsApi',
+			                'openAddress',
+			            ]
+          			});
+
+
+			function getAddr() {
+	          			wx.ready(function() {
+
+			          		wx.checkJsApi({
+				              	jsApiList: [
+				             		'openAddress',
+				                	],
+			                		success: function (result) {
+			                			//alert(JSON.stringify(res));
+			                		}
+			            		});
+
+			          		 wx.openAddress({
+					              trigger: function (result) {
+					                //alert('用户开始拉出地址');
+					              },
+					              success: function (result) {
+					                var userName = result.userName;
+					                var phone = result.telNumber;
+					                var address = result.provinceName + 
+					                		result.cityName +
+					                		result.countryName + 
+					                		result.detailInfo;
+					                $("#userName").val(userName);
+
+					                $("#address").val(address);
+					                $("#telNumber").val(phone);
+					              },
+					              cancel: function (result) {
+					                //alert('用户取消拉出地址');
+					              },
+					              fail: function (result) {
+					                //alert(JSON.stringify(result));
+					              }
+				            	});
+				});
+	          		}
+		</script>
 		<include file="Common:toolbar" title="收货地址" />
 		<include file="Common:menu" />
 
@@ -22,22 +75,22 @@
 		<div class="margin-5">
 			<div class="title-box clearfix">
 				<span class="title-left">收获地址信息</span>
-				<span class="title-right"><a href="/Home/Index/selectAddress.html" id="">使用微信收获地址</a></span>
+				<span class="title-right"><a href="javascript:void(0)"data-ajax="false" onclick="getAddr()">使用微信收获地址</a></span>
 			</div>
 			<div class="address-box">
 				<form name="order-form"  data-ajax="false"  method="post" action="/Home/Index/payment.html">
 				<div data-role="fieldcontain">
 					<div>
 						<label for="userName">收货人姓名:</label>
-						<input type="text" name="userName" placeholder="请输入收货人姓名">
+						<input type="text" id="userName" name="userName" placeholder="请输入收货人姓名">
 					</div>
 					<div>
 						<label for="phoneNumber">手机号码:</label>
-						<input type="text" name="phoneNumber" placeholder="请输入您的收获电话">
+						<input type="text" id="telNumber" name="phoneNumber" placeholder="请输入您的收获电话">
 					</div>
 					<div>
 						<label for="address">详细地址:</label>
-						<input type="text" name="address" placeholder="请输入您的收获地址">
+						<input type="text" id="address" name="address" placeholder="请输入您的收获地址">
 					</div>
 				</div>
 				<div>

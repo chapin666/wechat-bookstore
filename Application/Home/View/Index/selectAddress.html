@@ -14,50 +14,50 @@
 
 
 	<div data-role="page">
-		<script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 		<script>
 
 			wx.config({
-	            debug: false,
-	            appId : "{$datas['appId']}",
-	          	timeStamp: "{$datas['timestamp']}",
-	            nonceStr: "{$datas['nonceStr']}",
-	            signature: "{$datas['signature']}",
-	            jsApiList: [
-	              // 所有要调用的 API 都要加到这个列表中
-	                'checkJsApi',
-	                'openAddress',
-	            ]
-          	});
+			            debug: false,
+			            appId : "{$datas['appId']}",
+			          	timeStamp: "{$datas['timestamp']}",
+			            nonceStr: "{$datas['nonceStr']}",
+			            signature: "{$datas['signature']}",
+			            jsApiList: [
+			              // 所有要调用的 API 都要加到这个列表中
+			                'checkJsApi',
+			                'openAddress',
+			            ]
+          			});
 
 
-			function selectFun() {
+			//function selectFun() {
 	          	wx.ready(function() {
 
-	          		 wx.checkJsApi({
-		                jsApiList: [
-		                    'openAddress',
-		                ],
-	                	success: function (res) {}
-	            	});
+	          		wx.checkJsApi({
+		              	jsApiList: [
+		             		'openAddress',
+		                	],
+	                		success: function (res) {}
+	            		});
 
 	          		 wx.openAddress({
-		              trigger: function (res) {
-		                alert('用户开始拉出地址');
-		              },
-		              success: function (res) {
-		                alert('用户成功拉出地址');
-		              },
-		              cancel: function (res) {
-		                alert('用户取消拉出地址');
-		              },
-		              fail: function (res) {
-		                alert(JSON.stringify(res));
-		              }
-		            });
+			              trigger: function (res) {
+			                alert('用户开始拉出地址');
+			              },
+			              success: function (res) {
+			                alert('用户成功拉出地址');
+			              },
+			              cancel: function (res) {
+			                alert('用户取消拉出地址');
+			              },
+			              fail: function (res) {
+			                alert(JSON.stringify(res));
+			              }
+		            	});
 
-				});
-	          }
+		});
+	          //}
 				
 					
 			
